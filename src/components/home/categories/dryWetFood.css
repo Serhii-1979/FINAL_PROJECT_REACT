@@ -1,0 +1,152 @@
+.allProducts_container {
+  display: flex;
+  flex-direction: column;
+  /* gap: 40px; */
+}
+
+.allProducts_flex {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.allProducts_flex h2 {
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 70.4px;
+  text-align: left;
+}
+
+.allProducts_title-price {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.allProducts_title {
+  display: flex;
+  gap: 40px;
+}
+
+.allProducts_title-p {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 26px;
+  text-align: left;
+}
+
+.allProducts_title-p1 {
+  width: 112px;
+  padding: 8px 16px;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20.16px;
+  text-align: left;
+  color: #282828;
+}
+
+.allProducts_title-input {
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  border: 1px solid #dddddd;
+}
+
+.allProducts_title-select {
+  height: 36px;
+  border-radius: 4px;
+  border: 1px solid #dddddd;
+  font-size: 16px;
+  color: #282828;
+  padding: 8px 16px;
+}
+
+.dryWetFood_flexBox {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.allProducts_flex-box {
+  border: 1px solid #dddddd;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+}
+
+.allProducts_flex-boxHover {
+  display: none;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.allProducts_flex-box:hover .allProducts_flex-boxHover {
+  display: block;
+}
+
+.dryWetFood_sale {
+  position: absolute;
+  top: 10px;
+  left: 230px;
+}
+
+.dryWetFood_sale p {
+  background-color: #0d50ff;
+  padding: 4px 8px;
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 26px;
+  letter-spacing: 0.03em;
+  text-align: left;
+  border-radius: 6px;
+  width: 63px;
+}
+
+.allProducts_flex-box img {
+  width: 100%;
+  border-radius: 12px;
+  border-top: 1px solid #dddddd;
+}
+
+.allProducts_flex-text {
+  padding: 0 32px 32px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.allProducts_flex-textP2 {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 26px;
+  text-align: left;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.allProducts_flex-textP {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 44px;
+  text-align: left;
+}
+
+.allProducts_flex-textP span {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 26px;
+  text-align: left;
+  color: #8b8b8b;
+  text-decoration: line-through;
+}
