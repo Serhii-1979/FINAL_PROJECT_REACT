@@ -3,28 +3,29 @@
   flex-direction: column;
   gap: 40px;
   margin-bottom: 80px;
-
-  /* border: 1px solid silver; */
 }
 .sale_cont {
-  /* border: 1px solid silver; */
   display: flex;
   justify-content: space-between;
-
+  align-items: center;
 }
 .sale_cont h1 {
   margin-right: 32px;
   font-size: 60px;
 }
-.sale_cont-line {
+.mainCategories_contLink {
+  width: 100%;
+  text-decoration: none;
+}
+.sale_contLine {
   width: 100%;
   display: flex;
   align-items: center;
   background-color: #fff;
   border: none;
 }
-.sale_cont-line p {
-  font-size: 20px;
+.sale_contLine p {
+  font-size: 16px;
   font-weight: 500;
   line-height: 20.16px;
   text-align: center;
@@ -36,6 +37,9 @@
   border: 1px solid #dddddd;
   border-radius: 4px;
 }
+.sale_contLine p:hover {
+  background-color: #ededed;
+}
 .mainCategories_line {
   width: 100%;
   border-bottom: 1px solid #dddddd;
@@ -45,26 +49,29 @@
   display: flex;
   gap: 32px;
 }
+.sale_flex a {
+  text-decoration: none;
+}
 .sale_text {
   display: flex;
   flex-direction: column;
   gap: 16px;
   padding: 0 32px 32px 32px;
 }
-.sale_text-1 {
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 26px;
-    text-align: left;
-     
+.sale_text1 {
+  width: 100%;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 26px;
+  text-align: left;
 }
-.sale_text-p {
+.sale_textP {
   font-size: 40px;
   font-weight: 600;
   line-height: 44px;
   text-align: left;
 }
-.sale_text-p span {
+.sale_textP span {
   text-decoration: line-through;
   font-size: 20px;
   font-weight: 500;
@@ -72,7 +79,7 @@
   text-align: left;
   color: #8b8b8b;
 }
-.sale_flex-box {
+.sale_flexBox {
   width: 100%;
   text-align: center;
   display: flex;
@@ -81,10 +88,29 @@
   border: 1px solid #dddddd;
   border-radius: 8px;
 }
-.sale_flex-box-img {
-  border-bottom: 1px solid #dddddd;
+.sale_flexBox a {
+  text-decoration: none;
 }
-.sale_flex-box img {
+.sale_flexBox img {
   width: 100%;
   border-radius: 8px;
+}
+.sale_flexBoxImg {
+  border-bottom: 1px solid #dddddd;
+  position: relative;
+}
+.discountTag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #0D50FF;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 26px;
+  letter-spacing: 0.03em;
+  text-align: left;
 }

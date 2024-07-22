@@ -1,0 +1,152 @@
+.categories {
+    margin: 40px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 106px;
+  }
+  .categories_navigation {
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+  }
+  .categories_nav {
+    padding: 8px 16px;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+  }
+  .categories_nav p {
+    font-size: 16px;
+    font-weight: 500;
+    color: #8b8b8b;
+  }
+  .categories_nav .categories_navP {
+    color: rgb(64, 64, 64);
+  }
+  .categories_line {
+    width: 16px;
+    border-bottom: 1px solid #dddddd;
+  }
+  .allProducts_container {
+    display: flex;
+    flex-direction: column;
+  }
+  .allProducts_flex {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  .allProducts_flex h2 {
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 70.4px;
+    text-align: left;
+  }
+  .allProducts_titlePrice {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .allProducts_title {
+    display: flex;
+    gap: 40px;
+  }
+  .allProducts_titleP {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 26px;
+    text-align: left;
+  }
+  .allProducts_titleP1 {
+    width: 112px;
+    padding: 8px 16px;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20.16px;
+    text-align: left;
+    color: #282828;
+  }
+  .allProducts_title_input {
+    width: 36px;
+    height: 36px;
+    border-radius: 4px;
+    border: 1px solid #dddddd;
+  }
+  .allProducts_titleSelect {
+    height: 36px;
+    border-radius: 4px;
+    border: 1px solid #dddddd;
+    font-size: 16px;
+    color: #282828;
+    padding: 8px 16px;
+  }
+  
+  .allProducts_Flex {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+  }
+  .allProducts_Flex a {
+      text-decoration: none;
+  }
+  .allProducts_flexBox {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+  }
+  .allProductsImg {
+    position: relative;
+    border-bottom: 1px solid #dddddd;
+  }
+  .discountTag {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #0d50ff;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 26px;
+    letter-spacing: 0.03em;
+    text-align: left;
+  }
+  .allProducts_text {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 0 32px 32px 32px;
+  }
+  .allProducts_text1 {
+    width: 100%;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 26px;
+    text-align: left;
+  }
+  .allProducts_textP {
+      font-size: 40px;
+      font-weight: 600;
+      line-height: 44px;
+      text-align: left;
+  }
+  .allProducts_textP span {
+      text-decoration: line-through;
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 26px;
+      text-align: left;
+      color: #8b8b8b;
+  }
+  .allProducts_flexBox img {
+      width: 100%;
+      border-radius: 8px;
+  }

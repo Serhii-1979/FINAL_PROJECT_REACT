@@ -11,7 +11,15 @@
   margin-bottom: 80px;
 }
 .discount_content {
-    display: flex;
+  display: flex;
+}
+.discount_contentIMG {
+  /* display: flex;
+  justify-content: flex-end; */
+  width: 60%;
+}
+.discount_contentIMG img {
+  width: 100%;
 }
 .discount h1 {
   font-size: 64px;

@@ -1,15 +1,15 @@
 import React from 'react';
-import titleImg from "../../../assets/images/titleHeader.png";
+import titleImg from "../../assets/images/titleHeader.png";
 import Button from '@mui/material/Button';
-import "./mainPage.css";
+import styles from "./mainPage.module.css";
 
 function MainPageTitle() {
   return (
-    <div className="mainPageTitle">
-      <div className="mainPageTitle_img">
+    <div className={styles.mainPageTitle}>
+      <div className={styles.mainPageTitle_img}>
         <img src={titleImg} alt="img" />
       </div>
-      <div className="mainPageTitle_text">
+      <div className={styles.mainPageTitle_text}>
         <h1>Amazing Discounts<br />on Pets Products!</h1>
         <Button 
           variant="contained" 

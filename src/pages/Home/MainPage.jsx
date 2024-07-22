@@ -1,14 +1,14 @@
 import MainPageTitle from "./MainPageTitle";
-import MainCategories from "./mainCategories";
+import MainCategories from "./MainCategories";
 import Discount from "./Discount";
 import Sale from "./Sale"
-import "./mainPage.css";
+import styles from "./mainPage.module.css";
 
 function MainPage() {
   return (
-    <div className="mainPage_Img">
+    <div className={styles.mainPage_Img}>
       <MainPageTitle />
-      <div className="mainPage_content">
+      <div className={styles.mainPage_content}>
         <MainCategories />
         <Discount />
         <Sale />
