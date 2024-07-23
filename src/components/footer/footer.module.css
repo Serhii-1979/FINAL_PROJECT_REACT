@@ -1,0 +1,84 @@
+.footer {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 0 40px;
+  padding-bottom: 80px;
+}
+
+.footer_title {
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 70.4px;
+}
+
+.footer_container {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.footer_info {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.footer_info_cards {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.footer_info_phone {
+  width: 60%;
+  background-color: #f1f3f4;
+  border-radius: 8px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer_info_social {
+  width: 40%;
+  background-color: #f1f3f4;
+  border-radius: 8px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer_info_phone_title {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 26px;
+  text-align: left;
+  color: #8b8b8b;
+}
+
+.footer_info_phone_number {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 44px;
+  text-align: left;
+}
+
+.footer_info_phone_img {
+  display: flex;
+  gap: 16px;
+}
+
+.footer_map {
+  width: 100%;
+}
+
+.footer_map iframe {
+  width: 100%;
+  border-radius: 8px;
+}

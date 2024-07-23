@@ -1,6 +1,6 @@
+// Header.js
 import { NavLink, Link } from "react-router-dom";
-// import { useState } from "react";
-
+import { useSelector } from "react-redux";
 import logo from "../../assets/svg/logo.svg";
 import icon from "../../assets/svg/icon.svg";
 import styles from "./header.module.css";
@@ -9,7 +9,15 @@ function SuperNavLink({ children, to }) {
   return (
     <NavLink
       to={to}
-      className={({ isActive }) => (isActive ? styles.activeLink : styles.inactiveLink)}
+      className={({ isActive }) => {
+        const className = isActive ? styles.activeLink : styles.inactiveLink;
+        console.log(
+          `NavLink to "${to}" is ${
+            isActive ? "active" : "inactive"
+          }: ${className}`
+        );
+        return className;
+      }}
     >
       {children}
     </NavLink>
@@ -17,11 +25,7 @@ function SuperNavLink({ children, to }) {
 }
 
 function Header() {
-  // const [cartCount, setCartCount] = useState(0);
-
-  // const addToCart = () => {
-  //   setCartCount(cartCount + 1);
-  // };
+  const cartCount = useSelector((state) => state.cart.count);
 
   return (
     <header className={styles.header}>
@@ -36,12 +40,16 @@ function Header() {
         <SuperNavLink to="/allProducts">All Products</SuperNavLink>
         <SuperNavLink to="/allSales">All Sales</SuperNavLink>
       </nav>
-      <div className={styles.header_logo}>
-        <div className={styles.cart_icon}>
-          <img src={icon} alt="img" />
-          <div className={styles.cart_count}>2</div>
+      <Link to="/cart">
+        <div className={styles.header_logo}>
+          <div className={styles.cart_icon}>
+            <img src={icon} alt="img" />
+            {cartCount > 0 && (
+              <div className={styles.cart_count}>{cartCount}</div>
+            )}
+          </div>
         </div>
-      </div>
+      </Link>
     </header>
   );
 }

@@ -1,138 +1,135 @@
 .DetailsPage_container {
-    margin: 40px;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 106px;
-  }
-  .DetailsPage_cont {
-    display: flex;
-    gap: 32px;
-    max-height: 572px;
-  }
-  .DetailsPage_content {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-    width: 45%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .DetailsPage_cont_img {
-    width: 55%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .DetailsPage_cont_img img {
-    width: 100%;
-    max-height: 572px;
-  }
-  .DetailsPage_text {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-  .DetailsPage_text_title {
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 26px;
-    text-align: left;
-  }
-  .DetailsPage_text_container {
-    width: 100%;
-    /* max-height: 200px;  */
-    height: 245px;
-    overflow-y: auto;
-    padding: 10px; 
-    /* border: 1px solid #ddd;  */
-    border-radius: 4px;
-  }
-  .DetailsPage_text_container p {
-    margin: 0;
-    word-wrap: break-word;
-    white-space: pre-wrap;
-  }
-  .DetailsPage_Frame {
-    display: flex;
-    gap: 32px;
-  }
-  .DetailsPage_Frame_counter {
-    width: 40%;
-  }
-  .DetailsPage_Frame_btn {
-    flex-grow: 1;
-  }
-  .discountTag_cont {
-    margin-left: 15px;
-  }
-  .DetailsPage_price {
-    display: flex;
-    gap: 20px;
-  }
-  .allProducts_text1 {
-    min-height: 60px;
-    font-size: 40px;
-    font-weight: 700;
-    line-height: 44px;
-    letter-spacing: 0.03em;
-    text-align: left;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .allProducts_textP {
-    font-size: 64px;
-    font-weight: 700;
-    line-height: 70.4px;
-    text-align: left;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .allProducts_textP span {
-    text-decoration: line-through;
-    font-size: 40px;
-    font-weight: 500;
-    line-height: 26px;
-    text-align: left;
-    color: #8b8b8b;
-  }
-  .discountTag {
-    background-color: #0d50ff;
-    color: white;
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 14px;
-    font-weight: bold;
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 26px;
-    letter-spacing: 0.03em;
-    text-align: left;
-  }
-  .categories_navigation {
-    margin-bottom: 40px;
-    display: flex;
-    align-items: center;
-  }
-  .categories_nav {
-    padding: 8px 16px;
-    border: 1px solid #dddddd;
-    border-radius: 4px;
-  }
-  .categories_nav p {
-    font-size: 16px;
-    font-weight: 500;
-    color: #8b8b8b;
-  }
-  .categories_nav .categories_navP {
-    color: rgb(64, 64, 64);
-  }
-  .categories_line {
-    width: 16px;
-    border-bottom: 1px solid #dddddd;
-  }
-  
+  margin: 40px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 106px;
+}
+.DetailsPage_cont {
+  display: flex;
+  gap: 32px;
+  max-height: 572px;
+}
+.DetailsPage_content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 45%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.DetailsPage_cont_img {
+  width: 55%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.DetailsPage_cont_img img {
+  width: 100%;
+  max-height: 572px;
+}
+.DetailsPage_text {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.DetailsPage_text_title {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 26px;
+  text-align: left;
+}
+.DetailsPage_text_container {
+  width: 100%;
+  height: 245px;
+  overflow-y: auto;
+  padding: 10px;
+  border-radius: 4px;
+}
+.DetailsPage_text_container p {
+  margin: 0;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+.DetailsPage_Frame {
+  display: flex;
+  gap: 32px;
+}
+.DetailsPage_Frame_counter {
+  width: 40%;
+}
+.DetailsPage_Frame_btn {
+  flex-grow: 1;
+}
+.discountTag_cont {
+  margin-left: 15px;
+}
+.DetailsPage_price {
+  display: flex;
+  gap: 20px;
+}
+.allProducts_text1 {
+  min-height: 60px;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 44px;
+  letter-spacing: 0.03em;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.allProducts_textP {
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 70.4px;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.allProducts_textP span {
+  text-decoration: line-through;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 26px;
+  text-align: left;
+  color: #8b8b8b;
+}
+.discountTag {
+  background-color: #0d50ff;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 26px;
+  letter-spacing: 0.03em;
+  text-align: left;
+}
+.categories_navigation {
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+}
+.categories_nav {
+  padding: 8px 16px;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+}
+.categories_nav p {
+  font-size: 16px;
+  font-weight: 500;
+  color: #8b8b8b;
+}
+.categories_nav .categories_navP {
+  color: rgb(64, 64, 64);
+}
+.categories_line {
+  width: 16px;
+  border-bottom: 1px solid #dddddd;
+}

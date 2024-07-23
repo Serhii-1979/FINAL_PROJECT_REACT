@@ -108,9 +108,8 @@ function ProductsByCategoryPage() {
                     />
 
                     <div className={styles.button_cont}>
-                      <Button1 />
+                    <Button1 productId={product.id} />
                     </div>
-                    
                   </div>
 
                   <div className={styles.allProducts_text}>

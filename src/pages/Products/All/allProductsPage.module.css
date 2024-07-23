@@ -87,6 +87,7 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 32px;
 }
+
 .allProducts_Flex a {
   text-decoration: none;
 }
@@ -98,6 +99,12 @@
   gap: 16px;
   border: 1px solid #dddddd;
   border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+}
+.allProducts_flexBox:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px silver;
 }
 .allProductsImg {
   position: relative;
@@ -149,4 +156,10 @@
 .allProducts_flexBox img {
   width: 100%;
   border-radius: 8px;
+}
+.button_cont {
+  display: none;
+}
+.allProducts_flexBox:hover .button_cont {
+  display: flex;
 }

@@ -7,6 +7,7 @@ import AllProductsPage from "./pages/Products/All/AllProductsPage";
 import ProductsByCategoryPage from "../src/pages/Products/ByCategory/ProductsByCategoryPage";
 import AllSales from "./pages/Products/Discounted/AllSales";
 import ProductDetailsPage from "./pages/ProductDetails/ProductDetailsPage";
+import CartPage from "./pages/Cart/CartPage";
 import styles from "./index.module.css";
 
 export default function App() {
@@ -21,6 +22,7 @@ export default function App() {
           <Route path="/allProducts" element={<AllProductsPage />} />
           <Route path="/allSales" element={<AllSales />} />
           <Route path="/product/:productId" element={<ProductDetailsPage />} />
+          <Route path="/cart" element={<CartPage />} />
         </Routes>
         <Footer />
       </div>

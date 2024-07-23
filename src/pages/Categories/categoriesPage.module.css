@@ -51,6 +51,12 @@
   flex-direction: column;
   gap: 16px;
   text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+.categories_flex_box:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px silver;
 }
 .categories_flex_box p {
   font-size: 20px;

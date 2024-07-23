@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Button1 from "../../../layout/Button1";
 import styles from "./AllSales.module.css";
 import axios from "axios";
 
@@ -70,7 +71,7 @@ function AllSales() {
 
               return (
                 <Link
-                  to={`/category/${product.id}`}
+                  to={`/product/${product.id}`}
                   className={styles.allProducts_flexBox}
                   key={product.id}
                 >
@@ -84,6 +85,9 @@ function AllSales() {
                       src={`http://localhost:3333${product.image}`}
                       alt={product.title}
                     />
+                    <div className={styles.button_cont}>
+                      <Button1 productId={product.id} />
+                    </div>
                   </div>
 
                   <div className={styles.allProducts_text}>
@@ -91,9 +95,9 @@ function AllSales() {
                       {product.title}
                     </p>
                     <p className={styles.allProducts_textP}>
-                      ${product.price}{" "}
-                      {product.discont_price && (
-                        <span>${product.discont_price}</span>
+                      ${product.discont_price}{" "}
+                      {product.price && (
+                        <span>${product.price}</span>
                       )}
                     </p>
                   </div>
