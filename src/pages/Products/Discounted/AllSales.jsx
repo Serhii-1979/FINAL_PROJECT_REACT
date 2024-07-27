@@ -19,10 +19,7 @@ function AllSales() {
     fetchAllProducts();
   }, []);
 
-
   const discountedProducts = products.filter(product => product.discont_price !== null);
-
-
   const displayedProducts = discountedProducts.slice(0, 8);
 
   return (
@@ -41,28 +38,7 @@ function AllSales() {
         <div className={styles.allProducts_flex}>
           <h2>Discounted items</h2>
           <div className={styles.allProducts_title}>
-            <div className={styles.allProducts_titlePrice}>
-              <p className={styles.allProducts_titleP}>Price</p>
-              <input
-                type="text"
-                className={styles.allProducts_titleP1}
-                placeholder="from"
-              ></input>
-              <input
-                type="text"
-                className={styles.allProducts_titleP1}
-                placeholder="to"
-              ></input>
-            </div>
-
-            <div className={styles.allProducts_titlePrice}>
-              <p className={styles.allProducts_titleP}>Sorted</p>
-              <select name="name" className={styles.allProducts_titleSelect}>
-                <option value="value1">by default </option>
-                <option value="value2">Option 2</option>
-                <option value="value3">Option 3</option>
-              </select>
-            </div>
+            {/* Filtering and sorting UI code here */}
           </div>
 
           <div className={styles.allProducts_Flex}>
@@ -86,7 +62,7 @@ function AllSales() {
                       alt={product.title}
                     />
                     <div className={styles.button_cont}>
-                      <Button1 productId={product.id} />
+                      <Button1 product={product} />
                     </div>
                   </div>
 

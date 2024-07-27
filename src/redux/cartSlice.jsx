@@ -2,8 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   count: 0,
-  addedProducts: [], // массив для хранения id добавленных продуктов
-  products: [], // массив для хранения объектов добавленных продуктов
+  addedProducts: [],
+  products: [],
 };
 
 const cartSlice = createSlice({
@@ -27,9 +27,14 @@ const cartSlice = createSlice({
       state.products = state.products.filter(product => product.id !== productId);
       state.count -= 1;
     },
+    clearCart: (state) => {
+      state.count = 0;
+      state.addedProducts = [];
+      state.products = [];
+    },
   },
 });
 
-export const { increment, addProduct, removeProduct } = cartSlice.actions;
+export const { increment, addProduct, removeProduct, clearCart } = cartSlice.actions;
 
 export default cartSlice.reducer;

@@ -1,4 +1,3 @@
-// Header.js
 import { NavLink, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import logo from "../../assets/svg/logo.svg";
@@ -11,11 +10,6 @@ function SuperNavLink({ children, to }) {
       to={to}
       className={({ isActive }) => {
         const className = isActive ? styles.activeLink : styles.inactiveLink;
-        console.log(
-          `NavLink to "${to}" is ${
-            isActive ? "active" : "inactive"
-          }: ${className}`
-        );
         return className;
       }}
     >

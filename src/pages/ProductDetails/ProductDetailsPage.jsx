@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import Button2 from "../../layout/Button2";
 import axios from "axios";
 import styles from "./ProductDetailsPage.module.css";
 import { calculateDiscountPercentage } from "../../util/calculateDiscount";
 import QuantitySelector from "../../layout/QuantitySelector";
+import { addProduct } from "../../redux/cartSlice";
 
 function ProductDetailsPage() {
   const { productId } = useParams();
+  const dispatch = useDispatch();
   const [product, setProduct] = useState({});
   const [discountPercentage, setDiscountPercentage] = useState(null);
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
     const fetchProductDetails = async () => {
@@ -31,15 +34,6 @@ function ProductDetailsPage() {
           productData.discont_price
         );
         setDiscountPercentage(discount);
-
-        const categoryResponse = await axios.get(
-          `http://localhost:3333/categories/${productData.categoryId}`
-        );
-        const categoryData = categoryResponse.data;
-
-        if (!categoryData || !categoryData.title) {
-          throw new Error("Category data is invalid");
-        }
       } catch (error) {
         console.error("Error fetching the product details!", error);
       }
@@ -52,8 +46,16 @@ function ProductDetailsPage() {
   };
 
   const handleDecrease = () => {
-    if (quantity > 0) {
+    if (quantity > 1) {
       setQuantity(quantity - 1);
+    }
+  };
+
+  const handleAddToCart = () => {
+    if (product && product.id) {
+      dispatch(addProduct({ ...product, quantity }));
+    } else {
+      console.error("Product data is missing or incorrect:", product);
     }
   };
 
@@ -108,7 +110,8 @@ function ProductDetailsPage() {
               />
             </div>
             <div className={styles.DetailsPage_Frame_btn}>
-              <Button2 />
+              <Button2 onClick={handleAddToCart} />{" "}
+              {/* Добавление обработчика */}
             </div>
           </div>
           <div className={styles.DetailsPage_text}>
@@ -117,7 +120,6 @@ function ProductDetailsPage() {
             <div className={styles.DetailsPage_text_container}>
               <p>{product.description}</p>
             </div>
-                {/* <a href="#">Read more</a> */}
           </div>
         </div>
       </div>

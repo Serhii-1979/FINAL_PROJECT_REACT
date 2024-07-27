@@ -1,31 +1,26 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { addProduct } from '../features/cart/cartSlice';
+import { useNavigate } from 'react-router-dom';
 import styles from './Button1.module.css';
 
 function Button1({ product }) {
-  const dispatch = useDispatch();
-  const addedProducts = useSelector((state) => state.cart.addedProducts);
-  const isAdded = product ? addedProducts.includes(product.id) : false;
+  const navigate = useNavigate();
+  const [isClicked, setIsClicked] = React.useState(false);
 
   const handleClick = () => {
-    if (!isAdded && product) {
-      dispatch(addProduct(product));
+    if (product) {
+      setIsClicked(true);
+      navigate(`/product/${product.id}`);
     }
   };
-
-  // if (!product) {
-  //   return null; // Если product не передан, не рендерить кнопку
-  // }
 
   return (
     <div className={styles.button_cont}>
       <button
-        className={`${styles.button_Add} ${isAdded ? styles.active : ''}`}
+        className={`${styles.button_Add} ${isClicked ? styles.active : ''}`}
         onClick={handleClick}
-        disabled={isAdded}
+        disabled={isClicked}
       >
-        {isAdded ? 'Added' : 'Add to Cart'}
+        {isClicked ? 'Added' : 'Add to card'}
       </button>
     </div>
   );

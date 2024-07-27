@@ -1,14 +1,12 @@
-// CartPage.js
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import imgX from "../../assets/svg/x.svg";
-import OrderForm from "../../layout/Form/Form";
-import Button2 from "../../layout/Button2";
+import OrderForm from "../../layout/Form/OrderForm";
+import ButtonCart from "../../layout/ButtonCart";
 import QuantitySelector from "../../layout/QuantitySelector";
-import { removeProduct } from "../../features/cart/cartSlice";
+import { removeProduct } from "../../redux/cartSlice";
 import styles from "./CartPage.module.css";
-// import { Button } from "@mui/material";
 
 function CartPage() {
   const products = useSelector((state) => state.cart.products);
@@ -16,7 +14,7 @@ function CartPage() {
 
   const [quantities, setQuantities] = useState(
     products.reduce((acc, product) => {
-      acc[product.id] = 1;
+      acc[product.id] = product.quantity || 1;
       return acc;
     }, {})
   );
@@ -69,7 +67,7 @@ function CartPage() {
           <p>Looks like you have no items in your basket currently.</p>
           <Link to="/allProducts">
             <div className={styles.CannotData_btn}>
-              <Button2 />
+              <ButtonCart />
             </div>
           </Link>
         </div>
@@ -125,13 +123,15 @@ function CartPage() {
               <h3>Order details</h3>
               <div className={styles.CartPage_Oder_price}>
                 <p>
-                  {" "}
                   <span>{totalItems} </span>items
                 </p>
                 <div className={styles.CartPage_Oder_Total}>
                   <p>Total</p>
                   <p className={styles.CartPage_Oder_TotalPrice}>
-                    $ <span className={styles.CartPage_Oder_Sum}>{totalSum.toFixed(2)}</span>
+                    ${" "}
+                    <span className={styles.CartPage_Oder_Sum}>
+                      {totalSum.toFixed(2)}
+                    </span>
                   </p>
                 </div>
               </div>
