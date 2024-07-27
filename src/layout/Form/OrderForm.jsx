@@ -4,14 +4,10 @@ import { useForm } from "react-hook-form";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { clearCart } from "../../redux/cartSlice";
+import { openModal, closeModal } from "../../redux/modalSlice";
 
 function OrderForm() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm();
+  const { register, handleSubmit, formState: { errors }, reset } = useForm();
   const products = useSelector((state) => state.cart.products);
   const dispatch = useDispatch();
 
@@ -27,16 +23,23 @@ function OrderForm() {
     };
 
     try {
-      const response = await axios.post(
-        "http://localhost:3333/order/send",
-        orderData
-      );
+      const response = await axios.post("http://localhost:3333/order/send", orderData);
       console.log("Order sent successfully:", response.data);
 
       // Очистка корзины и формы
       dispatch(clearCart());
       reset();
 
+      // Открыть модальное окно
+      dispatch(openModal({
+        title: "Congratulations!",
+        content: "Your order has been successfully placed on the website. A manager will contact you shortly to confirm your order."
+      }));
+
+      // Скрыть модальное окно через 2 секунды
+      setTimeout(() => {
+        dispatch(closeModal());
+      }, 60000);
     } catch (error) {
       console.error("Error sending order:", error);
     }
@@ -45,43 +48,21 @@ function OrderForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)} style={styles.form}>
       <div style={styles.inputContainer}>
-        <input
-          {...register("name", { required: true })}
-          placeholder="Name"
-          style={styles.input}
-        />
-        {errors.name && (
-          <span style={styles.error}>This field is required</span>
-        )}
+        <input {...register("name", { required: true })} placeholder="Name" style={styles.input} />
+        {errors.name && <span style={styles.error}>This field is required</span>}
       </div>
-
+      
       <div style={styles.inputContainer}>
-        <input
-          {...register("phone", {
-            required: true,
-            pattern: /^[0-9]{8}$/,
-          })}
-          placeholder="Phone number"
-          style={styles.input}
-        />
+        <input {...register("phone", { required: true, pattern: /^[0-9]{8}$/ })} placeholder="Phone number" style={styles.input} />
         {errors.phone && <span style={styles.error}>Invalid phone number</span>}
       </div>
-
+      
       <div style={styles.inputContainer}>
-        <input
-          {...register("email", {
-            required: true,
-            pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
-          })}
-          placeholder="Email"
-          style={styles.input}
-        />
+        <input {...register("email", { required: true, pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/ })} placeholder="Email" style={styles.input} />
         {errors.email && <span style={styles.error}>Invalid email</span>}
       </div>
-
-      <button type="submit" style={styles.button}>
-        Order
-      </button>
+      
+      <button type="submit" style={styles.button}>Order</button>
     </form>
   );
 }

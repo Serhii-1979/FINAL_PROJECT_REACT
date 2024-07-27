@@ -1,3 +1,5 @@
+// App.js
+import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
@@ -8,6 +10,7 @@ import ProductsByCategoryPage from "../src/pages/Products/ByCategory/ProductsByC
 import AllSales from "./pages/Products/Discounted/AllSales";
 import ProductDetailsPage from "./pages/ProductDetails/ProductDetailsPage";
 import CartPage from "./pages/Cart/CartPage";
+import ConnectedModal from "./layout/Modal/ConnectedModal"; // Импортируйте ConnectedModal
 import styles from "./index.module.css";
 
 export default function App() {
@@ -25,6 +28,7 @@ export default function App() {
           <Route path="/cart" element={<CartPage />} />
         </Routes>
         <Footer />
+        <ConnectedModal />
       </div>
     </Router>
   );
