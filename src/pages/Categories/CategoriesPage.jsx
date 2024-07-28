@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import styles from "./categoriesPage.module.css";
 import axios from 'axios';
+import Breadcrumbs from '../../layout/Breadcrumbs/Breadcrumbs';
 
 function CategoriesPage() {
   const [categories, setCategories] = useState([]);
@@ -21,13 +22,7 @@ function CategoriesPage() {
   return (
     <div className={styles.categories}>
       <div className={styles.categories_navigation}>
-        <div className={styles.categories_nav}>
-          <p>Main page</p>
-        </div>
-        <div className={styles.categories_line}></div>
-        <div className={styles.categories_nav}>
-          <p className={styles.categories_navP}>Categories</p>
-        </div>
+        <Breadcrumbs />
       </div>
       <div className={styles.categories_container}>
         <div className={styles.categories_flex}>

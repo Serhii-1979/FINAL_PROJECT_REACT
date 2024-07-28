@@ -2,10 +2,17 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Button1 from "../../../layout/Button1";
 import styles from "./AllSales.module.css";
+import ProductFilter from "../../../layout/ProductFilter/ProductFilter";
 import axios from "axios";
 
 function AllSales() {
   const [products, setProducts] = useState([]);
+  const [filters, setFilters] = useState({
+    priceFrom: "",
+    priceTo: "",
+    discounted: false,
+    sort: "default",
+  });
 
   useEffect(() => {
     const fetchAllProducts = async () => {
@@ -19,8 +26,37 @@ function AllSales() {
     fetchAllProducts();
   }, []);
 
-  const discountedProducts = products.filter(product => product.discont_price !== null);
-  const displayedProducts = discountedProducts.slice(0, 8);
+  // Фильтрация и сортировка товаров
+  const filteredProducts = products
+    .filter((product) => {
+      if (!product.discont_price) return false; // Фильтруем только товары со скидкой
+      const priceFrom = parseFloat(filters.priceFrom);
+      const priceTo = parseFloat(filters.priceTo);
+
+      let matchesPrice = true;
+      if (!isNaN(priceFrom)) {
+        matchesPrice = product.discont_price >= priceFrom;
+      }
+      if (matchesPrice && !isNaN(priceTo)) {
+        matchesPrice = product.discont_price <= priceTo;
+      }
+
+      return matchesPrice;
+    })
+    .sort((a, b) => {
+      if (filters.sort === "newest") {
+        return new Date(b.createdAt) - new Date(a.createdAt);
+      }
+      if (filters.sort === "price-high-low") {
+        return b.discont_price - a.discont_price;
+      }
+      if (filters.sort === "price-low-high") {
+        return a.discont_price - b.discont_price;
+      }
+      return 0;
+    });
+
+    const displayedProducts = filteredProducts.slice(0, 8);
 
   return (
     <div className={styles.categories}>
@@ -37,9 +73,7 @@ function AllSales() {
       <div className={styles.allProducts_container}>
         <div className={styles.allProducts_flex}>
           <h2>Discounted items</h2>
-          <div className={styles.allProducts_title}>
-            {/* Filtering and sorting UI code here */}
-          </div>
+          <ProductFilter filters={filters} onFilterChange={setFilters} hideDiscountFilter={true} />
 
           <div className={styles.allProducts_Flex}>
             {displayedProducts.map((product) => {

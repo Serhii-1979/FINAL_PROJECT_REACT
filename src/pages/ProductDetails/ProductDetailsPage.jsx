@@ -14,21 +14,27 @@ function ProductDetailsPage() {
   const [product, setProduct] = useState({});
   const [discountPercentage, setDiscountPercentage] = useState(null);
   const [quantity, setQuantity] = useState(1);
+  const [categoryName, setCategoryName] = useState("Category");
+  const [categoryTitle, setCategoryTitle] = useState("");
 
   useEffect(() => {
     const fetchProductDetails = async () => {
       try {
-        const response = await axios.get(
-          `http://localhost:3333/products/${productId}`
-        );
-        const productData = response.data[0];
-
+        const response = await axios.get(`http://localhost:3333/products/${productId}`);
+        
+        // Проверяем структуру данных в response.data
+        console.log("Product data fetched:", response.data);
+        
+        // Если данные приходят как массив, используем первый элемент
+        const productData = Array.isArray(response.data) ? response.data[0] : response.data;
+        
         if (!productData || !productData.title) {
-          throw new Error("Product data is invalid");
+          throw new Error("Product data is invalid or missing title");
         }
-
+  
         setProduct(productData);
-
+        setCategoryName(productData.category?.name || "Category"); // Установка имени категории из данных продукта
+        
         const discount = calculateDiscountPercentage(
           productData.price,
           productData.discont_price
@@ -40,6 +46,20 @@ function ProductDetailsPage() {
     };
     fetchProductDetails();
   }, [productId]);
+
+  useEffect(() => {
+    if (product.category?.id) {
+      const fetchCategoryName = async () => {
+        try {
+          const categoryResponse = await axios.get(`http://localhost:3333/categories/${product.category.id}`);
+          setCategoryName(categoryResponse.data.title);
+        } catch (error) {
+          console.error("Error fetching category name!", error);
+        }
+      };
+      fetchCategoryName();
+    }
+  }, [product.category]);
 
   const handleIncrease = () => {
     setQuantity(quantity + 1);
@@ -72,6 +92,10 @@ function ProductDetailsPage() {
         <div className={styles.categories_line}></div>
         <div className={styles.categories_nav}>
           <p>Categories</p>
+        </div>
+        <div className={styles.categories_line}></div>
+        <div className={styles.categories_navCategor}>
+          <p>{categoryTitle}</p>
         </div>
         <div className={styles.categories_line}></div>
         <div className={styles.categories_nav}>
@@ -110,8 +134,7 @@ function ProductDetailsPage() {
               />
             </div>
             <div className={styles.DetailsPage_Frame_btn}>
-              <Button2 onClick={handleAddToCart} />{" "}
-              {/* Добавление обработчика */}
+              <Button2 onClick={handleAddToCart} />
             </div>
           </div>
           <div className={styles.DetailsPage_text}>

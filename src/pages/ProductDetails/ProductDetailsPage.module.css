@@ -121,6 +121,11 @@
   border: 1px solid #dddddd;
   border-radius: 4px;
 }
+.categories_navCategor {
+  padding: 8px 16px;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+}
 .categories_nav p {
   font-size: 16px;
   font-weight: 500;

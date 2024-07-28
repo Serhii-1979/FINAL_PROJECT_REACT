@@ -1,0 +1,28 @@
+.categories_cont_nav {
+    display: flex;
+    align-items: center;
+}
+
+.categories_nav {
+  padding: 8px 16px;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+}
+.breadcrumbLink {
+    text-decoration: none;
+}
+.categories_nav p {
+  font-size: 16px;
+  font-weight: 500;
+  color: #8b8b8b;
+}
+.categories_nav:hover {
+    background-color: #ececec;
+}
+.categories_nav .categories_navP {
+  color: rgb(64, 64, 64);
+}
+.categories_line {
+  width: 16px;
+  border-bottom: 1px solid #dddddd;
+}

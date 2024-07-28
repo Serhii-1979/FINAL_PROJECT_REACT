@@ -2,12 +2,19 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import styles from "./ProductsByCategoryPage.module.css";
 import Button1 from "../../../layout/Button1";
+import ProductFilter from "../../../layout/ProductFilter/ProductFilter";
 import axios from "axios";
 
 function ProductsByCategoryPage() {
   const { categoryId } = useParams();
   const [products, setProducts] = useState([]);
   const [categoryTitle, setCategoryTitle] = useState("");
+  const [filters, setFilters] = useState({
+    priceFrom: "",
+    priceTo: "",
+    discounted: false,
+    sort: "default",
+  });
 
   useEffect(() => {
     const fetchProductsByCategory = async () => {
@@ -19,14 +26,47 @@ function ProductsByCategoryPage() {
 
         setCategoryTitle(categoryData.category.title);
         setProducts(categoryData.data);
-
-        console.log("Category Response:", categoryData);
       } catch (error) {
         console.error("Error fetching the products or category!", error);
       }
     };
     fetchProductsByCategory();
   }, [categoryId]);
+
+  const filteredProducts = products.filter((product) => {
+    const { priceFrom, priceTo, discounted } = filters;
+    let isMatch = true;
+
+    // Фильтрация по цене
+    if (priceFrom && product.price < parseFloat(priceFrom)) {
+      isMatch = false;
+    }
+    if (priceTo && product.price > parseFloat(priceTo)) {
+      isMatch = false;
+    }
+
+    // Фильтрация по скидке
+    if (discounted && !product.discont_price) {
+      isMatch = false;
+    }
+
+    return isMatch;
+  });
+
+  filteredProducts.sort((a, b) => {
+    if (filters.sort === "newest") {
+      return new Date(b.createdAt) - new Date(a.createdAt);
+    }
+    if (filters.sort === "price-high-low") {
+      return b.price - a.price;
+    }
+    if (filters.sort === "price-low-high") {
+      return a.price - b.price;
+    }
+    return 0;
+  });
+
+  const displayedProducts = filteredProducts.slice(0, 8);
 
   return (
     <div className={styles.categories}>
@@ -47,41 +87,10 @@ function ProductsByCategoryPage() {
       <div className={styles.allProducts_container}>
         <div className={styles.allProducts_flex}>
           <h2>{categoryTitle}</h2>
-          <div className={styles.allProducts_title}>
-            <div className={styles.allProducts_titlePrice}>
-              <p className={styles.allProducts_titleP}>Price</p>
-              <input
-                type="text"
-                className={styles.allProducts_titleP1}
-                placeholder="from"
-              ></input>
-              <input
-                type="text"
-                className={styles.allProducts_titleP1}
-                placeholder="to"
-              ></input>
-            </div>
-
-            <div className={styles.allProducts_titlePrice}>
-              <p className={styles.allProducts_titleP}>Discounted items</p>
-              <input
-                type="checkbox"
-                className={styles.allProducts_title_input}
-              />
-            </div>
-
-            <div className={styles.allProducts_titlePrice}>
-              <p className={styles.allProducts_titleP}>Sorted</p>
-              <select name="name" className={styles.allProducts_titleSelect}>
-                <option value="value1">by default </option>
-                <option value="value2">Option 2</option>
-                <option value="value3">Option 3</option>
-              </select>
-            </div>
-          </div>
+          <ProductFilter filters={filters} onFilterChange={setFilters} />
 
           <div className={styles.allProducts_Flex}>
-            {products.map((product) => {
+            {displayedProducts.map((product) => {
               const discountPercentage = product.discont_price
                 ? Math.round(
                     ((product.price - product.discont_price) / product.price) *
@@ -108,7 +117,7 @@ function ProductsByCategoryPage() {
                     />
 
                     <div className={styles.button_cont}>
-                    <Button1 productId={product.id} />
+                      <Button1 productId={product.id} />
                     </div>
                   </div>
 
