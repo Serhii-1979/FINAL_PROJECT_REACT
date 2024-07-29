@@ -87,7 +87,7 @@ function ProductDetailsPage() {
 
   return (
     <div className={styles.DetailsPage_container}>
-      <div className={styles.categories_navigation}>
+      <div className={styles.categories_navigation} data-aos="fade-up">
         <div className={styles.categories_nav}>
           <p>Main page</p>
         </div>
@@ -105,7 +105,7 @@ function ProductDetailsPage() {
         </div>
       </div>
 
-      <div className={styles.DetailsPage_cont}>
+      <div className={styles.DetailsPage_cont}  data-aos="fade-up">
         <div className={styles.DetailsPage_cont_img}>
           <img
             src={`${API_URL}${product.image}`}

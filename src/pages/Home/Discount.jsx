@@ -5,7 +5,7 @@ import FormHomePage from "../../layout/Form/FormHomePage";
 
 function Discount() {
   return (
-    <div className={styles.discount}>
+    <div className={styles.discount} data-aos="fade-up">
       <h1>5% off on the first order</h1>
       <div className={styles.discount_content}>
         <div className={styles.discount_contentIMG}>

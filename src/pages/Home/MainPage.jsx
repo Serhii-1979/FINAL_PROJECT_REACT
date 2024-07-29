@@ -6,7 +6,7 @@ import styles from "./mainPage.module.css";
 
 function MainPage() {
   return (
-    <div className={styles.mainPage_Img}>
+    <div className={styles.mainPage_Img} data-aos="fade-up">
       <MainPageTitle />
       <div className={styles.mainPage_content}>
         <MainCategories />

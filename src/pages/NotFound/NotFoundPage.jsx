@@ -5,11 +5,14 @@ import { Link } from 'react-router-dom';
 import imgDog from '../../assets/images/mage.png';
 import img4 from "../../assets/svg/4.svg"
 
+import styles from "./NotFound.module.css"
+
 const theme = createTheme();
 
 function NotFoundPage() {
   return (
     <ThemeProvider theme={theme}>
+      <div className={styles.notFound}  data-aos="fade-up">
       <Container sx={{ textAlign: 'center', mt: 5, mb: 10, fontFamily: "Monserrat" }}>
         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <Box
@@ -63,6 +66,7 @@ function NotFoundPage() {
           Go Home
         </Button>
       </Container>
+      </div>
     </ThemeProvider>
   );
 }

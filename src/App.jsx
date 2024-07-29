@@ -1,6 +1,10 @@
 // App.js
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import MainPage from "../src/pages/Home/MainPage";
@@ -12,9 +16,18 @@ import ProductDetailsPage from "./pages/ProductDetails/ProductDetailsPage";
 import CartPage from "./pages/Cart/CartPage";
 import NotFoundPage from "./pages/NotFound/NotFoundPage"
 import ConnectedModal from "./layout/Modal/ConnectedModal";
+
+
 import styles from "./index.module.css";
 
 export default function App() {
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Длительность анимации в миллисекундах
+    });
+  }, []);
+
   return (
     <Router>
       <div className={styles.App}>

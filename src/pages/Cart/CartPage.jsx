@@ -51,7 +51,7 @@ function CartPage() {
   }, 0);
 
   return (
-    <div className={styles.categories}>
+    <div className={styles.categories}  data-aos="fade-up">
       <div className={styles.mainCategories_cont}>
         <h1>Shopping cart</h1>
         <Link to="/allProducts" className={styles.mainCategories_contLink}>

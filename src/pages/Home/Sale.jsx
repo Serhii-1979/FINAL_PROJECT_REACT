@@ -24,7 +24,7 @@ function Sale() {
   const displayedSales = sales.slice(0, 4);
 
   return (
-    <div className={styles.sale_container}>
+    <div className={styles.sale_container} data-aos="fade-up">
       <div className={styles.sale_cont}>
         <h1>Sale</h1>
         <Link to="/allSales" className={styles.mainCategories_contLink}>

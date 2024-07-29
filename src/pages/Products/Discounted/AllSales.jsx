@@ -59,7 +59,7 @@ function AllSales() {
     const displayedProducts = filteredProducts.slice(0, 8);
 
   return (
-    <div className={styles.categories}>
+    <div className={styles.categories}  data-aos="fade-up">
       <div className={styles.categories_navigation}>
         <div className={styles.categories_nav}>
           <p>Main page</p>

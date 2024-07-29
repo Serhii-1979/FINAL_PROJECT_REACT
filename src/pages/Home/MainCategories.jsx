@@ -23,7 +23,7 @@ function MainCategories() {
   const displayedCategories = categories.slice(0, 4);
 
   return (
-    <div className={styles.mainCategories_container}>
+    <div className={styles.mainCategories_container} data-aos="fade-up">
       <div className={styles.mainCategories_cont}>
         <h1>Categories</h1>
         <Link to="/categories" className={styles.mainCategories_contLink}>
