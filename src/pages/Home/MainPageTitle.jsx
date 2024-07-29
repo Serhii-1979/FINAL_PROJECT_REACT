@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import titleImg from "../../assets/images/titleHeader.png";
 import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
 import styles from "./mainPage.module.css";
 
 function MainPageTitle() {
+  useEffect(() => {
+    const handleScroll = () => {
+      const imgElement = document.querySelector(`.${styles.mainPageTitle_img} img`);
+      if (imgElement) {
+        const offset = window.scrollY * 0.5; // Чем больше коэффициент, тем быстрее движение
+        imgElement.style.transform = `translateY(${offset}px)`;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <div className={styles.mainPageTitle}>
       <div className={styles.mainPageTitle_img}>
@@ -16,7 +31,7 @@ function MainPageTitle() {
           <br />
           on Pets Products!
         </h1>
-        <Link to="/allSales" >
+        <Link to="/allSales">
           <Button
             variant="contained"
             sx={{

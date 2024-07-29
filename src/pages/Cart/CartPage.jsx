@@ -123,7 +123,7 @@ function CartPage() {
               <h3>Order details</h3>
               <div className={styles.CartPage_Oder_price}>
                 <p>
-                  <span>{totalItems} </span>items
+                  <span className={styles.CartPage_Oder_span}>{totalItems} </span>items
                 </p>
                 <div className={styles.CartPage_Oder_Total}>
                   <p>Total</p>

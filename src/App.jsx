@@ -10,7 +10,8 @@ import ProductsByCategoryPage from "../src/pages/Products/ByCategory/ProductsByC
 import AllSales from "./pages/Products/Discounted/AllSales";
 import ProductDetailsPage from "./pages/ProductDetails/ProductDetailsPage";
 import CartPage from "./pages/Cart/CartPage";
-import ConnectedModal from "./layout/Modal/ConnectedModal"; // Импортируйте ConnectedModal
+import NotFoundPage from "./pages/NotFound/NotFoundPage"
+import ConnectedModal from "./layout/Modal/ConnectedModal";
 import styles from "./index.module.css";
 
 export default function App() {
@@ -26,6 +27,7 @@ export default function App() {
           <Route path="/allSales" element={<AllSales />} />
           <Route path="/product/:productId" element={<ProductDetailsPage />} />
           <Route path="/cart" element={<CartPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
         <Footer />
         <ConnectedModal />

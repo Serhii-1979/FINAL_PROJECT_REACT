@@ -18,6 +18,9 @@
   justify-content: flex-end; */
   width: 60%;
 }
+.discount_content_Form {
+  width: 40%;
+}
 .discount_contentIMG img {
   width: 100%;
 }

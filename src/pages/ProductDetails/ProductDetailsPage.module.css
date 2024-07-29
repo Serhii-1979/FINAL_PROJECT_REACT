@@ -131,6 +131,14 @@
   font-weight: 500;
   color: #8b8b8b;
 }
+.categories_navP {
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
 .categories_nav .categories_navP {
   color: rgb(64, 64, 64);
 }

@@ -7,59 +7,61 @@ import styles from "./ProductDetailsPage.module.css";
 import { calculateDiscountPercentage } from "../../util/calculateDiscount";
 import QuantitySelector from "../../layout/QuantitySelector";
 import { addProduct } from "../../redux/cartSlice";
+import { API_URL } from "../../api";
 
 function ProductDetailsPage() {
   const { productId } = useParams();
   const dispatch = useDispatch();
   const [product, setProduct] = useState({});
   const [discountPercentage, setDiscountPercentage] = useState(null);
-  const [quantity, setQuantity] = useState(1);
-  const [categoryName, setCategoryName] = useState("Category");
+  const [quantity, setQuantity] = useState(0);
   const [categoryTitle, setCategoryTitle] = useState("");
 
   useEffect(() => {
+    const fetchCategoryTitle = async (categoryId) => {
+      try {
+        const categoryResponse = await axios.get(
+          `${API_URL}/categories/${categoryId}`
+        );
+        const categoryData = categoryResponse.data;
+        console.log("Category data fetched:", categoryData);
+
+        // Убедитесь, что путь к title верный
+        setCategoryTitle(categoryData.category.title);
+      } catch (error) {
+        console.error("Error fetching the category title!", error);
+      }
+    };
+
     const fetchProductDetails = async () => {
       try {
-        const response = await axios.get(`http://localhost:3333/products/${productId}`);
-        
-        // Проверяем структуру данных в response.data
+        const response = await axios.get(`${API_URL}/products/${productId}`);
         console.log("Product data fetched:", response.data);
         
-        // Если данные приходят как массив, используем первый элемент
         const productData = Array.isArray(response.data) ? response.data[0] : response.data;
         
         if (!productData || !productData.title) {
           throw new Error("Product data is invalid or missing title");
         }
-  
+
         setProduct(productData);
-        setCategoryName(productData.category?.name || "Category"); // Установка имени категории из данных продукта
-        
+            
         const discount = calculateDiscountPercentage(
           productData.price,
           productData.discont_price
         );
         setDiscountPercentage(discount);
+        
+        if (productData.categoryId) {
+          fetchCategoryTitle(productData.categoryId);
+        }
       } catch (error) {
         console.error("Error fetching the product details!", error);
       }
     };
+
     fetchProductDetails();
   }, [productId]);
-
-  useEffect(() => {
-    if (product.category?.id) {
-      const fetchCategoryName = async () => {
-        try {
-          const categoryResponse = await axios.get(`http://localhost:3333/categories/${product.category.id}`);
-          setCategoryName(categoryResponse.data.title);
-        } catch (error) {
-          console.error("Error fetching category name!", error);
-        }
-      };
-      fetchCategoryName();
-    }
-  }, [product.category]);
 
   const handleIncrease = () => {
     setQuantity(quantity + 1);
@@ -106,7 +108,7 @@ function ProductDetailsPage() {
       <div className={styles.DetailsPage_cont}>
         <div className={styles.DetailsPage_cont_img}>
           <img
-            src={`http://localhost:3333${product.image}`}
+            src={`${API_URL}${product.image}`}
             alt={product.title}
           />
         </div>

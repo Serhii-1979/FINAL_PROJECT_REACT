@@ -132,8 +132,6 @@
   display: flex;
 }
 
-
-
 .allProducts_text {
   display: flex;
   flex-direction: column;
@@ -146,6 +144,12 @@
   font-weight: 500;
   line-height: 26px;
   text-align: left;
+  /* white-space: nowrap; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 .allProducts_textP {
   font-size: 40px;

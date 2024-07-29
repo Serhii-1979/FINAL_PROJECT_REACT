@@ -1,8 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import styles from "./categoriesPage.module.css";
-import axios from 'axios';
-import Breadcrumbs from '../../layout/Breadcrumbs/Breadcrumbs';
+import axios from "axios";
+import Breadcrumbs from "../../layout/Breadcrumbs/Breadcrumbs";
+
+
+
+
 
 function CategoriesPage() {
   const [categories, setCategories] = useState([]);
