@@ -16,8 +16,7 @@ function CategoriesPage() {
       try {
         const response = await axios.get('http://localhost:3333/categories/all');
         setCategories(response.data);
-      } catch (error) {
-        console.error('Error fetching the categories!', error);
+      } catch (error) {   
       }
     };
     fetchCategories();

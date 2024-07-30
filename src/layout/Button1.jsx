@@ -8,7 +8,7 @@ function Button1({ product }) {
 
   useEffect(() => {
     if (product && product.id) {
-      // Check if the product is already marked as clicked
+
       const clickedProducts = JSON.parse(localStorage.getItem('clickedProducts')) || {};
       if (clickedProducts[product.id]) {
         setIsClicked(true);
@@ -20,7 +20,7 @@ function Button1({ product }) {
     if (product && product.id) {
       setIsClicked(true);
 
-      // Store the clicked state in localStorage
+ 
       const clickedProducts = JSON.parse(localStorage.getItem('clickedProducts')) || {};
       clickedProducts[product.id] = true;
       localStorage.setItem('clickedProducts', JSON.stringify(clickedProducts));

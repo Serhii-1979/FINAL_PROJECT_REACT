@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
+
 import Button2 from "../../layout/Button2";
 import axios from "axios";
-import styles from "./ProductDetailsPage.module.css";
 import { calculateDiscountPercentage } from "../../util/calculateDiscount";
 import QuantitySelector from "../../layout/QuantitySelector";
 import { addProduct } from "../../redux/cartSlice";
 import { API_URL } from "../../api";
+
+import styles from "./ProductDetailsPage.module.css";
 
 function ProductDetailsPage() {
   const { productId } = useParams();
@@ -101,7 +103,7 @@ function ProductDetailsPage() {
         </div>
         <div className={styles.categories_line}></div>
         <div className={styles.categories_nav}>
-          <p className={styles.categories_navP}>{product.title}</p>
+          <p title={product.title} className={styles.categories_navP}>{product.title}</p>
         </div>
       </div>
 
@@ -113,8 +115,10 @@ function ProductDetailsPage() {
           />
         </div>
 
+
+
         <div className={styles.DetailsPage_content}>
-          <h3 className={styles.allProducts_text1}>{product.title}</h3>
+          <h3 title={product.title} className={styles.allProducts_text1}>{product.title}</h3>
           <div className={styles.DetailsPage_price}>
             <p className={styles.allProducts_textP}>
               ${product.price}{" "}
@@ -126,6 +130,8 @@ function ProductDetailsPage() {
               )}
             </div>
           </div>
+
+
 
           <div className={styles.DetailsPage_Frame}>
             <div className={styles.DetailsPage_Frame_counter}>

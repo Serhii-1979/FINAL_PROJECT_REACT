@@ -22,6 +22,9 @@
   background-color: #fff;
   border: none;
 }
+.mainCategories_contLine:hover {
+  background-color: transparent;
+}
 .mainCategories_line {
   width: 100%;
   border-bottom: 1px solid #dddddd;

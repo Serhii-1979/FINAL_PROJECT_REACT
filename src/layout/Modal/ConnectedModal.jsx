@@ -1,4 +1,4 @@
-// components/ConnectedModal.js
+
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Modal from "./Modal";

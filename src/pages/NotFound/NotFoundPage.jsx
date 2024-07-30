@@ -13,7 +13,7 @@ function NotFoundPage() {
   return (
     <ThemeProvider theme={theme}>
       <div className={styles.notFound}  data-aos="fade-up">
-      <Container sx={{ textAlign: 'center', mt: 5, mb: 10, fontFamily: "Monserrat" }}>
+      <Container sx={{ textAlign: 'center', mt: 5, mb: 10, fontFamily: "Montserrat" }}>
         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <Box
             component="span"
@@ -49,10 +49,10 @@ function NotFoundPage() {
             }}
           />
         </Box>
-        <Typography variant="h4" gutterBottom sx={{ fontWeight: 700, fontSize: 60 }}>
+        <Typography variant="h4" gutterBottom sx={{ fontWeight: 700, fontSize: 60, fontFamily: "Montserrat" }}>
           Page Not Found
         </Typography>
-        <Typography variant="body1" color="textSecondary">
+        <Typography variant="body1" color="textSecondary" sx={{ fontFamily: "Montserrat" }}>
           We're sorry, the page you requested could not be found. <br />
           Please go back to the homepage.
         </Typography>
@@ -61,7 +61,7 @@ function NotFoundPage() {
           color="primary"
           component={Link}
           to="/"
-          sx={{ mt: 3, padding: "8px 40px", backgroundColor: "#0d50ff" }}
+          sx={{ mt: 3, padding: "8px 40px", backgroundColor: "#0d50ff", fontFamily: "Montserrat" }}
         >
           Go Home
         </Button>

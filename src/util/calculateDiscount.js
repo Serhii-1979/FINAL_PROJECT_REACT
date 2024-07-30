@@ -1,4 +1,3 @@
-// src/utils/discountUtils.js
 
 export const calculateDiscountPercentage = (price, discountPrice) => {
     if (!price || !discountPrice) return null;

@@ -9,7 +9,7 @@ function MainPageTitle() {
     const handleScroll = () => {
       const imgElement = document.querySelector(`.${styles.mainPageTitle_img} img`);
       if (imgElement) {
-        const offset = window.scrollY * 0.5; // Чем больше коэффициент, тем быстрее движение
+        const offset = window.scrollY * 0.5;
         imgElement.style.transform = `translateY(${offset}px)`;
       }
     };

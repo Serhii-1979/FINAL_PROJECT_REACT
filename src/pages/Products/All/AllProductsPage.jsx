@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+
 import Button1 from "../../../layout/Button1";
 import ProductFilter from "../../../layout/ProductFilter/ProductFilter";
 import styles from "./allProductsPage.module.css";
 import Breadcrumbs from "../../../layout/Breadcrumbs/Breadcrumbs";
 import axios from "axios";
+import { API_URL } from "../../../api"
+
 
 function AllProducts() {
   const [products, setProducts] = useState([]);
@@ -18,7 +21,7 @@ function AllProducts() {
   useEffect(() => {
     const fetchAllProducts = async () => {
       try {
-        const response = await axios.get("http://localhost:3333/products/all");
+        const response = await axios.get(`${API_URL}/products/all`);
         setProducts(response.data);
       } catch (error) {
         console.error("Error fetching the products!", error);

@@ -26,17 +26,14 @@ function OrderForm() {
       const response = await axios.post("http://localhost:3333/order/send", orderData);
       console.log("Order sent successfully:", response.data);
 
-      // Очистка корзины и формы
       dispatch(clearCart());
       reset();
 
-      // Открыть модальное окно
       dispatch(openModal({
         title: "Congratulations!",
         content: "Your order has been successfully placed on the website. A manager will contact you shortly to confirm your order."
       }));
 
-      // Скрыть модальное окно через 2 секунды
       setTimeout(() => {
         dispatch(closeModal());
       }, 60000);
