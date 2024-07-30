@@ -4,6 +4,8 @@ import styles from "./categoriesPage.module.css";
 import axios from "axios";
 import Breadcrumbs from "../../layout/Breadcrumbs/Breadcrumbs";
 
+import { API_URL } from "../../api"
+
 
 
 
@@ -14,7 +16,7 @@ function CategoriesPage() {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get('http://localhost:3333/categories/all');
+        const response = await axios.get(`${API_URL}/categories/all`);
         setCategories(response.data);
       } catch (error) {   
       }

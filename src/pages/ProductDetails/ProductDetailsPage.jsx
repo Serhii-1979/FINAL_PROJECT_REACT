@@ -6,6 +6,7 @@ import Button2 from "../../layout/Button2";
 import axios from "axios";
 import { calculateDiscountPercentage } from "../../util/calculateDiscount";
 import QuantitySelector from "../../layout/QuantitySelector";
+import BreadcrumbsDetail from "../../layout/Breadcrumbs/BreadcrumbsDetail";
 import { addProduct } from "../../redux/cartSlice";
 import { API_URL } from "../../api";
 
@@ -16,7 +17,7 @@ function ProductDetailsPage() {
   const dispatch = useDispatch();
   const [product, setProduct] = useState({});
   const [discountPercentage, setDiscountPercentage] = useState(null);
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
   const [categoryTitle, setCategoryTitle] = useState("");
 
   useEffect(() => {
@@ -28,7 +29,6 @@ function ProductDetailsPage() {
         const categoryData = categoryResponse.data;
         console.log("Category data fetched:", categoryData);
 
-        // Убедитесь, что путь к title верный
         setCategoryTitle(categoryData.category.title);
       } catch (error) {
         console.error("Error fetching the category title!", error);
@@ -39,21 +39,23 @@ function ProductDetailsPage() {
       try {
         const response = await axios.get(`${API_URL}/products/${productId}`);
         console.log("Product data fetched:", response.data);
-        
-        const productData = Array.isArray(response.data) ? response.data[0] : response.data;
-        
+
+        const productData = Array.isArray(response.data)
+          ? response.data[0]
+          : response.data;
+
         if (!productData || !productData.title) {
           throw new Error("Product data is invalid or missing title");
         }
 
         setProduct(productData);
-            
+
         const discount = calculateDiscountPercentage(
           productData.price,
           productData.discont_price
         );
         setDiscountPercentage(discount);
-        
+
         if (productData.categoryId) {
           fetchCategoryTitle(productData.categoryId);
         }
@@ -89,36 +91,21 @@ function ProductDetailsPage() {
 
   return (
     <div className={styles.DetailsPage_container}>
-      <div className={styles.categories_navigation} data-aos="fade-up">
-        <div className={styles.categories_nav}>
-          <p>Main page</p>
-        </div>
-        <div className={styles.categories_line}></div>
-        <div className={styles.categories_nav}>
-          <p>Categories</p>
-        </div>
-        <div className={styles.categories_line}></div>
-        <div className={styles.categories_navCategor}>
-          <p>{categoryTitle}</p>
-        </div>
-        <div className={styles.categories_line}></div>
-        <div className={styles.categories_nav}>
-          <p title={product.title} className={styles.categories_navP}>{product.title}</p>
-        </div>
+      <div className={styles.categories_navigation}>
+        <BreadcrumbsDetail
+          categoryTitle={categoryTitle}
+          productTitle={product.title}
+        />
       </div>
-
-      <div className={styles.DetailsPage_cont}  data-aos="fade-up">
+      <div className={styles.DetailsPage_cont} data-aos="fade-up">
         <div className={styles.DetailsPage_cont_img}>
-          <img
-            src={`${API_URL}${product.image}`}
-            alt={product.title}
-          />
+          <img src={`${API_URL}${product.image}`} alt={product.title} />
         </div>
-
-
 
         <div className={styles.DetailsPage_content}>
-          <h3 title={product.title} className={styles.allProducts_text1}>{product.title}</h3>
+          <h3 title={product.title} className={styles.allProducts_text1}>
+            {product.title}
+          </h3>
           <div className={styles.DetailsPage_price}>
             <p className={styles.allProducts_textP}>
               ${product.price}{" "}
@@ -130,8 +117,6 @@ function ProductDetailsPage() {
               )}
             </div>
           </div>
-
-
 
           <div className={styles.DetailsPage_Frame}>
             <div className={styles.DetailsPage_Frame_counter}>

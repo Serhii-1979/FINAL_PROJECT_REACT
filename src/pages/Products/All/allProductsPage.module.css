@@ -56,6 +56,12 @@
 .allProductsImg {
   position: relative;
   border-bottom: 1px solid #dddddd;
+  height: 284px;
+}
+.allProducts_Flex .allProductsImg img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
 }
 .discountTag {
   position: absolute;

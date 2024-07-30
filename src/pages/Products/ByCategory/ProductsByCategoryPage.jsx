@@ -4,6 +4,8 @@ import styles from "./ProductsByCategoryPage.module.css";
 import Button1 from "../../../layout/Button1";
 import ProductFilter from "../../../layout/ProductFilter/ProductFilter";
 import axios from "axios";
+import BreadcrumbsByCategory from "../../../layout/Breadcrumbs/BreadcrumbsByCategory";
+import { API_URL } from "../../../api";
 
 function ProductsByCategoryPage() {
   const { categoryId } = useParams();
@@ -20,12 +22,23 @@ function ProductsByCategoryPage() {
     const fetchProductsByCategory = async () => {
       try {
         const categoryResponse = await axios.get(
-          `http://localhost:3333/categories/${categoryId}`
+          `${API_URL}/categories/${categoryId}`
         );
         const categoryData = categoryResponse.data;
 
-        setCategoryTitle(categoryData.category.title);
-        setProducts(categoryData.data);
+        if (categoryData.category) {
+          setCategoryTitle(categoryData.category.title);
+          console.log('Setting Category Title:', categoryData.category.title);
+        } else {
+          console.error("Category data is missing 'category' field");
+        }
+
+        if (Array.isArray(categoryData.data)) {
+          setProducts(categoryData.data);
+          console.log('Setting Products:', categoryData.data);
+        } else {
+          console.error("Category data is missing 'data' field or it's not an array");
+        }
       } catch (error) {
         console.error("Error fetching the products or category!", error);
       }
@@ -35,17 +48,16 @@ function ProductsByCategoryPage() {
 
   const filteredProducts = products.filter((product) => {
     const { priceFrom, priceTo, discounted } = filters;
+    const price = product.discont_price !== null ? product.discont_price : product.price;
     let isMatch = true;
 
-    // Фильтрация по цене
-    if (priceFrom && product.price < parseFloat(priceFrom)) {
+    if (priceFrom && price < parseFloat(priceFrom)) {
       isMatch = false;
     }
-    if (priceTo && product.price > parseFloat(priceTo)) {
+    if (priceTo && price > parseFloat(priceTo)) {
       isMatch = false;
     }
 
-    // Фильтрация по скидке
     if (discounted && !product.discont_price) {
       isMatch = false;
     }
@@ -58,10 +70,10 @@ function ProductsByCategoryPage() {
       return new Date(b.createdAt) - new Date(a.createdAt);
     }
     if (filters.sort === "price-high-low") {
-      return b.price - a.price;
+      return (b.discont_price || b.price) - (a.discont_price || a.price);
     }
     if (filters.sort === "price-low-high") {
-      return a.price - b.price;
+      return (a.discont_price || a.price) - (b.discont_price || b.price);
     }
     return 0;
   });
@@ -69,19 +81,9 @@ function ProductsByCategoryPage() {
   const displayedProducts = filteredProducts.slice(0, 8);
 
   return (
-    <div className={styles.categories}  data-aos="fade-up">
+    <div className={styles.categories} data-aos="fade-up">
       <div className={styles.categories_navigation}>
-        <div className={styles.categories_nav}>
-          <p>Main page</p>
-        </div>
-        <div className={styles.categories_line}></div>
-        <div className={styles.categories_nav}>
-          <p>Categories</p>
-        </div>
-        <div className={styles.categories_line}></div>
-        <div className={styles.categories_nav}>
-          <p className={styles.categories_navP}>{categoryTitle}</p>
-        </div>
+        <BreadcrumbsByCategory categoryTitle={categoryTitle} />
       </div>
 
       <div className={styles.allProducts_container}>
@@ -112,8 +114,8 @@ function ProductsByCategoryPage() {
                     )}
 
                     <img
-                      src={`http://localhost:3333${product.image}`}
-                      alt={product.title}
+                      src={`${API_URL}${product.image}`}
+                      alt={product.title} // Удалена лишняя фигурная скобка
                     />
 
                     <div className={styles.button_cont}>
@@ -124,9 +126,9 @@ function ProductsByCategoryPage() {
                   <div className={styles.allProducts_text}>
                     <p className={styles.allProducts_text1}>{product.title}</p>
                     <p className={styles.allProducts_textP}>
-                      ${product.price}{" "}
+                      ${product.discont_price ? product.discont_price : product.price}{" "}
                       {product.discont_price && (
-                        <span>${product.discont_price}</span>
+                        <span>${product.price}</span>
                       )}
                     </p>
                   </div>

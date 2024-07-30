@@ -3,7 +3,12 @@ import { Link } from "react-router-dom";
 import Button1 from "../../../layout/Button1";
 import styles from "./AllSales.module.css";
 import ProductFilter from "../../../layout/ProductFilter/ProductFilter";
+import Breadcrumbs from "../../../layout/Breadcrumbs/Breadcrumbs";
 import axios from "axios";
+
+import { API_URL } from "../../../api"
+
+
 
 function AllSales() {
   const [products, setProducts] = useState([]);
@@ -17,7 +22,7 @@ function AllSales() {
   useEffect(() => {
     const fetchAllProducts = async () => {
       try {
-        const response = await axios.get("http://localhost:3333/products/all");
+        const response = await axios.get(`${API_URL}/products/all`);
         setProducts(response.data);
       } catch (error) {
         console.error("Error fetching the products!", error);
@@ -26,10 +31,10 @@ function AllSales() {
     fetchAllProducts();
   }, []);
 
-  // Фильтрация и сортировка товаров
   const filteredProducts = products
     .filter((product) => {
-      if (!product.discont_price) return false; // Фильтруем только товары со скидкой
+      if (!product.discont_price) return false;
+
       const priceFrom = parseFloat(filters.priceFrom);
       const priceTo = parseFloat(filters.priceTo);
 
@@ -48,36 +53,36 @@ function AllSales() {
         return new Date(b.createdAt) - new Date(a.createdAt);
       }
       if (filters.sort === "price-high-low") {
-        return b.discont_price - a.discont_price;
+        return (b.discont_price || b.price) - (a.discont_price || a.price);
       }
       if (filters.sort === "price-low-high") {
-        return a.discont_price - b.discont_price;
+        return (a.discont_price || a.price) - (b.discont_price || b.price);
       }
       return 0;
     });
 
-    const displayedProducts = filteredProducts.slice(0, 8);
+  const displayedProducts = filteredProducts.slice(0, 8);
 
   return (
-    <div className={styles.categories}  data-aos="fade-up">
+    <div className={styles.categories} data-aos="fade-up">
       <div className={styles.categories_navigation}>
-        <div className={styles.categories_nav}>
-          <p>Main page</p>
-        </div>
-        <div className={styles.categories_line}></div>
-        <div className={styles.categories_nav}>
-          <p className={styles.categories_navP}>Discounted items</p>
-        </div>
+        <Breadcrumbs />
       </div>
 
       <div className={styles.allProducts_container}>
         <div className={styles.allProducts_flex}>
           <h2>Discounted items</h2>
-          <ProductFilter filters={filters} onFilterChange={setFilters} hideDiscountFilter={true} />
+          <ProductFilter
+            filters={filters}
+            onFilterChange={setFilters}
+            hideDiscountFilter={true}
+          />
 
           <div className={styles.allProducts_Flex}>
             {displayedProducts.map((product) => {
-              const discountPercentage = Math.round(((product.price - product.discont_price) / product.price) * 100);
+              const discountPercentage = Math.round(
+                ((product.price - product.discont_price) / product.price) * 100
+              );
 
               return (
                 <Link
@@ -101,14 +106,10 @@ function AllSales() {
                   </div>
 
                   <div className={styles.allProducts_text}>
-                    <p className={styles.allProducts_text1}>
-                      {product.title}
-                    </p>
+                    <p className={styles.allProducts_text1}>{product.title}</p>
                     <p className={styles.allProducts_textP}>
                       ${product.discont_price}{" "}
-                      {product.price && (
-                        <span>${product.price}</span>
-                      )}
+                      {product.price && <span>${product.price}</span>}
                     </p>
                   </div>
                 </Link>
