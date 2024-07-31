@@ -23,6 +23,10 @@
   background-color: #fff;
   border: none;
 }
+.mainCategories_contLine:hover {
+  background-color: transparent;
+}
+
 .mainCategories_contLine p:hover {
   background-color: #ededed;
 }
@@ -49,35 +53,4 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 32px;
 }
-.mainCategories_flexBox {
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 26px;
-  text-align: center;
-  width: 100%;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  text-decoration: none;
-}
-.mainCategories_flexBox:hover {
-  background-color: #f0f0f0;
-  transform: translateY(-2px);
-  box-shadow: 0 0 10px silver;
-}
-.mainCategories_flexBox img {
-  width: 100%;
-}
-.mainCategories_contLine:hover {
-  background-color: transparent;
-}
 
-/* .mainCategories_contLine {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  background-color: #fff;
-  border: none;
-  cursor: pointer;
-} */

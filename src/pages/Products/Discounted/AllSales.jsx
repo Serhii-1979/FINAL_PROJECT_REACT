@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import Button1 from "../../../layout/Button1";
 import styles from "./AllSales.module.css";
 import ProductFilter from "../../../layout/ProductFilter/ProductFilter";
 import Breadcrumbs from "../../../layout/Breadcrumbs/Breadcrumbs";
 import axios from "axios";
 
 import { API_URL } from "../../../api"
+import ProductCardAll from "../../../components/ListCategories/ProductCardAll";
+
+
 
 function AllSales() {
   const { t } = useTranslation();
@@ -79,42 +80,9 @@ function AllSales() {
           />
 
           <div className={styles.allProducts_Flex}>
-            {displayedProducts.map((product) => {
-              const discountPercentage = Math.round(
-                ((product.price - product.discont_price) / product.price) * 100
-              );
-
-              return (
-                <Link
-                  to={`/product/${product.id}`}
-                  className={styles.allProducts_flexBox}
-                  key={product.id}
-                >
-                  <div className={styles.allProductsImg}>
-                    {product.discont_price && (
-                      <div className={styles.discountTag}>
-                        {t('discount', { percentage: discountPercentage })}
-                      </div>
-                    )}
-                    <img
-                      src={`${API_URL}${product.image}`}
-                      alt={product.title}
-                    />
-                    <div className={styles.button_cont}>
-                      <Button1 product={product} />
-                    </div>
-                  </div>
-
-                  <div className={styles.allProducts_text}>
-                    <p className={styles.allProducts_text1}>{product.title}</p>
-                    <p className={styles.allProducts_textP}>
-                      ${product.discont_price}{" "}
-                      {product.price && <span>${product.price}</span>}
-                    </p>
-                  </div>
-                </Link>
-              );
-            })}
+            {displayedProducts.map((product) => (
+                <ProductCardAll key={product.id} product={product} />
+            ))}
           </div>
         </div>
       </div>
@@ -123,3 +91,5 @@ function AllSales() {
 }
 
 export default AllSales;
+
+

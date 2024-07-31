@@ -1,0 +1,84 @@
+.allProducts_flexBox {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+  }
+  .allProducts_flexBox:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-2px);
+    box-shadow: 0 0 10px silver;
+  }
+  .allProductsImg {
+    position: relative;
+    border-bottom: 1px solid #dddddd;
+    height: 284px;
+  }
+  .allProducts_Flex .allProductsImg img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+  .discountTag {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #0d50ff;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 26px;
+    letter-spacing: 0.03em;
+    text-align: left;
+  }
+  .allProducts_text {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 0 32px 32px 32px;
+  }
+  .allProducts_text1 {
+    width: 100%;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 26px;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
+  .allProducts_textP {
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 44px;
+    text-align: left;
+  }
+  .allProducts_textP span {
+    text-decoration: line-through;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 26px;
+    text-align: left;
+    color: #8b8b8b;
+  }
+  .allProducts_flexBox img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+  }
+  .button_cont {
+    display: none;
+  }
+  .allProducts_flexBox:hover .button_cont {
+    display: flex;
+  }

@@ -49,6 +49,13 @@ i18n.use(initReactI18next).init({
         "discountedItems": "Discounted items",
         "sorted": "Sorted",
         "byDefault": "by default",
+        "shoppingCart": "Shopping cart",
+        
+        "emptyCartMessage": "Looks like you have no items in your basket currently.",
+        "remove": "Remove",
+        "orderDetails": "Order details",
+        "items": "items",
+        "total": "Total",
         // Добавьте остальные переводы
       },
     },
@@ -99,6 +106,12 @@ i18n.use(initReactI18next).init({
         "discountedItems": "Товары со скидкой",
         "sorted": "Сортировка",
         "byDefault": "по умолчанию",
+
+      "emptyCartMessage": "Похоже, что ваша корзина пуста.",
+      "remove": "Удалить",
+      "orderDetails": "Детали заказа",
+      "items": "товаров",
+      "total": "Итого",
         // Добавьте остальные переводы
       },
     },
@@ -150,6 +163,12 @@ i18n.use(initReactI18next).init({
         "discountedItems": "Reduzierte Artikel",
         "sorted": "Sortiert",
         "byDefault": "standardmäßig",
+
+      "emptyCartMessage": "Es sieht so aus, als hätten Sie derzeit keine Artikel im Warenkorb.",
+      "remove": "Entfernen",
+      "orderDetails": "Bestelldetails",
+      "items": "Artikel",
+      "total": "Gesamt",
         
         // Добавьте остальные переводы 
       },

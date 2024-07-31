@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
-import styles from "./ProductsByCategoryPage.module.css";
-import Button1 from "../../../layout/Button1";
+import { useParams} from "react-router-dom";
+// import { useTranslation } from "react-i18next";
+
 import ProductFilter from "../../../layout/ProductFilter/ProductFilter";
-import axios from "axios";
 import BreadcrumbsByCategory from "../../../layout/Breadcrumbs/BreadcrumbsByCategory";
+import ProductCardAll from "../../../components/ListCategories/ProductCardAll";
+
+import styles from "./ProductsByCategoryPage.module.css";
+
+import axios from "axios";
 import { API_URL } from "../../../api";
 
+
 function ProductsByCategoryPage() {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   const { categoryId } = useParams();
   const [products, setProducts] = useState([]);
   const [categoryTitle, setCategoryTitle] = useState("");
@@ -30,7 +34,6 @@ function ProductsByCategoryPage() {
 
         if (categoryData.category) {
           setCategoryTitle(categoryData.category.title);
-          console.log('Setting Category Title:', categoryData.category.title);
         } else {
           console.error("Category data is missing 'category' field");
         }
@@ -94,49 +97,9 @@ function ProductsByCategoryPage() {
           <ProductFilter filters={filters} onFilterChange={setFilters} />
 
           <div className={styles.allProducts_Flex}>
-            {displayedProducts.map((product) => {
-              const discountPercentage = product.discont_price
-                ? Math.round(
-                    ((product.price - product.discont_price) / product.price) *
-                      100
-                  )
-                : null;
-
-              return (
-                <Link
-                  to={`/product/${product.id}`}
-                  className={styles.allProducts_flexBox}
-                  key={product.id}
-                >
-                  <div className={styles.allProductsImg}>
-                    {product.discont_price && (
-                      <div className={styles.discountTag}>
-                        {t('discount', { percentage: discountPercentage })}
-                      </div>
-                    )}
-
-                    <img
-                      src={`${API_URL}${product.image}`}
-                      alt={product.title}
-                    />
-
-                    <div className={styles.button_cont}>
-                      <Button1 productId={product.id} />
-                    </div>
-                  </div>
-
-                  <div className={styles.allProducts_text}>
-                    <p className={styles.allProducts_text1}>{product.title}</p>
-                    <p className={styles.allProducts_textP}>
-                      ${product.discont_price ? product.discont_price : product.price}{" "}
-                      {product.discont_price && (
-                        <span>${product.price}</span>
-                      )}
-                    </p>
-                  </div>
-                </Link>
-              );
-            })}
+            {displayedProducts.map((product) => (
+                <ProductCardAll key={product.id} product={product} />
+            ))}
           </div>
         </div>
       </div>
@@ -145,3 +108,37 @@ function ProductsByCategoryPage() {
 }
 
 export default ProductsByCategoryPage;
+
+
+// {/* <Link
+//                   to={`/product/${product.id}`}
+//                   className={styles.allProducts_flexBox}
+//                   key={product.id}
+//                 >
+//                   <div className={styles.allProductsImg}>
+//                     {product.discont_price && (
+//                       <div className={styles.discountTag}>
+//                         {t('discount', { percentage: discountPercentage })}
+//                       </div>
+//                     )}
+
+//                     <img
+//                       src={`${API_URL}${product.image}`}
+//                       alt={product.title}
+//                     />
+
+//                     <div className={styles.button_cont}>
+//                       <Button1 productId={product.id} />
+//                     </div>
+//                   </div>
+
+//                   <div className={styles.allProducts_text}>
+//                     <p className={styles.allProducts_text1}>{product.title}</p>
+//                     <p className={styles.allProducts_textP}>
+//                       ${product.discont_price ? product.discont_price : product.price}{" "}
+//                       {product.discont_price && (
+//                         <span>${product.price}</span>
+//                       )}
+//                     </p>
+//                   </div>
+//                 </Link> */}

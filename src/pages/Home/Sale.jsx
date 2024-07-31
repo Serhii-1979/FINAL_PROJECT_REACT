@@ -1,9 +1,10 @@
+// Sale.js
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
+import { Link } from 'react-router-dom';
 import { useTranslation } from "react-i18next";
-import {API_URL} from "../../api"
-
+import { API_URL } from "../../api";
+import ProductCard from "../../components/ListCategories/ProductCard"
 import styles from "./sale.module.css";
 
 function Sale() {
@@ -40,31 +41,9 @@ function Sale() {
       </div>
 
       <div className={styles.sale_flex}>
-        {displayedSales.map((sale) => {
-          const discountPercentage = Math.round(
-            ((sale.price - sale.discont_price) / sale.price) * 100
-          );
-
-          return (
-            <Link to="/allSales" key={sale.id} className={styles.sale_flexBox}>
-              <div className={styles.sale_flexBoxImg}>
-                <img
-                  src={`${API_URL}${sale.image}`}
-                  alt={sale.title}
-                />
-                <div className={styles.discountTag}>
-                  {t('discount', { percentage: discountPercentage })}
-                </div>
-              </div>
-              <div className={styles.sale_text}>
-                <p className={styles.sale_text1}>{sale.title}</p>
-                <p className={styles.sale_textP}>
-                  ${sale.discont_price} <span>${sale.price}</span>
-                </p>
-              </div>
-            </Link>
-          );
-        })}
+        {displayedSales.map((sale) => (
+          <ProductCard key={sale.id} product={sale} />
+        ))}
       </div>
     </div>
   );

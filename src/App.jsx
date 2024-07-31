@@ -5,7 +5,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 import Header from "./components/Header/Header";
-import Footer from "./components/footer/Footer";
+import Footer from "./components/Footer/Footer";
 import MainPage from "../src/pages/Home/MainPage";
 import CategoriesPage from "./pages/Categories/CategoriesPage";
 import AllProductsPage from "./pages/Products/All/AllProductsPage";
