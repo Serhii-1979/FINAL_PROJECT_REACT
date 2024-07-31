@@ -1,0 +1,45 @@
+.CartPage_rigth {
+  width: 40%;
+  height: 100%;
+  background-color: #f1f3f4;
+  border-radius: 12px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.CartPage_Oder {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.CartPage_Oder h3 {
+  font-size: 2.3rem;
+}
+.CartPage_Oder_price p {
+  font-size: 2.2rem;
+  font-weight: 500;
+  line-height: 52px;
+  text-align: left;
+  color: #8b8b8b;
+}
+.CartPage_Oder_span {
+  font-size: 2.2rem;
+  font-weight: 500;
+  line-height: 52px;
+  text-align: left;
+  color: #8b8b8b;
+}
+.CartPage_Oder_Total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.CartPage_Oder_Total .CartPage_Oder_TotalPrice {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 4rem;
+  text-align: left;
+  color: #282828;
+}

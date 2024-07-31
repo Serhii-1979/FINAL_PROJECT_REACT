@@ -1,14 +1,15 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import styles from './Button1.module.css';
 
 function Button1({ product }) {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [isClicked, setIsClicked] = React.useState(false);
 
   useEffect(() => {
     if (product && product.id) {
-
       const clickedProducts = JSON.parse(localStorage.getItem('clickedProducts')) || {};
       if (clickedProducts[product.id]) {
         setIsClicked(true);
@@ -20,7 +21,6 @@ function Button1({ product }) {
     if (product && product.id) {
       setIsClicked(true);
 
- 
       const clickedProducts = JSON.parse(localStorage.getItem('clickedProducts')) || {};
       clickedProducts[product.id] = true;
       localStorage.setItem('clickedProducts', JSON.stringify(clickedProducts));
@@ -36,7 +36,7 @@ function Button1({ product }) {
         onClick={handleClick}
         disabled={isClicked}
       >
-        {isClicked ? 'Added' : 'Add to cart'}
+        {isClicked ? t('added') : t('addToCart')}
       </button>
     </div>
   );

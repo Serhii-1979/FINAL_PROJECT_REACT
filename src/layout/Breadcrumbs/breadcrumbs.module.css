@@ -15,12 +15,17 @@
   font-size: 16px;
   font-weight: 500;
   color: #8b8b8b;
+  
 }
 .categories_nav:hover {
     background-color: #ececec;
 }
 .categories_nav .categories_navP {
   color: rgb(64, 64, 64);
+  max-width: 170px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .categories_line {
   width: 16px;

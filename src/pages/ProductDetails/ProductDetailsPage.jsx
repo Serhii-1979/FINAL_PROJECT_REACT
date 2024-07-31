@@ -7,8 +7,8 @@ import axios from "axios";
 import { calculateDiscountPercentage } from "../../util/calculateDiscount";
 import QuantitySelector from "../../layout/QuantitySelector";
 import BreadcrumbsDetail from "../../layout/Breadcrumbs/BreadcrumbsDetail";
-import { addProduct } from "../../redux/cartSlice";
 import { API_URL } from "../../api";
+import { handleIncrease, handleDecrease, handleAddToCart, handleLoading } from "../../util/productDetailsUtils";
 
 import styles from "./ProductDetailsPage.module.css";
 
@@ -24,11 +24,8 @@ function ProductDetailsPage() {
   useEffect(() => {
     const fetchCategoryTitle = async (categoryId) => {
       try {
-        const categoryResponse = await axios.get(
-          `${API_URL}/categories/${categoryId}`
-        );
+        const categoryResponse = await axios.get(`${API_URL}/categories/${categoryId}`);
         const categoryData = categoryResponse.data;
-        console.log("Category data fetched:", categoryData);
 
         setCategoryTitle(categoryData.category.title);
       } catch (error) {
@@ -39,11 +36,7 @@ function ProductDetailsPage() {
     const fetchProductDetails = async () => {
       try {
         const response = await axios.get(`${API_URL}/products/${productId}`);
-        console.log("Product data fetched:", response.data);
-
-        const productData = Array.isArray(response.data)
-          ? response.data[0]
-          : response.data;
+        const productData = Array.isArray(response.data) ? response.data[0] : response.data;
 
         if (!productData || !productData.title) {
           throw new Error("Product data is invalid or missing title");
@@ -51,10 +44,7 @@ function ProductDetailsPage() {
 
         setProduct(productData);
 
-        const discount = calculateDiscountPercentage(
-          productData.price,
-          productData.discont_price
-        );
+        const discount = calculateDiscountPercentage(productData.price, productData.discont_price);
         setDiscountPercentage(discount);
 
         if (productData.categoryId) {
@@ -68,35 +58,14 @@ function ProductDetailsPage() {
     fetchProductDetails();
   }, [productId]);
 
-  const handleIncrease = () => {
-    setQuantity(quantity + 1);
-  };
-
-  const handleDecrease = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-    }
-  };
-
-  const handleAddToCart = () => {
-    if (product && product.id) {
-      dispatch(addProduct({ ...product, quantity }));
-    } else {
-      console.error("Product data is missing or incorrect:", product);
-    }
-  };
-
   if (!product.title) {
-    return <div>{t('loading')}</div>;
+    return handleLoading(product, t);
   }
 
   return (
     <div className={styles.DetailsPage_container}>
       <div className={styles.categories_navigation}>
-        <BreadcrumbsDetail
-          categoryTitle={categoryTitle}
-          productTitle={product.title}
-        />
+        <BreadcrumbsDetail categoryTitle={categoryTitle} productTitle={product.title} />
       </div>
       <div className={styles.DetailsPage_cont} data-aos="fade-up">
         <div className={styles.DetailsPage_cont_img}>
@@ -123,12 +92,12 @@ function ProductDetailsPage() {
             <div className={styles.DetailsPage_Frame_counter}>
               <QuantitySelector
                 quantity={quantity}
-                onIncrease={handleIncrease}
-                onDecrease={handleDecrease}
+                onIncrease={() => handleIncrease(quantity, setQuantity)}
+                onDecrease={() => handleDecrease(quantity, setQuantity)}
               />
             </div>
             <div className={styles.DetailsPage_Frame_btn}>
-              <Button2 onClick={handleAddToCart} />
+              <Button2 onClick={() => handleAddToCart(product, quantity, dispatch)} />
             </div>
           </div>
           <div className={styles.DetailsPage_text}>

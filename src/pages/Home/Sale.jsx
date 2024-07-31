@@ -1,11 +1,12 @@
 // Sale.js
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { useTranslation } from "react-i18next";
 import { API_URL } from "../../api";
 import ProductCard from "../../components/ListCategories/ProductCard"
 import styles from "./sale.module.css";
+import NavigationButton from "../../components/NavButton/NavigationButton";
 
 function Sale() {
   const { t } = useTranslation();
@@ -32,12 +33,7 @@ function Sale() {
     <div className={styles.sale_container} data-aos="fade-up">
       <div className={styles.sale_cont}>
         <h1>{t('sale')}</h1>
-        <Link to="/allSales" className={styles.mainCategories_contLink}>
-          <button className={styles.sale_contLine}>
-            <div className={styles.mainCategories_line}></div>
-            <p>{t('allSalesHome')}</p>
-          </button>
-        </Link>
+        <NavigationButton to="/allSales" textKey="allSales" />
       </div>
 
       <div className={styles.sale_flex}>

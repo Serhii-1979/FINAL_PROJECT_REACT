@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
-import CategoryCard from "../../components/ListCategories/CategoryCard"
+import CategoryCard from "../../components/ListCategories/CategoryCard";
+import NavigationButton from "../../components/NavButton/NavigationButton";
+
+import {API_URL} from "../../api"
 
 import styles from "./mainCategories.module.css";
+
+
 
 function MainCategories() {
   const { t } = useTranslation();
@@ -14,7 +18,7 @@ function MainCategories() {
     const fetchCategories = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3333/categories/all"
+          `${API_URL}/categories/all`
         );
         setCategories(response.data);
       } catch (error) {
@@ -30,12 +34,7 @@ function MainCategories() {
     <div className={styles.mainCategories_container} data-aos="fade-up">
       <div className={styles.mainCategories_cont}>
         <h1>{t('categoriesHome')}</h1>
-        <Link to="/categories" className={styles.mainCategories_contLink}>
-          <button className={styles.mainCategories_contLine}>
-            <div className={styles.mainCategories_line}></div>
-            <p>{t('allCategories')}</p>
-          </button>
-        </Link>
+        <NavigationButton to="/categories" textKey="allCategories" />
       </div>
       <div className={styles.mainCategories_flex}>
         {displayedCategories.map((category) => (

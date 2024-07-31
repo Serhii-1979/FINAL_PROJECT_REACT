@@ -50,7 +50,12 @@ const DiscountForm = () => {
           type="submit"
           fullWidth
           variant="contained"
-          sx={{ mt: 2, p: 1.5, bgcolor: 'white', color: 'black' }}
+          sx={{
+            padding: 1.5,
+            bgcolor: 'white',
+            color: 'black',
+            width: '100%',
+          }}
         >
           {t('getDiscount')}
         </Button>

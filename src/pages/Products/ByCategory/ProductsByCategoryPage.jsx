@@ -1,19 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { useParams} from "react-router-dom";
-// import { useTranslation } from "react-i18next";
-
+import { useParams } from "react-router-dom";
 import ProductFilter from "../../../layout/ProductFilter/ProductFilter";
 import BreadcrumbsByCategory from "../../../layout/Breadcrumbs/BreadcrumbsByCategory";
 import ProductCardAll from "../../../components/ListCategories/ProductCardAll";
-
 import styles from "./ProductsByCategoryPage.module.css";
-
 import axios from "axios";
 import { API_URL } from "../../../api";
-
+import { filterProducts, sortProducts } from "../../../util/FilterProdByCategory";
 
 function ProductsByCategoryPage() {
-  // const { t } = useTranslation();
   const { categoryId } = useParams();
   const [products, setProducts] = useState([]);
   const [categoryTitle, setCategoryTitle] = useState("");
@@ -51,39 +46,10 @@ function ProductsByCategoryPage() {
     fetchProductsByCategory();
   }, [categoryId]);
 
-  const filteredProducts = products.filter((product) => {
-    const { priceFrom, priceTo, discounted } = filters;
-    const price = product.discont_price !== null ? product.discont_price : product.price;
-    let isMatch = true;
+  const filteredProducts = filterProducts(products, filters);
+  const sortedProducts = sortProducts(filteredProducts, filters.sort);
 
-    if (priceFrom && price < parseFloat(priceFrom)) {
-      isMatch = false;
-    }
-    if (priceTo && price > parseFloat(priceTo)) {
-      isMatch = false;
-    }
-
-    if (discounted && !product.discont_price) {
-      isMatch = false;
-    }
-
-    return isMatch;
-  });
-
-  filteredProducts.sort((a, b) => {
-    if (filters.sort === "newest") {
-      return new Date(b.createdAt) - new Date(a.createdAt);
-    }
-    if (filters.sort === "price-high-low") {
-      return (b.discont_price || b.price) - (a.discont_price || a.price);
-    }
-    if (filters.sort === "price-low-high") {
-      return (a.discont_price || a.price) - (b.discont_price || b.price);
-    }
-    return 0;
-  });
-
-  const displayedProducts = filteredProducts.slice(0, 8);
+  const displayedProducts = sortedProducts.slice(0, 8);
 
   return (
     <div className={styles.categories} data-aos="fade-up">
@@ -98,7 +64,7 @@ function ProductsByCategoryPage() {
 
           <div className={styles.allProducts_Flex}>
             {displayedProducts.map((product) => (
-                <ProductCardAll key={product.id} product={product} />
+              <ProductCardAll key={product.id} product={product} />
             ))}
           </div>
         </div>
@@ -108,37 +74,3 @@ function ProductsByCategoryPage() {
 }
 
 export default ProductsByCategoryPage;
-
-
-// {/* <Link
-//                   to={`/product/${product.id}`}
-//                   className={styles.allProducts_flexBox}
-//                   key={product.id}
-//                 >
-//                   <div className={styles.allProductsImg}>
-//                     {product.discont_price && (
-//                       <div className={styles.discountTag}>
-//                         {t('discount', { percentage: discountPercentage })}
-//                       </div>
-//                     )}
-
-//                     <img
-//                       src={`${API_URL}${product.image}`}
-//                       alt={product.title}
-//                     />
-
-//                     <div className={styles.button_cont}>
-//                       <Button1 productId={product.id} />
-//                     </div>
-//                   </div>
-
-//                   <div className={styles.allProducts_text}>
-//                     <p className={styles.allProducts_text1}>{product.title}</p>
-//                     <p className={styles.allProducts_textP}>
-//                       ${product.discont_price ? product.discont_price : product.price}{" "}
-//                       {product.discont_price && (
-//                         <span>${product.price}</span>
-//                       )}
-//                     </p>
-//                   </div>
-//                 </Link> */}

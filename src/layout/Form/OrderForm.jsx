@@ -93,6 +93,8 @@ const styles = {
     borderRadius: "4px",
     fontSize: "20px",
     cursor: "pointer",
+    width: "100%",
+    margin: "0 auto",
   },
   error: {
     color: "red",

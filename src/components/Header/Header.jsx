@@ -55,6 +55,7 @@ function Header() {
         <select value={language} onChange={handleLanguageChange}>
           <option value="en">En</option>
           <option value="ru">Ru</option>
+          <option value="ua">Ua</option>
           <option value="de">De</option>
         </select>
         <Link to="/cart">
