@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
+import CategoryCard from "../../components/ListCategories/CategoryCard"
+
 import styles from "./mainCategories.module.css";
 
 function MainCategories() {
+  const { t } = useTranslation();
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -25,23 +29,17 @@ function MainCategories() {
   return (
     <div className={styles.mainCategories_container} data-aos="fade-up">
       <div className={styles.mainCategories_cont}>
-        <h1>Categories</h1>
+        <h1>{t('categoriesHome')}</h1>
         <Link to="/categories" className={styles.mainCategories_contLink}>
           <button className={styles.mainCategories_contLine}>
             <div className={styles.mainCategories_line}></div>
-            <p>All categories</p>
+            <p>{t('allCategories')}</p>
           </button>
         </Link>
       </div>
       <div className={styles.mainCategories_flex}>
         {displayedCategories.map((category) => (
-          <Link to={`/categories/${category.id}`} key={category.id} className={styles.mainCategories_flexBox}>
-            <img
-              src={`http://localhost:3333${category.image}`}
-              alt={category.title}
-            />
-            <p>{category.title}</p>
-          </Link>
+          <CategoryCard key={category.id} category={category} />
         ))}
       </div>
     </div>

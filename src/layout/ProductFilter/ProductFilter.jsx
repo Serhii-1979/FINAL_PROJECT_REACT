@@ -1,7 +1,10 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styles from './ProductFilter.module.css';
 
 function ProductFilter({ filters, onFilterChange, hideDiscountFilter }) {
+  const { t } = useTranslation();
+
   const handlePriceChange = (e) => {
     onFilterChange({ ...filters, [e.target.name]: e.target.value });
   };
@@ -17,13 +20,13 @@ function ProductFilter({ filters, onFilterChange, hideDiscountFilter }) {
   return (
     <div className={styles.allProducts_title}>
       <div className={styles.allProducts_titlePrice}>
-        <label className={styles.allProducts_titleP}>Price</label>
+        <label className={styles.allProducts_titleP}>{t('price')}</label>
         <input
           type="text"
           name="priceFrom"
           className={styles.allProducts_titleP1}
           value={filters.priceFrom || ''}
-          placeholder="from"
+          placeholder={t('from')}
           onChange={handlePriceChange}
         />
         <input
@@ -31,7 +34,7 @@ function ProductFilter({ filters, onFilterChange, hideDiscountFilter }) {
           name="priceTo"
           className={styles.allProducts_titleP1}
           value={filters.priceTo || ''}
-          placeholder="to"
+          placeholder={t('to')}
           onChange={handlePriceChange}
         />
       </div>
@@ -39,23 +42,24 @@ function ProductFilter({ filters, onFilterChange, hideDiscountFilter }) {
       {!hideDiscountFilter && (
         <div className={styles.allProducts_titlePrice}>
           <label className={styles.allProducts_titleP}>
-            Discounted items</label>
-            <input
-              type="checkbox"
-              className={styles.allProducts_title_input}
-              checked={filters.discounted || false}
-              onChange={handleDiscountChange}
-            />
+            {t('discountedItems')}
+          </label>
+          <input
+            type="checkbox"
+            className={styles.allProducts_title_input}
+            checked={filters.discounted || false}
+            onChange={handleDiscountChange}
+          />
         </div>
       )}
 
       <div className={styles.allProducts_titlePrice}>
-        <label className={styles.allProducts_titleP}>Sorted</label>
+        <label className={styles.allProducts_titleP}>{t('sorted')}</label>
         <select value={filters.sort || 'default'} onChange={handleSortChange} className={styles.allProducts_titleSelect}>
-          <option value="default">by default</option>
-          <option value="newest">newest</option>
-          <option value="price-high-low">price: high-low</option>
-          <option value="price-low-high">price: low-high</option>
+          <option value="default">{t('byDefault')}</option>
+          <option value="newest">{t('newest')}</option>
+          <option value="price-high-low">{t('priceHighToLow')}</option>
+          <option value="price-low-high">{t('priceLowToHigh')}</option>
         </select>
       </div>
     </div>

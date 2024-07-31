@@ -1,9 +1,8 @@
 
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-
 
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
@@ -16,17 +15,45 @@ import ProductDetailsPage from "./pages/ProductDetails/ProductDetailsPage";
 import CartPage from "./pages/Cart/CartPage";
 import NotFoundPage from "./pages/NotFound/NotFoundPage"
 import ConnectedModal from "./layout/Modal/ConnectedModal";
+import CookietModal from "./layout/Modal/CookieModal"
+
 
 
 import styles from "./index.module.css";
 
 export default function App() {
+  const [isCookieConsentOpen, setCookieConsentOpen] = useState(false);
+
 
   useEffect(() => {
     AOS.init({
       duration: 500,
     });
   }, []);
+
+  useEffect(() => {
+    const consent = localStorage.getItem('cookieConsent');
+    if (!consent) {
+
+      const timer = setTimeout(() => {
+        setCookieConsentOpen(true);
+      }, 10000);
+
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
+
+  const handleAccept = () => {
+    localStorage.setItem('cookieConsent', 'accepted');
+    setCookieConsentOpen(false);
+  };
+
+  const handleDecline = () => {
+    localStorage.setItem('cookieConsent', 'declined');
+    setCookieConsentOpen(false);
+  };
+
 
   return (
     <Router>
@@ -44,6 +71,11 @@ export default function App() {
         </Routes>
         <Footer />
         <ConnectedModal />
+        <CookietModal
+        isOpen={isCookieConsentOpen}
+        onAccept={handleAccept}
+        onDecline={handleDecline}
+      />
       </div>
     </Router>
   );

@@ -1,10 +1,13 @@
 import React, { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import titleImg from "../../assets/images/titleHeader.png";
 import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
 import styles from "./mainPage.module.css";
 
 function MainPageTitle() {
+  const { t } = useTranslation();
+
   useEffect(() => {
     const handleScroll = () => {
       const imgElement = document.querySelector(`.${styles.mainPageTitle_img} img`);
@@ -27,9 +30,9 @@ function MainPageTitle() {
       </div>
       <div className={styles.mainPageTitle_text}>
         <h1>
-          Amazing Discounts
+          {t('amazingDiscounts')}
           <br />
-          on Pets Products!
+          {t('onPetsProducts')}
         </h1>
         <Link to="/allSales">
           <Button
@@ -48,7 +51,7 @@ function MainPageTitle() {
               },
             }}
           >
-            Check out
+            {t('checkOut')}
           </Button>
         </Link>
       </div>

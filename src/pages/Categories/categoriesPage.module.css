@@ -30,25 +30,4 @@
   line-height: 70.4px;
   text-align: left;
 }
-.categories_flex_box {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  text-align: center;
-  transition: all 0.3s ease-in-out;
-}
-.categories_flex_box:hover {
-  background-color: #f0f0f0;
-  transform: translateY(-2px);
-  box-shadow: 0 0 10px silver;
-}
-.categories_flex_box p {
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 26px;
-  text-align: center;
-  text-decoration: none;
-}
-.categories_flex_box img {
-  width: 100%;
-}
+

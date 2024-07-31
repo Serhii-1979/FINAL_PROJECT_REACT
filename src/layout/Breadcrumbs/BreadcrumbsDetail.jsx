@@ -1,31 +1,34 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import styles from "./breadcrumbs.module.css";
 
 function BreadcrumbsDetail({ categoryTitle, productTitle }) {
+  const { t } = useTranslation();
+
   return (
     <div className={styles.categories_cont_nav}>
       <div className={styles.categories_nav}>
         <Link to="/" className={styles.breadcrumbLink}>
-          Main page
+          {t('mainPage')}
         </Link>
       </div>
       <div className={styles.categories_line}></div>
       <div className={styles.categories_nav}>
         <Link to="/categories" className={styles.breadcrumbLink}>
-          Categories
+          {t('categories')}
         </Link>
       </div>
       <div className={styles.categories_line}></div>
       <div className={styles.categories_nav}>
         <Link to="/" className={styles.breadcrumbLink}>
-          {categoryTitle}
+          {categoryTitle || t('categoryTitle')}
         </Link>
       </div>
       <div className={styles.categories_line}></div>
       <div className={styles.categories_nav}>
         <p title={productTitle} className={`${styles.categories_navP} ${styles.activeBreadcrumb}`}>
-          {productTitle}
+          {productTitle || t('productTitle')}
         </p>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import Button1 from "../../../layout/Button1";
 import styles from "./AllSales.module.css";
 import ProductFilter from "../../../layout/ProductFilter/ProductFilter";
@@ -8,9 +9,8 @@ import axios from "axios";
 
 import { API_URL } from "../../../api"
 
-
-
 function AllSales() {
+  const { t } = useTranslation();
   const [products, setProducts] = useState([]);
   const [filters, setFilters] = useState({
     priceFrom: "",
@@ -71,7 +71,7 @@ function AllSales() {
 
       <div className={styles.allProducts_container}>
         <div className={styles.allProducts_flex}>
-          <h2>Discounted items</h2>
+          <h2>{t("discountedItems")}</h2>
           <ProductFilter
             filters={filters}
             onFilterChange={setFilters}
@@ -93,11 +93,11 @@ function AllSales() {
                   <div className={styles.allProductsImg}>
                     {product.discont_price && (
                       <div className={styles.discountTag}>
-                        -{discountPercentage}%
+                        {t('discount', { percentage: discountPercentage })}
                       </div>
                     )}
                     <img
-                      src={`http://localhost:3333${product.image}`}
+                      src={`${API_URL}${product.image}`}
                       alt={product.title}
                     />
                     <div className={styles.button_cont}>

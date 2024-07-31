@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import styles from "./ProductsByCategoryPage.module.css";
 import Button1 from "../../../layout/Button1";
 import ProductFilter from "../../../layout/ProductFilter/ProductFilter";
@@ -8,6 +9,7 @@ import BreadcrumbsByCategory from "../../../layout/Breadcrumbs/BreadcrumbsByCate
 import { API_URL } from "../../../api";
 
 function ProductsByCategoryPage() {
+  const { t } = useTranslation();
   const { categoryId } = useParams();
   const [products, setProducts] = useState([]);
   const [categoryTitle, setCategoryTitle] = useState("");
@@ -109,13 +111,13 @@ function ProductsByCategoryPage() {
                   <div className={styles.allProductsImg}>
                     {product.discont_price && (
                       <div className={styles.discountTag}>
-                        -{discountPercentage}%
+                        {t('discount', { percentage: discountPercentage })}
                       </div>
                     )}
 
                     <img
                       src={`${API_URL}${product.image}`}
-                      alt={product.title} // Удалена лишняя фигурная скобка
+                      alt={product.title}
                     />
 
                     <div className={styles.button_cont}>

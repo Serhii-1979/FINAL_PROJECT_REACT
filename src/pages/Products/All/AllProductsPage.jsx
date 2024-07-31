@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Button1 from "../../../layout/Button1";
 import ProductFilter from "../../../layout/ProductFilter/ProductFilter";
+import { useTranslation } from "react-i18next";
 import styles from "./allProductsPage.module.css";
 import Breadcrumbs from "../../../layout/Breadcrumbs/Breadcrumbs";
 import axios from "axios";
 import { API_URL } from "../../../api";
 
 function AllProducts() {
+  const { t } = useTranslation();
   const [products, setProducts] = useState([]);
   const [filters, setFilters] = useState({
     priceFrom: "",
@@ -69,7 +71,7 @@ function AllProducts() {
       </div>
 
       <div className={styles.allProducts_container}>
-        <h2>Все товары</h2>
+        <h2>{t('allProducts')}</h2>
 
         <ProductFilter filters={filters} onFilterChange={setFilters} />
 
@@ -95,7 +97,7 @@ function AllProducts() {
                     </div>
                   )}
                   <img
-                    src={`http://localhost:3333${product.image}`}
+                    src={`${API_URL}${product.image}`}
                     alt={product.title}
                   />
                   <div className={styles.button_cont}>

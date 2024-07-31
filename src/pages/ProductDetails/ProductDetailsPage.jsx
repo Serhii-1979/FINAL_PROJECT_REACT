@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
-
+import { useTranslation } from "react-i18next";
 import Button2 from "../../layout/Button2";
 import axios from "axios";
 import { calculateDiscountPercentage } from "../../util/calculateDiscount";
@@ -13,6 +13,7 @@ import { API_URL } from "../../api";
 import styles from "./ProductDetailsPage.module.css";
 
 function ProductDetailsPage() {
+  const { t } = useTranslation();
   const { productId } = useParams();
   const dispatch = useDispatch();
   const [product, setProduct] = useState({});
@@ -86,7 +87,7 @@ function ProductDetailsPage() {
   };
 
   if (!product.title) {
-    return <div>Loading...</div>;
+    return <div>{t('loading')}</div>;
   }
 
   return (
@@ -131,7 +132,7 @@ function ProductDetailsPage() {
             </div>
           </div>
           <div className={styles.DetailsPage_text}>
-            <p className={styles.DetailsPage_text_title}>Description</p>
+            <p className={styles.DetailsPage_text_title}>{t('description')}</p>
 
             <div className={styles.DetailsPage_text_container}>
               <p>{product.description}</p>

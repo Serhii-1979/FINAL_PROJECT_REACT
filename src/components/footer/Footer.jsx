@@ -1,23 +1,27 @@
+
 import React from "react";
+import { useTranslation } from "react-i18next";
 import whatsapp from "../../assets/svg/ic-whatsapp.svg";
 import instagram from "../../assets/svg/ic-instagram.svg";
 import styles from "./footer.module.css";
 
 function Footer() {
+  const { t } = useTranslation();
+
   return (
     <div className={styles.footer}>
       <div className={styles.footer_title}>
-        <p>Contact</p>
+        <p>{t('contact')}</p>
       </div>
       <div className={styles.footer_container}>
         <div className={styles.footer_info}>
           <div className={styles.footer_info_cards}>
             <div className={styles.footer_info_phone}>
-              <p className={styles.footer_info_phone_title}>Phone</p>
+              <p className={styles.footer_info_phone_title}>{t('phone')}</p>
               <p className={styles.footer_info_phone_number}>+49 30 915-88492</p>
             </div>
             <div className={styles.footer_info_social}>
-              <p className={styles.footer_info_phone_title}>Social</p>
+              <p className={styles.footer_info_phone_title}>{t('social')}</p>
               <div className={styles.footer_info_phone_img}>
                 <img src={instagram} alt="Instagram" />
                 <img src={whatsapp} alt="WhatsApp" />
@@ -26,12 +30,12 @@ function Footer() {
           </div>
           <div className={styles.footer_info_cards}>
             <div className={styles.footer_info_phone}>
-              <p className={styles.footer_info_phone_title}>Address</p>
+              <p className={styles.footer_info_phone_title}>{t('address')}</p>
               <p className={styles.footer_info_phone_number}>Wallstraße 9-13, 10179 Berlin, Deutschland</p>
             </div>
             <div className={styles.footer_info_social}>
-              <p className={styles.footer_info_phone_title}>Working Hours</p>
-              <p className={styles.footer_info_phone_number}>24 hours a day</p>
+              <p className={styles.footer_info_phone_title}>{t('workingHours')}</p>
+              <p className={styles.footer_info_phone_number}>{t('hoursDay')}</p>
             </div>
           </div>
         </div>

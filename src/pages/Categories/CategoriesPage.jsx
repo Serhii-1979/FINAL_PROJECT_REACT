@@ -1,16 +1,14 @@
-import { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
-import styles from "./categoriesPage.module.css";
-import axios from "axios";
-import Breadcrumbs from "../../layout/Breadcrumbs/Breadcrumbs";
-
-import { API_URL } from "../../api"
-
-
-
-
+// CategoriesPage.js
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { useTranslation } from 'react-i18next';
+import Breadcrumbs from '../../layout/Breadcrumbs/Breadcrumbs';
+import CategoryCard from '../../components/ListCategories/CategoryCard';
+import styles from './categoriesPage.module.css';
+import { API_URL } from '../../api';
 
 function CategoriesPage() {
+  const { t } = useTranslation();
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -18,7 +16,8 @@ function CategoriesPage() {
       try {
         const response = await axios.get(`${API_URL}/categories/all`);
         setCategories(response.data);
-      } catch (error) {   
+      } catch (error) {
+        console.error("Error fetching categories", error);
       }
     };
     fetchCategories();
@@ -31,17 +30,10 @@ function CategoriesPage() {
       </div>
       <div className={styles.categories_container}>
         <div className={styles.categories_flex}>
-          <h2>Categories</h2>
+          <h2>{t('categories')}</h2>
           <div className={styles.categories_flexBox}>
             {categories.map(category => (
-              <Link
-                to={`/categories/${category.id}`}
-                className={styles.categories_flex_box}
-                key={category.id}
-              >
-                <img src={`http://localhost:3333${category.image}`} alt="img" />
-                <p>{category.title}</p>
-              </Link>
+              <CategoryCard key={category.id} category={category} />
             ))}
           </div>
         </div>
