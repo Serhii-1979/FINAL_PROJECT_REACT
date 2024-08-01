@@ -31,7 +31,6 @@
   color: white;
   padding: 4px 8px;
   border-radius: 4px;
-  font-size: 14px;
   font-size: 20px;
   font-weight: 600;
   line-height: 26px;
@@ -68,4 +67,61 @@
   line-height: 26px;
   text-align: left;
   color: #8b8b8b;
+}
+
+
+
+@media (max-width: 1200px) {
+  .sale_text1 {
+    font-size: 1.1rem;
+  }
+  .sale_text {
+    gap: 12px;
+    padding: 0 12px 12px 12px;
+  }
+  .sale_textP {
+    font-size: 24px;
+  }
+  .discountTag {
+    font-size: 16px;
+  }
+  .sale_flexBox {
+    gap: 16px;
+  }
+}
+
+
+@media (max-width: 922px) {
+ 
+}
+
+@media (max-width: 768px) {
+  .sale_text1 {
+    font-size: 1rem;
+  }
+  .sale_text {
+    gap: 12px;
+    padding: 0 12px 12px 12px;
+  }
+  .sale_textP {
+    font-size: 24px;
+  }
+  .sale_textP span {
+    font-size: 18px;
+  }
+  .discountTag {
+    font-size: 16px;
+  }
+  .sale_flexBox {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+
+}
+
+
+@media (max-width: 390px) {
+
 }

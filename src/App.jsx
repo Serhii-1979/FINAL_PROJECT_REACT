@@ -19,7 +19,7 @@ import CookietModal from "./layout/Modal/CookieModal"
 
 
 
-import styles from "./index.module.css";
+import "./index.css";
 
 export default function App() {
   const [isCookieConsentOpen, setCookieConsentOpen] = useState(false);
@@ -57,7 +57,7 @@ export default function App() {
 
   return (
     <Router>
-      <div className={styles.App}>
+      <div className="App">
         <Header />
         <Routes>
           <Route path="/" element={<MainPage />} />

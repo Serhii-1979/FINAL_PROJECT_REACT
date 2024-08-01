@@ -1,0 +1,68 @@
+.toggle_theme_button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 42px;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+  padding: 15%;
+  border: 1px solid silver;
+}
+.toggle_theme_button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.theme_icon {
+  width: 100%;
+  height: 100%;
+}
+body.light_theme {
+  background-color: #ffffff;
+  color: #000000;
+}
+body.dark_theme {
+  background-color: #1c1c1c;
+  color: #ffffff;
+}
+
+
+
+
+
+@media (max-width: 1200px) {
+  
+}
+
+
+@media (max-width: 922px) {
+  .toggle_theme_button {
+    width: 35px;
+    height: 100%;
+    padding: 15%;
+  }
+}
+
+
+@media (max-width: 768px) {
+
+}
+
+@media (max-width: 480px) {
+
+}
+
+
+@media (max-width: 390px) {
+
+}
+
+
+
+
+
+
+

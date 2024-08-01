@@ -22,7 +22,42 @@
   line-height: 26px;
   text-align: center;
   text-decoration: none;
+  overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
 }
 .categories_flex_box img {
   width: 100%;
+}
+
+
+@media (max-width: 1200px) {
+  .categories_flex_box p {
+    font-size: 1.2rem;
+  }
+}
+@media (max-width: 922px) {
+  .categories_flex_box p {
+    font-size: 1.1rem;
+  }
+}
+@media (max-width: 768px) {
+ 
+}
+
+@media (max-width: 576px) {
+  .categories_flex_box p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+
+}
+
+
+@media (max-width: 390px) {
+
 }

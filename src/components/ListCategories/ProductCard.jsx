@@ -1,9 +1,8 @@
-
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import { API_URL } from '../../api';
-import styles from './ProductCard.module.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { API_URL } from "../../api";
+import styles from "./ProductCard.module.css";
 
 function ProductCard({ product }) {
   const { t } = useTranslation();
@@ -14,13 +13,10 @@ function ProductCard({ product }) {
   return (
     <Link to={`/product/${product.id}`} className={styles.sale_flexBox}>
       <div className={styles.sale_flexBoxImg}>
-        <img
-          src={`${API_URL}${product.image}`}
-          alt={product.title}
-        />
+        <img src={`${API_URL}${product.image}`} alt={product.title} />
         {product.discont_price && (
           <div className={styles.discountTag}>
-            {t('discount', { percentage: discountPercentage })}
+            {t("discount", { percentage: discountPercentage })}
           </div>
         )}
       </div>

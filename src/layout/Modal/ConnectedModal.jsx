@@ -11,10 +11,13 @@ const ConnectedModal = () => {
   const dispatch = useDispatch();
 
   return (
-    <Modal isOpen={isOpen} onClose={() => dispatch(closeModal())}>
+    <Modal className={styles.modal_flex} isOpen={isOpen} onClose={() => dispatch(closeModal())}>
       <h2 className={styles.modalH2}>{t('Congratul')}</h2>
-      <p className={styles.modalP}>
+      <p className={`${styles.modalP} ${styles.modal_Par}`}>
         {t('orderSuccessMessage')}
+      </p>
+      <p className={`${styles.modalP} ${styles.modal_Par}`}>
+        {t('orderSuccessMessage1')}
       </p>
     </Modal>
   );

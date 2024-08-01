@@ -1,12 +1,18 @@
-
 import React from "react";
-import QuantitySelector from "../../layout/QuantitySelector";
+import QuantitySelector from "../../layout/QuantitySelector1/QuantitySelector1";
 import imgX from "../../assets/svg/x.svg";
 import styles from "./CartProductList.module.css";
 
-import {API_URL} from "../../api"
+import { API_URL } from "../../api";
 
-const CartProductList = ({ products, quantities, handleIncrease, handleDecrease, handleRemoveProduct, t }) => {
+const CartProductList = ({
+  products,
+  quantities,
+  handleIncrease,
+  handleDecrease,
+  handleRemoveProduct,
+  t,
+}) => {
   return (
     <div className={styles.CartPage_left}>
       {products.map((product) => (
@@ -17,11 +23,11 @@ const CartProductList = ({ products, quantities, handleIncrease, handleDecrease,
           <div className={styles.CartProduct_content}>
             <div className={styles.CartProduct_title}>
               <h4>{product.title}</h4>
-              <div 
+              <div
                 className={styles.CartProduct_close}
                 onClick={() => handleRemoveProduct(product.id)}
               >
-                <img src={imgX} alt={t('remove')} />
+                <img src={imgX} alt={t("remove")} />
               </div>
             </div>
 

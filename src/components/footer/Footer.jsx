@@ -11,7 +11,7 @@ function Footer() {
   return (
     <div className={styles.footer}>
       <div className={styles.footer_title}>
-        <p>{t('contact')}</p>
+        <h2>{t('contact')}</h2>
       </div>
       <div className={styles.footer_container}>
         <div className={styles.footer_info}>
@@ -23,8 +23,8 @@ function Footer() {
             <div className={styles.footer_info_social}>
               <p className={styles.footer_info_phone_title}>{t('social')}</p>
               <div className={styles.footer_info_phone_img}>
-                <img src={instagram} alt="Instagram" />
-                <img src={whatsapp} alt="WhatsApp" />
+                <a href="https://www.instagram.com/"><img src={instagram} alt="Instagram"  /></a>
+                <a href="https://www.whatsapp.com/?lang=ru_RU"><img src={whatsapp} alt="WhatsApp" /></a>
               </div>
             </div>
           </div>

@@ -11,6 +11,7 @@ import NavigationButton from "../../components/NavButton/NavigationButton";
 function Sale() {
   const { t } = useTranslation();
   const [sales, setSales] = useState([]);
+  const [itemsToShow, setItemsToShow] = useState(4);
 
   useEffect(() => {
     const fetchSales = async () => {
@@ -21,18 +22,33 @@ function Sale() {
         );
         setSales(discountedProducts);
       } catch (error) {
-        console.error("Error fetching the sales!", error);
+        alert("Error fetching the sales!", error);
       }
     };
     fetchSales();
   }, []);
 
-  const displayedSales = sales.slice(0, 4);
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 922) {
+        setItemsToShow(3);
+      } else {
+        setItemsToShow(4);
+      }
+    };
+    
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Установите начальное значение
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const displayedSales = sales.slice(0, itemsToShow);
 
   return (
     <div className={styles.sale_container} data-aos="fade-up">
       <div className={styles.sale_cont}>
-        <h1>{t('sale')}</h1>
+        <h2>{t('sale')}</h2>
         <NavigationButton to="/allSales" textKey="allSales" />
       </div>
 

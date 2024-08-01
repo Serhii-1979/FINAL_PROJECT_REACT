@@ -2,14 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
-import Button2 from "../../layout/Button2";
+import Button2 from "../../components/button/Button2";
 import axios from "axios";
 import { calculateDiscountPercentage } from "../../util/calculateDiscount";
-import QuantitySelector from "../../layout/QuantitySelector";
+import QuantitySelector from "../../layout/QuantitySelector1/QuantitySelector";
 import BreadcrumbsDetail from "../../layout/Breadcrumbs/BreadcrumbsDetail";
-import { API_URL } from "../../api";
 import { handleIncrease, handleDecrease, handleAddToCart, handleLoading } from "../../util/productDetailsUtils";
-
+import { API_URL } from "../../api";
 import styles from "./ProductDetailsPage.module.css";
 
 function ProductDetailsPage() {
@@ -20,6 +19,9 @@ function ProductDetailsPage() {
   const [discountPercentage, setDiscountPercentage] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const [categoryTitle, setCategoryTitle] = useState("");
+  const [isAdded, setIsAdded] = useState(false);
+
+
 
   useEffect(() => {
     const fetchCategoryTitle = async (categoryId) => {
@@ -29,7 +31,7 @@ function ProductDetailsPage() {
 
         setCategoryTitle(categoryData.category.title);
       } catch (error) {
-        console.error("Error fetching the category title!", error);
+        alert("Error fetching the category title!", error);
       }
     };
 
@@ -61,6 +63,11 @@ function ProductDetailsPage() {
   if (!product.title) {
     return handleLoading(product, t);
   }
+
+  const handleButtonClick = () => {
+    handleAddToCart(product, quantity, dispatch);
+    setIsAdded(true);
+  };
 
   return (
     <div className={styles.DetailsPage_container}>
@@ -97,7 +104,11 @@ function ProductDetailsPage() {
               />
             </div>
             <div className={styles.DetailsPage_Frame_btn}>
-              <Button2 onClick={() => handleAddToCart(product, quantity, dispatch)} />
+              <Button2 
+                onClick={handleButtonClick} 
+                isDisabled={isAdded} 
+                isActive={isAdded} 
+              />
             </div>
           </div>
           <div className={styles.DetailsPage_text}>

@@ -21,7 +21,7 @@ function BreadcrumbsDetail({ categoryTitle, productTitle }) {
       </div>
       <div className={styles.categories_line}></div>
       <div className={styles.categories_nav}>
-        <Link to="/" className={styles.breadcrumbLink}>
+        <Link to="/categories" className={styles.breadcrumbLink}>
           {categoryTitle || t('categoryTitle')}
         </Link>
       </div>

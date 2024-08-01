@@ -9,9 +9,13 @@ const CookietModal = ({ isOpen, onAccept, onDecline }) => {
     <div className={styles.modal_overlay}>
       <div className={styles.modal_content}>
         <h2>Мы используем Cookies</h2>
-        <p>Мы используем файлы cookie для улучшения вашего опыта на нашем сайте. Пожалуйста, согласитесь или откажитесь от использования файлов cookie.</p>
+        <p>Мы используем файлы cookie для улучшения вашего опыта на нашем сайте.</p>
+         <p>Пожалуйста, согласитесь или откажитесь от использования файлов cookie.</p>
+        <div className={styles.modal_button}>
         <button onClick={onAccept}>Согласен</button>
         <button onClick={onDecline}>Отказаться</button>
+        </div>
+        
       </div>
     </div>
   );

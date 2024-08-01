@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { addProduct } from '../../redux/cartSlice';
 import styles from './Button1.module.css';
 
 function Button1({ product }) {
   const { t } = useTranslation();
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [isClicked, setIsClicked] = React.useState(false);
 
   useEffect(() => {
@@ -25,7 +26,7 @@ function Button1({ product }) {
       clickedProducts[product.id] = true;
       localStorage.setItem('clickedProducts', JSON.stringify(clickedProducts));
 
-      navigate(`/product/${product.id}`);
+      dispatch(addProduct(product));
     }
   };
 

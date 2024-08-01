@@ -24,7 +24,7 @@ function AllProducts() {
         const response = await axios.get(`${API_URL}/products/all`);
         setProducts(response.data);
       } catch (error) {
-        console.error("Ошибка при получении продуктов!", error);
+        alert("Ошибка при получении продуктов!", error);
       }
     };
     fetchAllProducts();
@@ -37,7 +37,7 @@ function AllProducts() {
 
   
 
-  const displayedProducts = sortedProducts.slice(0, 12);
+  // const displayedProducts = sortedProducts.slice(0, 12);
 
   return (
     <div className={styles.categories} data-aos="fade-up">
@@ -51,7 +51,7 @@ function AllProducts() {
         <ProductFilter filters={filters} onFilterChange={setFilters} />
 
         <div className={styles.allProducts_Flex}>
-          {displayedProducts.map((product) => (
+          {sortedProducts.map((product) => (
             <ProductCardAll key={product.id} product={product} />
           ))}
         </div>

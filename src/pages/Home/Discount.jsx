@@ -10,7 +10,7 @@ function Discount() {
 
   return (
     <div className={styles.discount} data-aos="fade-up">
-      <h1>{t('firstOrderDiscount')}</h1>
+      <h2>{t('firstOrderDiscount')}</h2>
       <div className={styles.discount_content}>
         <div className={styles.discount_contentIMG}>
           <img src={dogs} alt="img" />

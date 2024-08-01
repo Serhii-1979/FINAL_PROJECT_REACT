@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Button1 from '../../layout/Button1';
+import Button1 from '../../components/button/Button1';
 import { API_URL } from '../../api';
 import styles from './ProductCardAll.module.css';
 

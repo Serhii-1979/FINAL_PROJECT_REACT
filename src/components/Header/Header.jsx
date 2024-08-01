@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
+import ToggleThemeButton from "./ToggleTheme";
 
 import logo from "../../assets/svg/logo.svg";
 import icon from "../../assets/svg/icon.svg";
@@ -26,6 +27,13 @@ function Header() {
   const { t, i18n } = useTranslation();
   const [language, setLanguage] = useState(i18n.language);
   const cartCount = useSelector((state) => state.cart.count);
+  // const [menuOpen, setMenuOpen] = useState(false);
+
+
+  // const toggleMenu = () => {
+  //   setMenuOpen(!menuOpen);
+  // };
+
 
   const handleLanguageChange = (e) => {
     const newLanguage = e.target.value;
@@ -36,9 +44,10 @@ function Header() {
   useEffect(() => {
     console.log("Current language:", i18n.language);
     console.log("Translations loaded:", i18n.store.data);
-  }, [i18n.language, i18n.store.data]); // Добавлена зависимость i18n.store.data
+  }, [i18n.language, i18n.store.data]);
 
   return (
+
     <header className={styles.header}>
       <div className={styles.header_logo}>
         <Link to="/">
@@ -52,12 +61,17 @@ function Header() {
         <SuperNavLink to="/allSales" t={t}>{t('allSales')}</SuperNavLink>
       </nav>
       <div className={styles.header_right}>
-        <select value={language} onChange={handleLanguageChange}>
+        <select className={styles.header_select} value={language} onChange={handleLanguageChange}>
           <option value="en">En</option>
           <option value="ru">Ru</option>
           <option value="ua">Ua</option>
           <option value="de">De</option>
+          <option value="pl">Pl</option>
         </select>
+        <div>
+        <ToggleThemeButton />
+        </div>
+        
         <Link to="/cart">
           <div className={styles.header_logo}>
             <div className={styles.cart_icon}>

@@ -15,7 +15,7 @@ export const handleAddToCart = (product, quantity, dispatch) => {
   if (product && product.id) {
     dispatch(addProduct({ ...product, quantity }));
   } else {
-    console.error("Product data is missing or incorrect:", product);
+    alert("Product data is missing or incorrect:", product);
   }
 };
 

@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import {API_URL} from "../../api"
+import { useTranslation } from "react-i18next";
+import { API_URL } from "../../api";
 
 import "./FormHomePage.css";
 
 function FormHomePage() {
+  const { t, i18n } = useTranslation();
+  const [buttonState, setButtonState] = useState({ disabled: false, text: t('getDiscount') });
   const {
     register,
     handleSubmit,
@@ -13,7 +16,16 @@ function FormHomePage() {
     reset,
   } = useForm();
 
+  useEffect(() => {
+    setButtonState(prevState => ({
+      ...prevState,
+      text: prevState.disabled ? t('requestSubmitted') : t('getDiscount')
+    }));
+  }, [i18n.language, t]); // Следим за изменением языка
+
   const onSubmit = async (data) => {
+    setButtonState({ disabled: true, text: t('requestSubmitted') });
+
     try {
       console.log("Data to be sent:", data);
       const response = await axios.post(`${API_URL}/sale/send`, data, {
@@ -25,32 +37,32 @@ function FormHomePage() {
       reset();
     } catch (error) {
       console.error("Error submitting form:", error);
+      setButtonState({ disabled: false, text: t('getDiscount') });
     }
   };
-  
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} style={styles.form}>
       <div style={styles.inputContainer}>
         <input
           {...register("name", { required: true })}
-          placeholder="Name"
+          placeholder={t('name')}
           className="input-placeholder"
           style={styles.input}
         />
         {errors.name && (
-          <span style={styles.error}>This field is required</span>
+          <span style={styles.error}>{t('nameError')}</span>
         )}
       </div>
 
       <div style={styles.inputContainer}>
         <input
           {...register("phone", { required: true, pattern: /^[0-9]{8}$/ })}
-          placeholder="Phone number"
+          placeholder={t('phoneNumber')}
           className="input-placeholder"
           style={styles.input}
         />
-        {errors.phone && <span style={styles.error}>Invalid phone number</span>}
+        {errors.phone && <span style={styles.error}>{t('phoneError')}</span>}
       </div>
 
       <div style={styles.inputContainer}>
@@ -59,15 +71,19 @@ function FormHomePage() {
             required: true,
             pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
           })}
-          placeholder="Email"
+          placeholder={t('email')}
           className="input-placeholder"
           style={styles.input}
         />
-        {errors.email && <span style={styles.error}>Invalid email</span>}
+        {errors.email && <span style={styles.error}>{t('emailError')}</span>}
       </div>
 
-      <button type="submit" className="button-style btn">
-        Get a discount
+      <button
+        type="submit"
+        className="button-style btn"
+        disabled={buttonState.disabled}
+      >
+        {buttonState.text}
       </button>
     </form>
   );

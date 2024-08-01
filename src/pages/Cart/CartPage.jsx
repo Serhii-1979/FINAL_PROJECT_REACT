@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import ButtonCart from "../../layout/ButtonCart";
+import ButtonCart from "../../components/button/ButtonCart";
 import OrderSummary from "./OrderSummary";
 import CartProductList from "./CartProductList";
 import NavigationButton from "../../components/NavButton/NavigationButton";
@@ -28,7 +28,7 @@ function CartPage() {
     <div className={styles.categories} data-aos="fade-up">
       <div className={styles.mainCategories_cont}>
         <h1>{t('shoppingCart')}</h1>
-        <NavigationButton to="/allProducts" textKey="allProducts" />
+        <NavigationButton to="/allProducts" textKey="backStore" />
       </div>
 
       {totalItems === 0 ? (

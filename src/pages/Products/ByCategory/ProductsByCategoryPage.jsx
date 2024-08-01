@@ -30,7 +30,7 @@ function ProductsByCategoryPage() {
         if (categoryData.category) {
           setCategoryTitle(categoryData.category.title);
         } else {
-          console.error("Category data is missing 'category' field");
+          alert("Category data is missing 'category' field");
         }
 
         if (Array.isArray(categoryData.data)) {
@@ -40,7 +40,7 @@ function ProductsByCategoryPage() {
           console.error("Category data is missing 'data' field or it's not an array");
         }
       } catch (error) {
-        console.error("Error fetching the products or category!", error);
+        alert("Error fetching the products or category!", error);
       }
     };
     fetchProductsByCategory();

@@ -13,6 +13,7 @@ import styles from "./mainCategories.module.css";
 function MainCategories() {
   const { t } = useTranslation();
   const [categories, setCategories] = useState([]);
+  const [itemsToShow, setItemsToShow] = useState(4);
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -22,18 +23,39 @@ function MainCategories() {
         );
         setCategories(response.data);
       } catch (error) {
-        console.error("Error fetching the categories!", error);
+        alert("Error fetching the categories!", error);
       }
     };
     fetchCategories();
   }, []);
 
-  const displayedCategories = categories.slice(0, 4);
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 480) {
+        setItemsToShow(2);
+      } else if (window.innerWidth <= 576) {
+        setItemsToShow(2);
+      } else if (window.innerWidth <= 768) {
+        setItemsToShow(3);
+      } else if (window.innerWidth <= 922) {
+        setItemsToShow(3);
+      } else {
+        setItemsToShow(4);
+      }
+    };
+    
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const displayedCategories = categories.slice(0, itemsToShow);
 
   return (
     <div className={styles.mainCategories_container} data-aos="fade-up">
       <div className={styles.mainCategories_cont}>
-        <h1>{t('categoriesHome')}</h1>
+        <h2>{t('categoriesHome')}</h2>
         <NavigationButton to="/categories" textKey="allCategories" />
       </div>
       <div className={styles.mainCategories_flex}>

@@ -26,7 +26,7 @@ function AllSales() {
         const response = await axios.get(`${API_URL}/products/all`);
         setProducts(response.data);
       } catch (error) {
-        console.error("Error fetching the products!", error);
+        alert("Error fetching the products!", error);
       }
     };
     fetchAllProducts();
