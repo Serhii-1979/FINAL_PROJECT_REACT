@@ -8,7 +8,7 @@ function MainPage() {
   return (
     <div className={styles.mainPage_Img} data-aos="fade-up">
       <MainPageTitle />
-      <div className={styles.mainPage_content}>
+      <div className="mainPageContent">
         <MainCategories />
         <Discount />
         <Sale />

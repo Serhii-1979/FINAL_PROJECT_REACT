@@ -4,14 +4,15 @@ import { useTranslation } from "react-i18next";
 import whatsapp from "../../assets/svg/ic-whatsapp.svg";
 import instagram from "../../assets/svg/ic-instagram.svg";
 import styles from "./footer.module.css";
+import "../../css/global.css"
 
 function Footer() {
   const { t } = useTranslation();
 
   return (
-    <div className={styles.footer}>
+    <div className={styles.footer} data-aos="fade-up">
       <div className={styles.footer_title}>
-        <h2>{t('contact')}</h2>
+        <h2 className="title_h2">{t('contact')}</h2>
       </div>
       <div className={styles.footer_container}>
         <div className={styles.footer_info}>

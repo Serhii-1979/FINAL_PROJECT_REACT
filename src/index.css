@@ -10,6 +10,8 @@
 
 :root {
   --blue-color: #0d50ff;
+  --small-button: #8B8B8B;
+  --smallButton-hov: #ddd;
 }
 
 body {
@@ -23,7 +25,9 @@ body {
 
 
 
-
+@media (max-width: 1440px) {
+ 
+}
 
 
 @media (max-width: 1200px) {
@@ -46,7 +50,6 @@ body {
 @media (max-width: 480px) {
 
 }
-
 
 @media (max-width: 390px) {
 

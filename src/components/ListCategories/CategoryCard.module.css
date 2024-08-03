@@ -1,14 +1,14 @@
 .categories_flex_box {
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 26px;
-    text-align: center;
-    width: 100%;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    text-decoration: none;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 26px;
+  text-align: center;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-decoration: none;
   transition: all 0.3s ease-in-out;
 }
 .categories_flex_box:hover {
@@ -23,15 +23,14 @@
   text-align: center;
   text-decoration: none;
   overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 .categories_flex_box img {
   width: 100%;
 }
-
 
 @media (max-width: 1200px) {
   .categories_flex_box p {
@@ -44,7 +43,6 @@
   }
 }
 @media (max-width: 768px) {
- 
 }
 
 @media (max-width: 576px) {
@@ -54,10 +52,10 @@
 }
 
 @media (max-width: 480px) {
-
 }
 
-
 @media (max-width: 390px) {
-
+  .categories_flex_box {
+    gap: 6px;
+  }
 }

@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import styles from "./AllSales.module.css";
 import ProductFilter from "../../../layout/ProductFilter/ProductFilter";
 import Breadcrumbs from "../../../layout/Breadcrumbs/Breadcrumbs";
-import axios from "axios";
-
-import { API_URL } from "../../../api"
 import ProductCardAll from "../../../components/ListCategories/ProductCardAll";
 
+import { API_URL } from "../../../api"
+import axios from "axios";
 
+import styles from "../All/allProductsPage.module.css";
 
 function AllSales() {
   const { t } = useTranslation();
@@ -65,14 +64,14 @@ function AllSales() {
   const displayedProducts = filteredProducts.slice(0, 8);
 
   return (
-    <div className={styles.categories} data-aos="fade-up">
+    <div className="categories" data-aos="fade-up">
       <div className={styles.categories_navigation}>
         <Breadcrumbs />
       </div>
 
       <div className={styles.allProducts_container}>
-        <div className={styles.allProducts_flex}>
-          <h2>{t("discountedItems")}</h2>
+        
+          <h2 className="title_h2">{t("discountedItems")}</h2>
           <ProductFilter
             filters={filters}
             onFilterChange={setFilters}
@@ -84,7 +83,7 @@ function AllSales() {
                 <ProductCardAll key={product.id} product={product} />
             ))}
           </div>
-        </div>
+        
       </div>
     </div>
   );
@@ -93,3 +92,25 @@ function AllSales() {
 export default AllSales;
 
 
+// {/* <div className="categories" data-aos="fade-up">
+//       <div className={styles.categories_navigation}>
+//         <Breadcrumbs />
+//       </div>
+
+//       <div className={styles.allProducts_container}>
+//         <div className={styles.allProducts_flex}>
+//           <h2 className="title_h2">{t("discountedItems")}</h2>
+//           <ProductFilter
+//             filters={filters}
+//             onFilterChange={setFilters}
+//             hideDiscountFilter={true}
+//           />
+
+//           <div className={styles.allProducts_Flex}>
+//             {displayedProducts.map((product) => (
+//                 <ProductCardAll key={product.id} product={product} />
+//             ))}
+//           </div>
+//         </div>
+//       </div>
+//     </div> */}

@@ -10,6 +10,7 @@ import { API_URL } from '../../api';
 function CategoriesPage() {
   const { t } = useTranslation();
   const [categories, setCategories] = useState([]);
+  const [itemsToShow, setItemsToShow] = useState(4);
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -23,16 +24,41 @@ function CategoriesPage() {
     fetchCategories();
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 480) {
+        setItemsToShow(8);
+      } else if (window.innerWidth <= 576) {
+        setItemsToShow(8);
+      } else if (window.innerWidth <= 768) {
+        setItemsToShow(8);
+      } else if (window.innerWidth <= 922) {
+        setItemsToShow(8);
+      } else {
+        setItemsToShow(8);
+      }
+    };
+    
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+
+  const displayedCategories = categories.slice(0, itemsToShow);
+
+
   return (
-    <div className={styles.categories} data-aos="fade-up">
+    <div className="categories" data-aos="fade-up">
       <div className={styles.categories_navigation}>
         <Breadcrumbs />
       </div>
       <div className={styles.categories_container}>
         <div className={styles.categories_flex}>
-          <h2>{t('categories')}</h2>
+          <h2 className="title_h2">{t('categories')}</h2>
           <div className={styles.categories_flexBox}>
-            {categories.map(category => (
+            {displayedCategories.map(category => (
               <CategoryCard key={category.id} category={category} />
             ))}
           </div>

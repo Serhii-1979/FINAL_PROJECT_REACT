@@ -6,6 +6,7 @@ import ToggleThemeButton from "./ToggleTheme";
 
 import logo from "../../assets/svg/logo.svg";
 import icon from "../../assets/svg/icon.svg";
+import burgerIcon from "../../assets/svg/list.svg";
 
 import styles from "./header.module.css";
 
@@ -27,13 +28,11 @@ function Header() {
   const { t, i18n } = useTranslation();
   const [language, setLanguage] = useState(i18n.language);
   const cartCount = useSelector((state) => state.cart.count);
-  // const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-
-  // const toggleMenu = () => {
-  //   setMenuOpen(!menuOpen);
-  // };
-
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
 
   const handleLanguageChange = (e) => {
     const newLanguage = e.target.value;
@@ -47,19 +46,21 @@ function Header() {
   }, [i18n.language, i18n.store.data]);
 
   return (
-
     <header className={styles.header}>
-      <div className={styles.header_logo}>
+      <div className={styles.header_logo1}>
         <Link to="/">
           <img src={logo} alt="img" />
         </Link>
       </div>
-      <nav className={styles.header_nav}>
+      <nav className={`${styles.header_nav} ${menuOpen ? styles.nav_open : ''}`}>
         <SuperNavLink to="/" t={t}>{t('mainPage')}</SuperNavLink>
         <SuperNavLink to="/categories" t={t}>{t('categories')}</SuperNavLink>
         <SuperNavLink to="/allProducts" t={t}>{t('allProducts')}</SuperNavLink>
         <SuperNavLink to="/allSales" t={t}>{t('allSales')}</SuperNavLink>
       </nav>
+      <div className={styles.burger_menu} onClick={toggleMenu}>
+        <img src={burgerIcon} alt="Menu" />
+      </div>
       <div className={styles.header_right}>
         <select className={styles.header_select} value={language} onChange={handleLanguageChange}>
           <option value="en">En</option>
@@ -68,10 +69,9 @@ function Header() {
           <option value="de">De</option>
           <option value="pl">Pl</option>
         </select>
-        <div>
-        <ToggleThemeButton />
+        <div className={styles.toggleTheme}>
+          <ToggleThemeButton />
         </div>
-        
         <Link to="/cart">
           <div className={styles.header_logo}>
             <div className={styles.cart_icon}>

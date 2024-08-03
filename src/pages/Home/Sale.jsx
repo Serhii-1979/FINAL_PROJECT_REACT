@@ -30,7 +30,13 @@ function Sale() {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth <= 922) {
+      if (window.innerWidth <= 480) {
+        setItemsToShow(2);
+      } else if (window.innerWidth <= 576) {
+        setItemsToShow(2);
+      } else if (window.innerWidth <= 768) {
+        setItemsToShow(3);
+      } else if (window.innerWidth <= 922) {
         setItemsToShow(3);
       } else {
         setItemsToShow(4);
@@ -48,7 +54,7 @@ function Sale() {
   return (
     <div className={styles.sale_container} data-aos="fade-up">
       <div className={styles.sale_cont}>
-        <h2>{t('sale')}</h2>
+        <h2 className="title_h2">{t('sale')}</h2>
         <NavigationButton to="/allSales" textKey="allSales" />
       </div>
 

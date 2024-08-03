@@ -3,10 +3,15 @@ import { useParams } from "react-router-dom";
 import ProductFilter from "../../../layout/ProductFilter/ProductFilter";
 import BreadcrumbsByCategory from "../../../layout/Breadcrumbs/BreadcrumbsByCategory";
 import ProductCardAll from "../../../components/ListCategories/ProductCardAll";
-import styles from "./ProductsByCategoryPage.module.css";
+import {
+  filterProducts,
+  sortProducts,
+} from "../../../util/FilterProdByCategory";
+
 import axios from "axios";
 import { API_URL } from "../../../api";
-import { filterProducts, sortProducts } from "../../../util/FilterProdByCategory";
+
+import styles from "../All/allProductsPage.module.css";
 
 function ProductsByCategoryPage() {
   const { categoryId } = useParams();
@@ -35,9 +40,11 @@ function ProductsByCategoryPage() {
 
         if (Array.isArray(categoryData.data)) {
           setProducts(categoryData.data);
-          console.log('Setting Products:', categoryData.data);
+          console.log("Setting Products:", categoryData.data);
         } else {
-          console.error("Category data is missing 'data' field or it's not an array");
+          console.error(
+            "Category data is missing 'data' field or it's not an array"
+          );
         }
       } catch (error) {
         alert("Error fetching the products or category!", error);
@@ -52,21 +59,19 @@ function ProductsByCategoryPage() {
   const displayedProducts = sortedProducts.slice(0, 8);
 
   return (
-    <div className={styles.categories} data-aos="fade-up">
+    <div className="categories" data-aos="fade-up">
       <div className={styles.categories_navigation}>
         <BreadcrumbsByCategory categoryTitle={categoryTitle} />
       </div>
 
       <div className={styles.allProducts_container}>
-        <div className={styles.allProducts_flex}>
-          <h2>{categoryTitle}</h2>
-          <ProductFilter filters={filters} onFilterChange={setFilters} />
+        <h2 className="title_h2">{categoryTitle}</h2>
+        <ProductFilter filters={filters} onFilterChange={setFilters} />
 
-          <div className={styles.allProducts_Flex}>
-            {displayedProducts.map((product) => (
-              <ProductCardAll key={product.id} product={product} />
-            ))}
-          </div>
+        <div className={styles.allProducts_Flex}>
+          {displayedProducts.map((product) => (
+            <ProductCardAll key={product.id} product={product} />
+          ))}
         </div>
       </div>
     </div>

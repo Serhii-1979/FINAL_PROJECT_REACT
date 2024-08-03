@@ -37,7 +37,7 @@ export default function App() {
 
       const timer = setTimeout(() => {
         setCookieConsentOpen(true);
-      }, 10000);
+      }, 5000);
 
       return () => clearTimeout(timer);
     }

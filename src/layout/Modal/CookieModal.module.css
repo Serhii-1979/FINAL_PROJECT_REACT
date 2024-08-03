@@ -1,4 +1,5 @@
  .modal_overlay {
+  position: relative;
   position: fixed;
   top: 0;
   left: 0;
@@ -22,6 +23,13 @@
   gap: 20px;
   box-shadow: 1px 0 100px black;
 }
+
+.modal_content img {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+}
+
 .modal_button {
   display: flex;
   justify-content: center;

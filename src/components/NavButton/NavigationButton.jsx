@@ -10,7 +10,7 @@ function NavigationButton({ to, textKey }) {
     <Link to={to} className={styles.mainCategories_contLink}>
       <button className={styles.mainCategories_contLine}>
         <div className={styles.mainCategories_line}></div>
-        <p>{t(textKey)}</p>
+        <p className="textButtonValue">{t(textKey)}</p>
       </button>
     </Link>
   );

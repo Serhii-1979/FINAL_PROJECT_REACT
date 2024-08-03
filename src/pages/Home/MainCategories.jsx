@@ -52,10 +52,12 @@ function MainCategories() {
 
   const displayedCategories = categories.slice(0, itemsToShow);
 
+  
+
   return (
     <div className={styles.mainCategories_container} data-aos="fade-up">
       <div className={styles.mainCategories_cont}>
-        <h2>{t('categoriesHome')}</h2>
+        <h2 className="title_h2">{t('categoriesHome')}</h2>
         <NavigationButton to="/categories" textKey="allCategories" />
       </div>
       <div className={styles.mainCategories_flex}>

@@ -21,7 +21,7 @@ function FormHomePage() {
       ...prevState,
       text: prevState.disabled ? t('requestSubmitted') : t('getDiscount')
     }));
-  }, [i18n.language, t]); // Следим за изменением языка
+  }, [i18n.language, t]);
 
   const onSubmit = async (data) => {
     setButtonState({ disabled: true, text: t('requestSubmitted') });
