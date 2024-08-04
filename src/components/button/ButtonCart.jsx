@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import styles from "./Button2.module.css";
+import styles from "./ButtonCard.module.css";
 
 function ButtonCart({ onClick }) {
   const { t } = useTranslation();

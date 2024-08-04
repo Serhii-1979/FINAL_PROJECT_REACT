@@ -61,6 +61,20 @@
     font-size: 12px;
   }
 }
+@media (max-width: 576px) {
+  .categories_nav .categories_navP {
+    max-width: 80px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .breadcrumbLink {
+    max-width: 80px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
 
 
 @media (max-width: 480px) {

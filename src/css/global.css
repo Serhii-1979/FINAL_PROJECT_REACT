@@ -8,6 +8,7 @@ h1 {
 .title_h2 {
   font-size: 4rem;
   margin-right: 3%;
+  white-space: nowrap;
 }
 .textButtonValue {
   font-size: 16px;
@@ -37,10 +38,50 @@ h1 {
   flex-direction: column;
   margin-bottom: 80px;
 }
+.textAllh3 {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 44px;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.bigPrice {
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 70.4px;
+  text-align: left;
+}
+.bigPrice span {
+  text-decoration: line-through;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 26px;
+  text-align: left;
+  color: #8b8b8b;
+}
+.discount {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0d50ff;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 26px;
+  letter-spacing: 0.03em;
+  text-align: left;
+}
 
 @media (max-width: 1440px) {
   .title_h2 {
     font-size: 4rem;
+  }
+  .bigPrice {
+    font-size: 64px;
   }
 }
 
@@ -52,11 +93,23 @@ h1 {
   .title_h2 {
     font-size: 4rem;
   }
+  .textAllh3 {
+    font-size: 36px;
+  }
+  .bigPrice {
+    font-size: 54px;
+  }
+  .bigPrice span {
+    font-size: 36px;
+  }
+  .discount {
+    font-size: 16px;
+  }
 }
 
 @media (max-width: 922px) {
   .categories {
-    margin-bottom: 50px;
+    margin-bottom: 30px;
   }
   h1 {
     font-size: 64px;
@@ -65,6 +118,16 @@ h1 {
   .title_h2 {
     font-size: 3.5rem;
   }
+  .textAllh3 {
+    font-size: 32px;
+  }
+  .bigPrice {
+    font-size: 44px;
+  }
+  .bigPrice span {
+    font-size: 32px;
+  }
+  
 }
 
 @media (max-width: 768px) {
@@ -84,6 +147,20 @@ h1 {
     line-height: 20.16px;
     padding: 6px 12px;
   }
+  .textAllh3 {
+    font-size: 28px;
+    line-height: 25px;
+  }
+  .bigPrice {
+    font-size: 36px;
+  }
+  .bigPrice span {
+    font-size: 24px;
+  }
+  .discount {
+    font-size: 14px;
+    padding: 1px 6px;
+  }
 }
 
 @media (max-width: 576px) {
@@ -99,6 +176,16 @@ h1 {
   }
   .title_h2 {
     font-size: 2.5rem;
+  }
+  .textAllh3 {
+    font-size: 24px;
+    line-height: 25px;
+  }
+  .bigPrice {
+    font-size: 28px;
+  }
+  .bigPrice span {
+    font-size: 20px;
   }
 }
 
@@ -121,6 +208,16 @@ h1 {
     line-height: 20.16px;
     padding: 2px 8px;
   }
+  .textAllh3 {
+    font-size: 22px;
+    line-height: 25px;
+  }
+  .bigPrice {
+    font-size: 28px;
+  }
+  .bigPrice span {
+    font-size: 20px;
+  }
 }
 
 @media (max-width: 390px) {
@@ -141,5 +238,14 @@ h1 {
     font-size: 10px;
     line-height: 20.16px;
     padding: 0px 8px;
+  }
+  .textAllh3 {
+    font-size: 18px;
+  }
+  .bigPrice {
+    font-size: 26px;
+  }
+  .bigPrice span {
+    font-size: 18px;
   }
 }

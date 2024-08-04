@@ -70,7 +70,7 @@ function ProductDetailsPage() {
   };
 
   return (
-    <div className={styles.DetailsPage_container}>
+    <div className="categories">
       <div className={styles.categories_navigation}>
         <BreadcrumbsDetail categoryTitle={categoryTitle} productTitle={product.title} />
       </div>
@@ -84,13 +84,13 @@ function ProductDetailsPage() {
             {product.title}
           </h3>
           <div className={styles.DetailsPage_price}>
-            <p className={styles.allProducts_textP}>
+            <p className="bigPrice">
               ${product.price}{" "}
               {product.discont_price && <span>${product.discont_price}</span>}
             </p>
             <div>
               {discountPercentage !== null && (
-                <div className={styles.discountTag}>-{discountPercentage}%</div>
+                <div className="discount">-{discountPercentage}%</div>
               )}
             </div>
           </div>

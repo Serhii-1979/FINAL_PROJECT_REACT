@@ -25,15 +25,15 @@ function CartPage() {
   const { totalItems, totalSum } = calculateTotalItemsAndSum(products, quantities);
 
   return (
-    <div className={styles.categories} data-aos="fade-up">
+    <div className="categories" data-aos="fade-up">
       <div className={styles.mainCategories_cont}>
-        <h1>{t('shoppingCart')}</h1>
+        <h2 className="title_h2">{t('shoppingCart')}</h2>
         <NavigationButton to="/allProducts" textKey="backStore" />
       </div>
 
       {totalItems === 0 ? (
         <div className={styles.CannotData}>
-          <p>{t('emptyCartMessage')}</p>
+          <p className={styles.CardText}>{t('emptyCartMessage')}</p>
           <Link to="/allProducts">
             <div className={styles.CannotData_btn}>
               <ButtonCart />

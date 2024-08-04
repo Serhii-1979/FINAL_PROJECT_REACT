@@ -16,8 +16,6 @@ function BreadcrumbsByCategory({ categoryTitle }) {
 
   const currentPage = getCurrentPage();
 
-  console.log('Received Category Title:', categoryTitle);
-
   return (
     <div className={styles.categories_cont_nav}>
       <div className={styles.categories_nav}>

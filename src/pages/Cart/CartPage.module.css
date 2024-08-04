@@ -44,11 +44,6 @@
 .mainCategories_contLine p:hover {
   background-color: #ededed;
 }
-.mainCategories_cont h1 {
-  margin-right: 2rem;
-  font-size: 3rem;
-  white-space: nowrap;
-}
 .CartPage_container {
   width: 100%;
   display: flex;
@@ -62,6 +57,7 @@
   color: #8b8b8b;
 }
 .CannotData {
+  margin-top: 30px;
   font-size: 20px;
   font-weight: 500;
 }
@@ -69,31 +65,55 @@
   width: 30%;
   margin-top: 30px;
 }
+.CardText {
+  font-size: 20px;
+}
 
 
+
+
+@media (max-width: 1200px) {
+  
+}
+
+
+@media (max-width: 922px) {
+  .CardText {
+    font-size: 18px;
+  }
+}
 
 @media (max-width: 768px) {
   .CartPage_container {
     flex-direction: column;
   }
-
   .CartProduct {
     flex-direction: column;
   }
-
   .CartProduct_img {
     width: 100%;
   }
-
   .CartProduct_counter_quant {
     width: 100%;
   }
-
-  .mainCategories_cont h1 {
-    font-size: 2rem;
-  }
-
   .allProducts_textP {
     font-size: 1.5rem;
+  }
+}
+
+
+@media (max-width: 576px) {
+  
+}
+
+@media (max-width: 480px) {
+  .CardText {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 390px) {
+  .CardText {
+    font-size: 12px;
   }
 }
