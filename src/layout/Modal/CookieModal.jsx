@@ -1,5 +1,5 @@
 import React from 'react';
-import mod from "../../assets/images/mod.png"
+// import mod from "../../assets/images/mod.png"
 
 import styles from "./CookieModal.module.css"
 

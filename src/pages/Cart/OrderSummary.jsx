@@ -10,14 +10,14 @@ function OrderSummary({ totalItems, totalSum }) {
   return (
     <div className={styles.CartPage_rigth}>
       <div className={styles.CartPage_Oder}>
-        <h3>{t('orderDetails')}</h3>
+        <h3 className={styles.CartH3}>{t('orderDetails')}</h3>
         <div className={styles.CartPage_Oder_price}>
-          <p>
-            <span className={styles.CartPage_Oder_span}>{totalItems} </span>
+          <p className={styles.OderItems}>
+            <span className={styles.OderItems}>{totalItems} </span>
             {t('items')}
           </p>
           <div className={styles.CartPage_Oder_Total}>
-            <p>{t('total')}</p>
+            <p className={styles.OderItems}>{t('total')}</p>
             <p className={styles.CartPage_Oder_TotalPrice}>
               ${" "}
               <span className={styles.CartPage_Oder_Sum}>

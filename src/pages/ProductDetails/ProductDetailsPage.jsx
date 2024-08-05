@@ -85,8 +85,10 @@ function ProductDetailsPage() {
           </h3>
           <div className={styles.DetailsPage_price}>
             <p className="bigPrice">
-              ${product.price}{" "}
-              {product.discont_price && <span>${product.discont_price}</span>}
+              ${product.discont_price ? product.discont_price : product.price}{' '}
+          {product.discont_price && <span>${product.price}</span>}
+              {/* ${product.price}{" "}
+              {product.discont_price && <span>${product.discont_price}</span>} */}
             </p>
             <div>
               {discountPercentage !== null && (

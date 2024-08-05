@@ -1,10 +1,54 @@
-
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { clearCart } from "../../redux/cartSlice";
 import { openModal, closeModal } from "../../redux/modalSlice";
+import styled from "styled-components";
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem;
+  background-color: transparent;
+  border-radius: 8px;
+
+  @media (max-width: 1200px) {
+    padding: 0;
+  }
+`;
+
+const InputContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Input = styled.input`
+  padding: 16px 32px;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  font-size: 20px;
+`;
+
+const Button = styled.button`
+  padding: 16px 32px;
+  background-color: #0d50ff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 20px;
+  cursor: pointer;
+  width: 100%;
+  margin: 0 auto;
+`;
+
+const ErrorMessage = styled.span`
+  color: red;
+  font-size: 12px;
+`;
 
 function OrderForm() {
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
@@ -24,82 +68,44 @@ function OrderForm() {
 
     try {
       const response = await axios.post("http://localhost:3333/order/send", orderData);
-      console.log("Order sent successfully:", response.data);
+      console.log("Заказ успешно отправлен:", response.data);
 
       dispatch(clearCart());
       reset();
 
       dispatch(openModal({
-        title: "Congratulations!",
-        content: "Your order has been successfully placed on the website. A manager will contact you shortly to confirm your order."
+        title: "Поздравляем!",
+        content: "Ваш заказ успешно размещен на сайте. Менеджер свяжется с вами в ближайшее время для подтверждения заказа."
       }));
 
       setTimeout(() => {
         dispatch(closeModal());
       }, 60000);
     } catch (error) {
-      console.error("Error sending order:", error);
+      console.error("Ошибка при отправке заказа:", error);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} style={styles.form}>
-      <div style={styles.inputContainer}>
-        <input {...register("name", { required: true })} placeholder="Name" style={styles.input} />
-        {errors.name && <span style={styles.error}>This field is required</span>}
-      </div>
+    <Form onSubmit={handleSubmit(onSubmit)}>
+      <InputContainer>
+        <Input {...register("name", { required: true })} placeholder="Имя" />
+        {errors.name && <ErrorMessage>Это поле обязательно</ErrorMessage>}
+      </InputContainer>
       
-      <div style={styles.inputContainer}>
-        <input {...register("phone", { required: true, pattern: /^[0-9]{8}$/ })} placeholder="Phone number" style={styles.input} />
-        {errors.phone && <span style={styles.error}>Invalid phone number</span>}
-      </div>
+      <InputContainer>
+        <Input {...register("phone", { required: true, pattern: /^[0-9]{8}$/ })} placeholder="Номер телефона" />
+        {errors.phone && <ErrorMessage>Некорректный номер телефона</ErrorMessage>}
+      </InputContainer>
       
-      <div style={styles.inputContainer}>
-        <input {...register("email", { required: true, pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/ })} placeholder="Email" style={styles.input} />
-        {errors.email && <span style={styles.error}>Invalid email</span>}
-      </div>
+      <InputContainer>
+        <Input {...register("email", { required: true, pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/ })} placeholder="Email" />
+        {errors.email && <ErrorMessage>Некорректный email</ErrorMessage>}
+      </InputContainer>
       
-      <button type="submit" style={styles.button}>Order</button>
-    </form>
+      <Button type="submit">Заказать</Button>
+    </Form>
   );
 }
-
-const styles = {
-  form: {
-    display: "flex",
-    flexDirection: "column",
-    gap: "1rem",
-    width: "100%",
-    margin: "0 auto",
-    padding: "1rem",
-    backgroundColor: "transparent",
-    borderRadius: "8px",
-  },
-  inputContainer: {
-    display: "flex",
-    flexDirection: "column",
-  },
-  input: {
-    padding: "16px 32px",
-    border: "1px solid #DDDDDD",
-    borderRadius: "4px",
-    fontSize: "20px",
-  },
-  button: {
-    padding: "16px 32px",
-    backgroundColor: "#0d50ff",
-    color: "white",
-    border: "none",
-    borderRadius: "4px",
-    fontSize: "20px",
-    cursor: "pointer",
-    width: "100%",
-    margin: "0 auto",
-  },
-  error: {
-    color: "red",
-    fontSize: "12px",
-  },
-};
 
 export default OrderForm;

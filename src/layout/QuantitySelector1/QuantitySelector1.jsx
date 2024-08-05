@@ -10,7 +10,11 @@ function QuantitySelector({ quantity, onIncrease, onDecrease }) {
       sx={{
         '& .MuiOutlinedInput-root': {
           borderRadius: "10px",
-          height: 60,
+          height: {
+            xs: 40, // 0px - 600px
+            sm: 50, // 600px - 960px
+            md: 60, // 960px - 1280px
+          },
           margin: 0,
         },
         margin: 0,
@@ -24,8 +28,16 @@ function QuantitySelector({ quantity, onIncrease, onDecrease }) {
                 borderRight: "1px solid #dddddd",
                 borderRadius: "10px",
                 marginRight: "-1px",
-                height: 60,
-                width: 60,
+                height: {
+                  xs: 40, // 0px - 600px
+                  sm: 50, // 600px - 960px
+                  md: 60, // 960px - 1280px
+                },
+                width: {
+                  xs: 40, // 0px - 600px
+                  sm: 50, // 600px - 960px
+                  md: 60, // 960px - 1280px
+                },
               }}
             >
               <Remove />
@@ -37,10 +49,23 @@ function QuantitySelector({ quantity, onIncrease, onDecrease }) {
             <IconButton
               onClick={onIncrease}
               sx={{
+                // fontSize: {
+                //   xs: "16px", // 0px - 600px
+                //   sm: "18px", // 600px - 960px
+                //   md: "10px", // 960px - 1280px
+                // },
                 borderLeft: "1px solid #dddddd",
                 borderRadius: "10px 0 0 10px",
-                height: 60,
-                width: 60,
+                height: {
+                  xs: 40, // 0px - 600px
+                  sm: 50, // 600px - 960px
+                  md: 60, // 960px - 1280px
+                },
+                width: {
+                  xs: 40, // 0px - 600px
+                  sm: 50, // 600px - 960px
+                  md: 60, // 960px - 1280px
+                },
               }}
             >
               <Add />
@@ -50,12 +75,16 @@ function QuantitySelector({ quantity, onIncrease, onDecrease }) {
         inputProps: {
           readOnly: true,
           style: {
-            fontSize: "20px",
+            fontSize: {
+              xs: "16px", // 0px - 600px
+              sm: "18px", // 600px - 960px
+              md: "20px", // 960px - 1280px
+            },
             fontWeight: 600,
             lineHeight: "26px",
             textAlign: "center",
-          }
-        }
+          },
+        },
       }}
       variant="outlined"
     />
