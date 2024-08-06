@@ -20,18 +20,22 @@ button:hover {
 }
 .btn:disabled {
   background-color: #ffffff;
-  color: #282828;
+  color: var(--blue-color);
   cursor: not-allowed;
 }
 .btn:hover {
   background-color: #282828;
   color: #fff;
+  color: var(--blue-color);
 }
 
 .button-style:active {
   background-color: #e0e0e0;
   transform: scale(0.99);
   color: var(--blue-color);
+}
+.btn-blue {
+  color:var(--blue-color);
 }
 
 @media (max-width: 1200px) {

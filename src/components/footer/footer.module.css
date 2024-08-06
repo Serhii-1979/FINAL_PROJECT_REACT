@@ -11,6 +11,7 @@
 .footer_title {
   font-weight: 700;
   line-height: 70.4px;
+  color: var(--text-color);
 }
 
 .footer_container {
@@ -19,6 +20,7 @@
   display: flex;
   flex-direction: column;
   gap: 32px;
+  
 }
 
 .footer_info {
@@ -130,8 +132,8 @@
 }
 
 @media (max-width: 768px) {
-  .footer {
-  }
+  /* .footer {
+  } */
   .footer_container {
     gap: 16px;
   }

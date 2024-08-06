@@ -8,7 +8,7 @@ import "./FormHomePage.css";
 
 function FormHomePage() {
   const { t, i18n } = useTranslation();
-  const [buttonState, setButtonState] = useState({ disabled: false, text: t('getDiscount') });
+  const [buttonState, setButtonState] = useState({ disabled: false, text: t('getDiscount'), className: "button-style btn" });
   const {
     register,
     handleSubmit,
@@ -24,7 +24,7 @@ function FormHomePage() {
   }, [i18n.language, t]);
 
   const onSubmit = async (data) => {
-    setButtonState({ disabled: true, text: t('requestSubmitted') });
+    setButtonState({ disabled: true, text: t('requestSubmitted'), className: "button-style btn btn-blue" });
 
     try {
       console.log("Data to be sent:", data);
@@ -37,7 +37,7 @@ function FormHomePage() {
       reset();
     } catch (error) {
       console.error("Error submitting form:", error);
-      setButtonState({ disabled: false, text: t('getDiscount') });
+      setButtonState({ disabled: false, text: t('getDiscount'), className: "button-style btn" });
     }
   };
 
@@ -80,7 +80,7 @@ function FormHomePage() {
 
       <button
         type="submit"
-        className="button-style btn"
+        className={buttonState.className}
         disabled={buttonState.disabled}
       >
         {buttonState.text}

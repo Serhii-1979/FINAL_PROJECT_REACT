@@ -155,7 +155,7 @@ i18n.use(initReactI18next).init({
         "sale": "Распродажа",
         "allSalesHome": "Все скидки",
         "productDetails": "Детали продукта",
-        "shoppingCart": "Корзина покупок",
+        "shoppingCart": "Корзина",
         "loading": "Загрузка...",
         "description": "Описание",
         "page": "Страница",
