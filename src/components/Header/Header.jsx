@@ -2,17 +2,13 @@ import React, { useState, useEffect, useContext } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
-// import ToggleThemeButton from "./ToggleTheme";
-
 import ThemeContext from "../../ThemeContext";
 import logo from "../../assets/svg/logo.svg";
 import icon from "../../assets/svg/icon.svg";
+import iconNigth from "../../assets/svg/icon-nigth.svg";
 import sunIcon from "../../assets/svg/sun.svg";
 import moonIcon from "../../assets/svg/moon.svg";
-// import moonIcon from '../../assets/svg/moon.svg';
-// import globeIcon from "../../assets/svg/globe.svg";
 import burgerIcon from "../../assets/svg/list.svg";
-
 import styles from "./header.module.css";
 
 function SuperNavLink({ children, to }) {
@@ -36,6 +32,8 @@ function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { theme, toggleTheme } = useContext(ThemeContext);
 
+  const Sale = theme === 'dark' ? iconNigth : icon;
+
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
@@ -58,9 +56,7 @@ function Header() {
           <img src={logo} alt="img" />
         </Link>
       </div>
-      <nav
-        className={`${styles.header_nav} ${menuOpen ? styles.nav_open : ""}`}
-      >
+      <nav className={`${styles.header_nav} ${menuOpen ? styles.nav_open : ""}`}>
         <SuperNavLink to="/" t={t}>
           {t("mainPage")}
         </SuperNavLink>
@@ -91,19 +87,18 @@ function Header() {
         </select>
 
         <div className={styles.toggleTheme}>
-          <button className="button" onClick={toggleTheme}>
+          <button className={styles.toggle_theme_button} onClick={toggleTheme}>
             <img
               src={theme === "light" ? sunIcon : moonIcon}
-              alt="Toggle Theme"
+              alt="Toggle Theme" className={styles.theme_icon}
             />
           </button>
-          {/* <ToggleThemeButton /> */}
         </div>
 
         <Link to="/cart">
           <div className={styles.header_logo}>
             <div className={styles.cart_icon}>
-              <img src={icon} alt="img" />
+              <img src={Sale} alt="img" />
               {cartCount > 0 && (
                 <div className={styles.cart_count}>{cartCount}</div>
               )}

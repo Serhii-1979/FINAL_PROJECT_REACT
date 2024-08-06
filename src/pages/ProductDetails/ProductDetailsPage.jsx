@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+// src/pages/ProductDetailsPage/ProductDetailsPage.jsx
+import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
@@ -9,19 +10,20 @@ import QuantitySelector from "../../layout/QuantitySelector1/QuantitySelector";
 import BreadcrumbsDetail from "../../layout/Breadcrumbs/BreadcrumbsDetail";
 import { handleIncrease, handleDecrease, handleAddToCart, handleLoading } from "../../util/productDetailsUtils";
 import { API_URL } from "../../api";
+import ThemeContext from "../../ThemeContext";
 import styles from "./ProductDetailsPage.module.css";
+import "../../css/global.css"; // Импорт глобальных стилей
 
 function ProductDetailsPage() {
   const { t } = useTranslation();
   const { productId } = useParams();
   const dispatch = useDispatch();
+  const { theme } = useContext(ThemeContext);
   const [product, setProduct] = useState({});
   const [discountPercentage, setDiscountPercentage] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const [categoryTitle, setCategoryTitle] = useState("");
   const [isAdded, setIsAdded] = useState(false);
-
-
 
   useEffect(() => {
     const fetchCategoryTitle = async (categoryId) => {
@@ -70,7 +72,7 @@ function ProductDetailsPage() {
   };
 
   return (
-    <div className="categories">
+    <div className={`categories ${theme === 'dark' ? 'dark' : 'light'}`}>
       <div className={styles.categories_navigation}>
         <BreadcrumbsDetail categoryTitle={categoryTitle} productTitle={product.title} />
       </div>
@@ -80,15 +82,13 @@ function ProductDetailsPage() {
         </div>
 
         <div className={styles.DetailsPage_content}>
-          <h3 title={product.title} className={styles.allProducts_text1}>
+          <h3 title={product.title} className={`${styles.allProducts_text1} ${theme}`}>
             {product.title}
           </h3>
           <div className={styles.DetailsPage_price}>
-            <p className="bigPrice">
+            <p className={`bigPrice ${theme}`}>
               ${product.discont_price ? product.discont_price : product.price}{' '}
-          {product.discont_price && <span>${product.price}</span>}
-              {/* ${product.price}{" "}
-              {product.discont_price && <span>${product.discont_price}</span>} */}
+              {product.discont_price && <span>${product.price}</span>}
             </p>
             <div>
               {discountPercentage !== null && (

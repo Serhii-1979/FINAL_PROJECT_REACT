@@ -10,6 +10,7 @@ function QuantitySelector({ quantity, onIncrease, onDecrease }) {
       sx={{
         '& .MuiOutlinedInput-root': {
           borderRadius: "10px",
+          backgroundColor: "#fff",
           height: {
             xs: 40, // 0px - 600px
             sm: 50, // 600px - 960px

@@ -1,14 +1,16 @@
-// CategoriesPage.js
-import React, { useState, useEffect } from 'react';
+// src/pages/Categories/CategoriesPage.jsx
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 import Breadcrumbs from '../../layout/Breadcrumbs/Breadcrumbs';
 import CategoryCard from '../../components/ListCategories/CategoryCard';
+import ThemeContext from '../../ThemeContext';
 import styles from './categoriesPage.module.css';
 import { API_URL } from '../../api';
 
 function CategoriesPage() {
   const { t } = useTranslation();
+  const { theme } = useContext(ThemeContext);
   const [categories, setCategories] = useState([]);
   const [itemsToShow, setItemsToShow] = useState(4);
 
@@ -45,12 +47,10 @@ function CategoriesPage() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-
   const displayedCategories = categories.slice(0, itemsToShow);
 
-
   return (
-    <div className="categories" data-aos="fade-up">
+    <div className={`categories ${theme === 'dark' ? 'dark' : 'light'}`} data-aos="fade-up">
       <div className={styles.categories_navigation}>
         <Breadcrumbs />
       </div>

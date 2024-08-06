@@ -1,5 +1,14 @@
 .mainPage_Img {
   width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.mainPage_Img.light {
+  background-color: var(--background-color-light);
+}
+
+.mainPage_Img.dark {
+  background-color: var(--background-color-dark);
 }
 
 .mainPageTitle {

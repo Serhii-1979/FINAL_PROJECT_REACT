@@ -1,6 +1,6 @@
-// src/components/Header/ToggleTheme.js
+
 import React, { useContext, useEffect, useState } from 'react';
-// import { ThemeContext } from '../../theme/ThemeContext';
+
 
 
 import sunIcon from '../../assets/svg/sun.svg';
@@ -10,7 +10,6 @@ import styles from './ToggleTheme.module.css';
 
 
 const ToggleThemeButton = () => {
-  // const { toggleTheme } = useContext(ThemeContext);
   const [isDarkTheme, setIsDarkTheme] = useState(localStorage.getItem('appTheme') === 'dark');
 
   useEffect(() => {
@@ -23,14 +22,8 @@ const ToggleThemeButton = () => {
     };
   }, []);
 
-  // const handleToggleTheme = () => {
-  //   toggleTheme();
-  //   setIsDarkTheme((prevTheme) => !prevTheme);
-  // };
-
   return (
     <button className={styles.toggle_theme_button} >
-    {/* <button className={styles.toggle_theme_button} onClick={handleToggleTheme}> */}
       <img
         src={isDarkTheme ? moonIcon : sunIcon}
         alt={isDarkTheme ? 'Луна' : 'Солнце'}

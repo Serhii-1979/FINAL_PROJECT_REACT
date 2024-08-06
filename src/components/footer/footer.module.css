@@ -1,11 +1,23 @@
+/* footer.module.css */
+
+
+.dark {
+  background-color: var(--background-color-dark);
+}
+
+.darkText {
+  color: var(--text-color-dark);
+}
+
 .footer {
   width: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 40px;
-  padding: 0 40px;
+  padding: 80px 40px;
   padding-bottom: 80px;
+  background-color: var(--background-color);
 }
 
 .footer_title {
@@ -38,6 +50,7 @@
 .footer_info_phone {
   width: 60%;
   background-color: #f1f3f4;
+  border: 1px solid #f1f3f4;
   border-radius: 8px;
   padding: 32px;
   display: flex;
@@ -48,6 +61,7 @@
 .footer_info_social {
   width: 40%;
   background-color: #f1f3f4;
+  border: 1px solid #f1f3f4;
   border-radius: 8px;
   padding: 32px;
   display: flex;
@@ -63,11 +77,32 @@
   color: #8b8b8b;
 }
 
+.footer_info_phone.dark,
+.footer_info_social.dark {
+  background-color: #494949;
+  border: 1px solid #8f8f8f;
+}
+
+.footer_info_phone.light,
+.footer_info_social.light {
+  background-color: #f1f3f4;
+  border: 1px solid #f1f3f4;
+}
+
 .footer_info_phone_number {
   font-size: 40px;
   font-weight: 600;
   line-height: 44px;
   text-align: left;
+  --text-color-light: #282828;
+}
+.footer_info_phone_number.light {
+  color: var(--text-color-light);
+}
+
+.footer_info_phone_number.dark {
+  color: var(--text-color-dark);
+  background-color: #494949;
 }
 
 .footer_info_phone_img {

@@ -1,9 +1,12 @@
-import React from 'react';
+// src/components/ProductFilter/ProductFilter.jsx
+import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
+import ThemeContext from '../../ThemeContext';
 import styles from './ProductFilter.module.css';
 
 function ProductFilter({ filters, onFilterChange, hideDiscountFilter }) {
   const { t } = useTranslation();
+  const { theme } = useContext(ThemeContext);
 
   const handlePriceChange = (e) => {
     onFilterChange({ ...filters, [e.target.name]: e.target.value });
@@ -20,7 +23,9 @@ function ProductFilter({ filters, onFilterChange, hideDiscountFilter }) {
   return (
     <div className={styles.allProducts_title}>
       <div className={styles.allProducts_titlePrice}>
-        <label className={styles.allProducts_titleP}>{t('price')}</label>
+        <label className={`${styles.allProducts_titleP} ${theme === 'dark' ? styles.dark : styles.light}`}>
+          {t('price')}
+        </label>
         <input
           type="text"
           name="priceFrom"
@@ -41,7 +46,7 @@ function ProductFilter({ filters, onFilterChange, hideDiscountFilter }) {
 
       {!hideDiscountFilter && (
         <div className={styles.allProducts_titlePrice}>
-          <label className={styles.allProducts_titleP}>
+          <label className={`${styles.allProducts_titleP} ${theme === 'dark' ? styles.dark : styles.light}`}>
             {t('discountedItems')}
           </label>
           <input
@@ -54,7 +59,9 @@ function ProductFilter({ filters, onFilterChange, hideDiscountFilter }) {
       )}
 
       <div className={styles.allProducts_titlePrice}>
-        <label className={styles.allProducts_titleP}>{t('sorted')}</label>
+        <label className={`${styles.allProducts_titleP} ${theme === 'dark' ? styles.dark : styles.light}`}>
+          {t('sorted')}
+        </label>
         <select value={filters.sort || 'default'} onChange={handleSortChange} className={styles.allProducts_titleSelect}>
           <option value="default">{t('byDefault')}</option>
           <option value="newest">{t('newest')}</option>

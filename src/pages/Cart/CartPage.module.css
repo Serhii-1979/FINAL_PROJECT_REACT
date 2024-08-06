@@ -62,8 +62,16 @@
 }
 .CardText {
   font-size: 20px;
+  color: var(--text-color);
 }
 
+.CardText.light {
+  color: var(--text-color-light);
+}
+
+.CardText.dark {
+  color: var(--text-color-dark);
+}
 
 
 

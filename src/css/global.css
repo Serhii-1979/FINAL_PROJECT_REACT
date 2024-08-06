@@ -1,3 +1,23 @@
+/* global.css */
+
+
+:root {
+  --background-color-light: #fff;
+  --background-color-dark: #212121;
+  --text-color-light: #282828;
+  --text-color-dark: #ffffff;
+}
+
+body.light {
+  --background-color: var(--background-color-light);
+  --text-color: var(--text-color-light);
+}
+
+body.dark {
+  --background-color: var(--background-color-dark);
+  --text-color: var(--text-color-dark);
+}
+
 h1 {
   color: #fff;
   text-shadow: 2px 2px 50px rgba(0, 0, 0, 1);
@@ -17,6 +37,7 @@ h1 {
   line-height: 20.16px;
   text-align: center;
   color: var(--small-button);
+  background-color: #fff;
   white-space: nowrap;
   width: auto;
   height: auto;
@@ -24,9 +45,26 @@ h1 {
   border: 1px solid var(--smallButton-hov);
   border-radius: 4px;
 }
+.textButtonValue.dark {
+  background-color: var(--background-color-dark);
+  color: #dadada;
+  border: 1px solid #b0b0b0;
+}
+
+.textButtonValue.light {
+  background-color: var(--background-color-light);
+  color: var(--text-color-light);
+}
+
+
 .textButtonValue:hover {
   background-color: #ededed;
 }
+
+.textButtonValue.dark:hover {
+  color: #444;
+}
+
 .mainPageContent {
   width: 100%;
   margin: 0 auto;
@@ -34,11 +72,24 @@ h1 {
 }
 
 .categories {
-  margin: 40px;
+  padding: 40px 40px 40px 40px;
+  /* margin: 40px; */
   display: flex;
   flex-direction: column;
-  margin-bottom: 80px;
+  /* margin-bottom: 80px; */
+  background-color: var(--background-color);
 }
+
+.categories.dark {
+  background-color: var(--background-color-dark);
+  color: var(--text-color-dark);
+}
+
+.categories.light {
+  background-color: var(--background-color-light);
+  color: var(--text-color-light);
+}
+
 .textAllh3 {
   font-size: 40px;
   font-weight: 600;
@@ -53,7 +104,18 @@ h1 {
   font-weight: 700;
   line-height: 70.4px;
   text-align: left;
+  color: var(--text-color);
 }
+
+.bigPrice.light {
+  color: var(--text-color-light);
+}
+
+.bigPrice.dark {
+  color: var(--text-color-dark);
+}
+
+
 .bigPrice span {
   text-decoration: line-through;
   font-size: 40px;

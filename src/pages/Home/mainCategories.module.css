@@ -19,17 +19,19 @@
   width: 100%;
   display: flex;
   align-items: center;
-  background-color: #fff;
+  background-color: transparent;
   border: none;
 }
+
 .mainCategories_contLine:hover {
   background-color: transparent;
 }
 
 .mainCategories_line {
   width: 100%;
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 1px solid var(--line-color);
 }
+
 
 .mainCategories_flex {
   display: grid;

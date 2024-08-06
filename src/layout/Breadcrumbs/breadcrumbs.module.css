@@ -10,20 +10,27 @@
   padding: 8px 16px;
   border: 1px solid #dddddd;
   border-radius: 4px;
+  background-color: var(--breadcrumb-bg);
+  border: 1px solid var(--breadcrumb-border);
+  transition: background-color 0.3s ease;
 }
 .breadcrumbLink {
   text-decoration: none;
+  color: var(--breadcrumb-text);
+  
+  transition: color 0.3s ease;
+
 }
 .categories_nav p {
   font-size: 16px;
   font-weight: 500;
-  color: #8b8b8b;
+  color: var(--breadcrumb-text);
 }
 .categories_nav:hover {
   background-color: #ececec;
 }
 .categories_nav .categories_navP {
-  color: rgb(64, 64, 64);
+  color: var(--breadcrumb-text);
   max-width: 170px;
   white-space: nowrap;
   overflow: hidden;
@@ -31,7 +38,7 @@
 }
 .categories_line {
   width: 15px;
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 1px solid var(--breadcrumb-border);
 }
 
 

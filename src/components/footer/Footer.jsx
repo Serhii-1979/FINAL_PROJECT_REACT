@@ -1,42 +1,50 @@
-
-import React from "react";
+import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
+import ThemeContext from "../../ThemeContext";
 import whatsapp from "../../assets/svg/ic-whatsapp.svg";
+import whats from "../../assets/svg/ic-whatsapp-nigth.svg";
 import instagram from "../../assets/svg/ic-instagram.svg";
+import inst from "../../assets/svg/ic-instagram-nigth.svg";
 import styles from "./footer.module.css";
-import "../../css/global.css"
+import "../../css/global.css";
+
+
 
 function Footer() {
   const { t } = useTranslation();
+  const { theme } = useContext(ThemeContext);
+
+  const whatsappIcon = theme === 'dark' ? whats : whatsapp;
+  const instagramIcon = theme === 'dark' ? inst : instagram;
 
   return (
-    <div className={styles.footer} data-aos="fade-up">
+    <div className={`${styles.footer} ${theme === "dark" ? styles.dark : ""}`} data-aos="fade-up">
       <div className={styles.footer_title}>
-        <h2 className="title_h2">{t('contact')}</h2>
+        <h2 className={`title_h2 ${theme === "dark" ? styles.darkText : ""}`}>{t('contact')}</h2>
       </div>
       <div className={styles.footer_container}>
         <div className={styles.footer_info}>
           <div className={styles.footer_info_cards}>
-            <div className={styles.footer_info_phone}>
+            <div className={`${styles.footer_info_phone} ${theme === 'dark' ? styles.dark : styles.light}`}>
               <p className={styles.footer_info_phone_title}>{t('phone')}</p>
-              <p className={styles.footer_info_phone_number}>+49 30 915-88492</p>
+              <p className={`${styles.footer_info_phone_number} ${theme === 'dark' ? styles.dark : styles.light}`}>+49 30 915-88492</p>
             </div>
-            <div className={styles.footer_info_social}>
+            <div className={`${styles.footer_info_social} ${theme === 'dark' ? styles.dark : styles.light}`}>
               <p className={styles.footer_info_phone_title}>{t('social')}</p>
               <div className={styles.footer_info_phone_img}>
-                <a href="https://www.instagram.com/"><img src={instagram} alt="Instagram"  /></a>
-                <a href="https://www.whatsapp.com/?lang=ru_RU"><img src={whatsapp} alt="WhatsApp" /></a>
+              <a href="https://www.instagram.com/"><img src={instagramIcon} alt="Instagram" /></a>
+                <a href="https://www.whatsapp.com/?lang=ru_RU"><img src={whatsappIcon} alt="WhatsApp" /></a>
               </div>
             </div>
           </div>
           <div className={styles.footer_info_cards}>
-            <div className={styles.footer_info_phone}>
+            <div className={`${styles.footer_info_phone} ${theme === 'dark' ? styles.dark : styles.light}`}>
               <p className={styles.footer_info_phone_title}>{t('address')}</p>
-              <p className={styles.footer_info_phone_number}>Wallstraße 9-13, 10179 Berlin, Deutschland</p>
+              <p className={`${styles.footer_info_phone_number} ${theme === 'dark' ? styles.dark : styles.light}`}>Wallstraße 9-13, 10179 Berlin, Deutschland</p>
             </div>
-            <div className={styles.footer_info_social}>
+            <div className={`${styles.footer_info_social} ${theme === 'dark' ? styles.dark : styles.light}`}>
               <p className={styles.footer_info_phone_title}>{t('workingHours')}</p>
-              <p className={styles.footer_info_phone_number}>{t('hoursDay')}</p>
+              <p className={`${styles.footer_info_phone_number} ${theme === 'dark' ? styles.dark : styles.light}`}>{t('hoursDay')}</p>
             </div>
           </div>
         </div>
