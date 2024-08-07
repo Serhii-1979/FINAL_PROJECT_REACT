@@ -1,13 +1,12 @@
-
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-import { ThemeProvider } from './ThemeContext';
+import { ThemeProvider } from "./ThemeContext";
 
 import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
+import Footer from "./components/footer/Footer";
 import MainPage from "../src/pages/Home/MainPage";
 import CategoriesPage from "./pages/Categories/CategoriesPage";
 import AllProductsPage from "./pages/Products/All/AllProductsPage";
@@ -18,7 +17,6 @@ import CartPage from "./pages/Cart/CartPage";
 import NotFoundPage from "./pages/NotFound/NotFoundPage";
 import ConnectedModal from "./layout/Modal/ConnectedModal";
 import CookieModal from "./layout/Modal/CookieModal";
-
 
 import "./index.css";
 
