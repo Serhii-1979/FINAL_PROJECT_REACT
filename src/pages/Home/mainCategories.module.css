@@ -1,5 +1,4 @@
 
-
 .mainCategories_container {
   display: flex;
   flex-direction: column;
@@ -39,9 +38,8 @@
   gap: 32px;
 }
 
-@media (max-width: 1200px) {
- 
-}
+
+
 
 @media (max-width: 922px) {
   .mainCategories_flex {
@@ -49,10 +47,6 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 4%;
   }
-}
-
-@media (max-width: 768px) {
- 
 }
 
 @media (max-width: 576px) {

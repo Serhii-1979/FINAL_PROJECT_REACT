@@ -1,4 +1,4 @@
-// src/pages/ProductDetailsPage/ProductDetailsPage.jsx
+
 import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -12,7 +12,7 @@ import { handleIncrease, handleDecrease, handleAddToCart, handleLoading } from "
 import { API_URL } from "../../api";
 import ThemeContext from "../../ThemeContext";
 import styles from "./ProductDetailsPage.module.css";
-import "../../css/global.css"; // Импорт глобальных стилей
+import "../../css/global.css";
 
 function ProductDetailsPage() {
   const { t } = useTranslation();
@@ -117,7 +117,8 @@ function ProductDetailsPage() {
             <p className={styles.DetailsPage_text_title}>{t('description')}</p>
 
             <div className={styles.DetailsPage_text_container}>
-              <p>{product.description}</p>
+            <p>{t(`products.${productId}.description`)}</p>
+              {/* <p>{product.description}</p> */}
             </div>
           </div>
         </div>

@@ -1,5 +1,4 @@
 
-
 .input-placeholder::placeholder {
   color: #fff;
 }
@@ -69,7 +68,6 @@ button:hover {
 @media (max-width: 480px) {
   .inputContainer input {
     font-size: 14px;
-    /* padding: 0; */
   }
   .input-placeholder::placeholder {
     font-size: 14px;

@@ -1,6 +1,3 @@
-/* footer.module.css */
-
-
 .dark {
   background-color: var(--background-color-dark);
 }
@@ -173,8 +170,7 @@
 }
 
 @media (max-width: 768px) {
-  /* .footer {
-  } */
+
   .footer_container {
     gap: 16px;
   }

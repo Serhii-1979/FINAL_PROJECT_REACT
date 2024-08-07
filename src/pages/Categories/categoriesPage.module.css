@@ -1,6 +1,4 @@
 
-
-
 .categories_navigation {
   margin-bottom: 40px;
   display: flex;
@@ -22,11 +20,6 @@
   text-decoration: none;
 }
 
-@media (max-width: 1440px) {
-}
-
-@media (max-width: 1200px) {
-}
 
 @media (max-width: 922px) {
   .categories_flexBox {

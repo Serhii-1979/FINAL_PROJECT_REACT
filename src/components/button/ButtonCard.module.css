@@ -34,18 +34,6 @@
 }
 
 
-
-
-@media (max-width: 1440px) {
-  
-}
-
-
-@media (max-width: 1200px) {
-  
-}
-
-
 @media (max-width: 922px) {
     .button_Add {
         font-size: 18px;
@@ -58,9 +46,6 @@
     }
 }
 
-@media (max-width: 576px) {
-  
-}
 
 @media (max-width: 480px) {
     .button_Add {
@@ -68,6 +53,3 @@
     }
 }
 
-@media (max-width: 390px) {
-  
-}

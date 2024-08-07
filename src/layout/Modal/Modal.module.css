@@ -1,4 +1,4 @@
-/* Modal.module.css */
+
 .modalOverlay {
   position: fixed;
   z-index: 1000;
@@ -44,8 +44,6 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  /* width: 100%;
-  max-width: 390px; */
 }
 .modalH2 {
   margin-bottom: 20px;
@@ -66,3 +64,13 @@
 .modal_Par {
   margin-top: 20px;
 }
+
+
+
+
+
+
+
+
+
+

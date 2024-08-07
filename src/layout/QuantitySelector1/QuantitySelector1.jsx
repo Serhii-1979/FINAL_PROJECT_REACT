@@ -11,9 +11,9 @@ function QuantitySelector({ quantity, onIncrease, onDecrease }) {
         '& .MuiOutlinedInput-root': {
           borderRadius: "10px",
           height: {
-            xs: 40, // 0px - 600px
-            sm: 50, // 600px - 960px
-            md: 60, // 960px - 1280px
+            xs: 40,
+            sm: 50,
+            md: 60,
           },
           margin: 0,
         },
@@ -29,14 +29,14 @@ function QuantitySelector({ quantity, onIncrease, onDecrease }) {
                 borderRadius: "10px",
                 marginRight: "-1px",
                 height: {
-                  xs: 40, // 0px - 600px
-                  sm: 50, // 600px - 960px
-                  md: 60, // 960px - 1280px
+                  xs: 40,
+                  sm: 50,
+                  md: 60,
                 },
                 width: {
-                  xs: 40, // 0px - 600px
-                  sm: 50, // 600px - 960px
-                  md: 60, // 960px - 1280px
+                  xs: 40,
+                  sm: 50,
+                  md: 60,
                 },
               }}
             >
@@ -50,21 +50,21 @@ function QuantitySelector({ quantity, onIncrease, onDecrease }) {
               onClick={onIncrease}
               sx={{
                 // fontSize: {
-                //   xs: "16px", // 0px - 600px
-                //   sm: "18px", // 600px - 960px
-                //   md: "10px", // 960px - 1280px
+                //   xs: "16px", 
+                //   sm: "18px",
+                //   md: "10px",
                 // },
                 borderLeft: "1px solid #dddddd",
                 borderRadius: "10px 0 0 10px",
                 height: {
-                  xs: 40, // 0px - 600px
-                  sm: 50, // 600px - 960px
-                  md: 60, // 960px - 1280px
+                  xs: 40,
+                  sm: 50,
+                  md: 60,
                 },
                 width: {
-                  xs: 40, // 0px - 600px
-                  sm: 50, // 600px - 960px
-                  md: 60, // 960px - 1280px
+                  xs: 40,
+                  sm: 50,
+                  md: 60,
                 },
               }}
             >
@@ -76,9 +76,9 @@ function QuantitySelector({ quantity, onIncrease, onDecrease }) {
           readOnly: true,
           style: {
             fontSize: {
-              xs: "16px", // 0px - 600px
-              sm: "18px", // 600px - 960px
-              md: "20px", // 960px - 1280px
+              xs: "16px",
+              sm: "18px",
+              md: "20px",
             },
             fontWeight: 600,
             lineHeight: "26px",

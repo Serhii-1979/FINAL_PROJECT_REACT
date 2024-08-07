@@ -1,4 +1,4 @@
-// src/components/ProductFilter/ProductFilter.jsx
+
 import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import ThemeContext from '../../ThemeContext';

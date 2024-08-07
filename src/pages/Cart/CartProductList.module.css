@@ -4,7 +4,6 @@
   flex-direction: column;
   gap: 32px;
   border-radius: 12px;
-  /* border: 1px solid #dddddd; */
 }
 .CartProduct {
   width: 100%;
@@ -131,7 +130,6 @@
 @media (max-width: 480px) {
   .CartPage_left {
     gap: 4px;
-      /* padding: 8px; */
       margin: 0;
   }
   .CartProduct_content {
@@ -158,6 +156,3 @@
   }
 }
 
-@media (max-width: 390px) {
-  
-}

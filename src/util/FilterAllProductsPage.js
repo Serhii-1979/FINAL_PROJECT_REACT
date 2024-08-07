@@ -1,4 +1,3 @@
-// util/filterUtils.js
 
 export const filterProducts = (products, filters) => {
     return products.filter((product) => {

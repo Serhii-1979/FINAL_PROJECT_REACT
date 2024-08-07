@@ -124,9 +124,6 @@
   align-items: center;
 }
 
-@media (max-width: 1440px) {
- 
-}
 
 
 @media (max-width: 1200px) {
@@ -151,7 +148,6 @@
   }
   .DetailsPage_text {
     gap: 12px;
-    /* margin-bottom: 20px; */
   }
   .DetailsPage_text_container {
     height: 112px;
@@ -219,6 +215,3 @@
   }
 }
 
-@media (max-width: 390px) {
-  
-}

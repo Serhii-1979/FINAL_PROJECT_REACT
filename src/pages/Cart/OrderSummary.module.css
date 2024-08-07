@@ -24,13 +24,7 @@
   text-align: left;
   color: #8b8b8b;
 }
-/* .CartPage_Oder_span {
-  font-size: 2.2rem;
-  font-weight: 500;
-  line-height: 52px;
-  text-align: left;
-  color: #8b8b8b;
-} */
+
 .CartPage_Oder_Total {
   display: flex;
   justify-content: space-between;

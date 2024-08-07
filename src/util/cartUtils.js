@@ -1,4 +1,3 @@
-// utils/cartUtils.js
 
 import { removeProduct } from "../redux/cartSlice";
 

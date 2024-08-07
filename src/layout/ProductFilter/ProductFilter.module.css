@@ -133,9 +133,6 @@
   }
 }
 
-@media (max-width: 576px) {
-  
-}
 
 @media (max-width: 480px) {
   .allProducts_titleP {
@@ -163,7 +160,6 @@
     width: 45px;
   }
   .allProducts_titleSelect {
-    /* max-width: 60px; */
     font-size: 10px;
     padding: 2px 6px;
   }
