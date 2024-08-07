@@ -10,7 +10,7 @@ function MainPage() {
   const { theme } = useContext(ThemeContext);
 
   return (
-    <div className={`${styles.mainPage_Img} ${theme === 'dark' ? styles.dark : styles.light}`} data-aos="fade-up">
+    <div className={`${styles.mainPage_Img} ${theme === 'dark' ? styles.dark : styles.light}`} >
       <MainPageTitle />
       <div className="mainPageContent">
         <MainCategories />

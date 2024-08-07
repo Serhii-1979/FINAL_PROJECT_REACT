@@ -18,7 +18,7 @@ function Footer() {
   const instagramIcon = theme === 'dark' ? inst : instagram;
 
   return (
-    <div className={`${styles.footer} ${theme === "dark" ? styles.dark : ""}`} data-aos="fade-up">
+    <div className={`${styles.footer} ${theme === "dark" ? styles.dark : ""}`}>
       <div className={styles.footer_title}>
         <h2 className={`title_h2 ${theme === "dark" ? styles.darkText : ""}`}>{t('contact')}</h2>
       </div>

@@ -1,7 +1,6 @@
 // Sale.js
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-// import { Link } from 'react-router-dom';
 import { useTranslation } from "react-i18next";
 import { API_URL } from "../../api";
 import ProductCard from "../../components/ListCategories/ProductCard"
@@ -44,7 +43,7 @@ function Sale() {
     };
     
     window.addEventListener('resize', handleResize);
-    handleResize(); // Установите начальное значение
+    handleResize();
 
     return () => window.removeEventListener('resize', handleResize);
   }, []);

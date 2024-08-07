@@ -38,7 +38,7 @@ function AllProducts() {
   const filteredProducts = filterProducts(products, filters);
   const sortedProducts = sortProducts(filteredProducts, filters.sort);
 
-  const displayedProducts = sortedProducts.slice(0, 12);
+  // const displayedProducts = sortedProducts.slice(0, 12);
 
   return (
     <div className="categories" data-aos="fade-up">
@@ -52,7 +52,7 @@ function AllProducts() {
         <ProductFilter filters={filters} onFilterChange={setFilters} />
 
         <div className={styles.allProducts_Flex}>
-          {displayedProducts.map((product) => (
+          {sortedProducts.map((product) => (
             <ProductCardAll key={product.id} product={product} />
           ))}
         </div>

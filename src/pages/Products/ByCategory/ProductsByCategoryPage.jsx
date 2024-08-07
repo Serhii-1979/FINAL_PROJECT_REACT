@@ -40,7 +40,6 @@ function ProductsByCategoryPage() {
 
         if (Array.isArray(categoryData.data)) {
           setProducts(categoryData.data);
-          console.log("Setting Products:", categoryData.data);
         } else {
           console.error(
             "Category data is missing 'data' field or it's not an array"

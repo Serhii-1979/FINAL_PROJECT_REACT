@@ -16,11 +16,3 @@ const Modal = ({ isOpen, onClose, children }) => {
 };
 
 export default Modal;
-
-
-// {/* <div className={styles.modalOverlay} onClick={onClose}  data-aos="fade-up">
-//       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-//         {children}
-//         <button onClick={onClose} className={styles.closeButton}>X</button>
-//       </div>
-//     </div> */}

@@ -36,7 +36,7 @@
   line-height: 20.16px;
   text-align: left;
   color: var(--text-color);
-  background-color: var(--input-bg);
+  background-color: var(--background-color);
 }
 
 .allProducts_title_input {
@@ -44,7 +44,7 @@
   height: 28px;
   border-radius: 4px;
   border: 1px solid var(--input-border);
-  background-color: var(--input-bg);
+  background-color: var(--background-color);
 }
 
 .allProducts_titleSelect {
@@ -56,7 +56,10 @@
   padding: 2% 3%;
   display: flex;
   align-items: center;
-  background-color: var(--input-bg);
+  background-color: var(--background-color);
+}
+.allProducts_titleSelect option {
+  color: var(--text-color);
 }
 
 @media (max-width: 1440px) {
@@ -106,7 +109,7 @@
     font-size: 12px;
   }
   .allProducts_title_input {
-    width: 26px;
+    width: 22px;
   }
 }
 
@@ -126,7 +129,7 @@
     padding: 2% 3%;
   }
   .allProducts_title_input {
-    width: 24px;
+    width: 20px;
   }
 }
 
@@ -139,25 +142,32 @@
     font-size: 12px;
   }
   .allProducts_titleP1 {
-    width: 60px;
+    width: 63px;
     font-size: 12px;
     padding: 0px 8px;
   }
   .allProducts_titleSelect {
-    width: 60px;
+    width: 100%;
     font-size: 12px;
-    padding: 4px 8px;
+    padding: 2px 8px;
+  }
+  .allProducts_title_input {
+    width: 20px;
   }
 }
 
 @media (max-width: 390px) {
+  
   .allProducts_titleP1 {
     font-size: 10px;
     width: 45px;
   }
   .allProducts_titleSelect {
-    max-width: 60px;
+    /* max-width: 60px; */
     font-size: 10px;
     padding: 2px 6px;
+  }
+  .allProducts_title_input {
+    width: 18px;
   }
 }

@@ -81,6 +81,7 @@
 .DetailsPage_Frame {
   width: 100%;
   display: flex;
+  align-items: center;
   gap: 32px;
 }
 .DetailsPage_Frame_counter {
@@ -137,7 +138,7 @@
 
   }
   .DetailsPage_content {
-    gap: 6px;
+    gap: 20px;
   }
   .DetailsPage_Frame_counter {
     width: 50%;
@@ -150,6 +151,7 @@
   }
   .DetailsPage_text {
     gap: 12px;
+    /* margin-bottom: 20px; */
   }
   .DetailsPage_text_container {
     height: 112px;
@@ -213,6 +215,7 @@
   }
   .DetailsPage_content {
     width: 100%;
+    gap: 10px;
   }
 }
 

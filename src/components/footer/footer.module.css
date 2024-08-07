@@ -109,6 +109,12 @@
   display: flex;
   gap: 16px;
 }
+.footer_info_phone_img img {
+  transition: all 0.2s ease-in-out;
+}
+.footer_info_phone_img img:hover {
+  transform: translateY(2px);
+}
 
 .footer_map {
   width: 100%;
@@ -130,7 +136,7 @@
 
 @media (max-width: 922px) {
   .footer {
-    gap: 5%;
+    gap: 20px;
     padding: 0 40px;
     padding-bottom: 20px;
   }

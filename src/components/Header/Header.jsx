@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
@@ -9,9 +9,10 @@ import iconNigth from "../../assets/svg/icon-nigth.svg";
 import sunIcon from "../../assets/svg/sun.svg";
 import moonIcon from "../../assets/svg/moon.svg";
 import burgerIcon from "../../assets/svg/list.svg";
+import burgerNigth from "../../assets/svg/list-nigth.svg";
 import styles from "./header.module.css";
 
-function SuperNavLink({ children, to }) {
+function SuperNavLink({ children, to, onClick }) {
   return (
     <NavLink
       to={to}
@@ -19,6 +20,7 @@ function SuperNavLink({ children, to }) {
         const className = isActive ? styles.activeLink : styles.inactiveLink;
         return className;
       }}
+      onClick={onClick}
     >
       {children}
     </NavLink>
@@ -33,21 +35,38 @@ function Header() {
   const { theme, toggleTheme } = useContext(ThemeContext);
 
   const Sale = theme === 'dark' ? iconNigth : icon;
+  const BurgerMenu = theme === 'dark' ? burgerNigth : burgerIcon;
 
   const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
+    if (window.innerWidth < 768) {
+      setMenuOpen(!menuOpen);
+    }
   };
+
+  const closeMenu = () => {
+    if (window.innerWidth < 768) {
+      setMenuOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768 && menuOpen) {
+        setMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [menuOpen]);
 
   const handleLanguageChange = (e) => {
     const newLanguage = e.target.value;
     setLanguage(newLanguage);
     i18n.changeLanguage(newLanguage);
   };
-
-  useEffect(() => {
-    console.log("Current language:", i18n.language);
-    console.log("Translations loaded:", i18n.store.data);
-  }, [i18n.language, i18n.store.data]);
 
   return (
     <header className={styles.header}>
@@ -57,21 +76,21 @@ function Header() {
         </Link>
       </div>
       <nav className={`${styles.header_nav} ${menuOpen ? styles.nav_open : ""}`}>
-        <SuperNavLink to="/" t={t}>
+        <SuperNavLink to="/" t={t} onClick={closeMenu}>
           {t("mainPage")}
         </SuperNavLink>
-        <SuperNavLink to="/categories" t={t}>
+        <SuperNavLink to="/categories" t={t} onClick={closeMenu}>
           {t("categories")}
         </SuperNavLink>
-        <SuperNavLink to="/allProducts" t={t}>
+        <SuperNavLink to="/allProducts" t={t} onClick={closeMenu}>
           {t("allProducts")}
         </SuperNavLink>
-        <SuperNavLink to="/allSales" t={t}>
+        <SuperNavLink to="/allSales" t={t} onClick={closeMenu}>
           {t("allSales")}
         </SuperNavLink>
       </nav>
       <div className={styles.burger_menu} onClick={toggleMenu}>
-        <img src={burgerIcon} alt="Menu" />
+        <img src={BurgerMenu} alt="Menu" />
       </div>
       <div className={styles.header_right}>
         <select

@@ -10,7 +10,7 @@
   font-weight: 600;
   line-height: 26px;
   text-align: center;
-  padding: 16px 32px;
+  padding: 4.8%;
   border: none;
   border-radius: 6px;
   color: white;
@@ -28,4 +28,45 @@
 .button_Add:disabled {
   background-color: #fff;
   cursor: not-allowed;
+}
+
+
+
+@media (max-width: 1200px) {
+  .button_Add {
+    padding: 16px;
+  }
+}
+
+
+@media (max-width: 922px) {
+  .button_Add {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .button_Add {
+    font-size: 16px;
+    padding: 4.2%;
+  }
+  
+}
+
+@media (max-width: 576px) {
+  .button_Add {
+    font-size: 16px;
+    padding: 3.8%;
+  }
+}
+
+@media (max-width: 480px) {
+  .button_Add {
+    font-size: 14px;
+    padding: 3.8%;
+  }
+}
+
+@media (max-width: 390px) {
+  
 }

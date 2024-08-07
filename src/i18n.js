@@ -252,7 +252,7 @@ i18n.use(initReactI18next).init({
         "orderSuccessMessage": "Ihre Bestellung wurde erfolgreich auf der Website aufgegeben.", 
         "orderSuccessMessage1": "<br/>Ein Manager wird sich in Kürze mit Ihnen in Verbindung setzen, um Ihre Bestellung zu bestätigen.",
         "added": "Hinzugefügt",
-        "backStore": "Zurück zum Geschäft",
+        "backStore": "zum Geschäft",
         "requestSubmitted": "Anfrage gesendet",
       },
     },

@@ -72,7 +72,7 @@ h1 {
 }
 
 .categories {
-  padding: 40px 40px 40px 40px;
+  padding: 40px;
   /* margin: 40px; */
   display: flex;
   flex-direction: column;
@@ -172,7 +172,7 @@ h1 {
 
 @media (max-width: 922px) {
   .categories {
-    margin-bottom: 30px;
+    padding-bottom: 70px;
   }
   h1 {
     font-size: 64px;
@@ -195,7 +195,7 @@ h1 {
 
 @media (max-width: 768px) {
   .categories {
-    margin: 20px;
+    padding: 30px 25px;
     gap: 0;
   }
   h1 {
@@ -228,7 +228,7 @@ h1 {
 
 @media (max-width: 576px) {
   .categories {
-    margin: 20px;
+    padding: 30px 20px;
   }
   .mainPageContent {
     padding: 0 20px;
@@ -254,7 +254,7 @@ h1 {
 
 @media (max-width: 480px) {
   .categories {
-    margin-bottom: 20px;
+    padding-bottom: 20px;
   }
   .mainPageContent {
     padding: 0 15px;
@@ -285,7 +285,7 @@ h1 {
 
 @media (max-width: 390px) {
   .categories {
-    margin: 20px  10px;
+    padding: 20px  10px;
   }
   .mainPageContent {
     padding: 0 10px;

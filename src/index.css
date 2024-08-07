@@ -30,10 +30,10 @@
   --background-color: var(--background-color-light);
   --text-color: var(--text-color-light);
   --background-color-footer: #505050;
-  --breadcrumb-bg-light: #f6f6f6;
+  --breadcrumb-bg-light: #ffffff;
   --breadcrumb-bg-dark: #444;
   --breadcrumb-text-light: #8b8b8b;
-  --breadcrumb-text-dark: #979797;
+  --breadcrumb-text-dark: #bfbfbf;
   --breadcrumb-border-light: #dddddd;
   --breadcrumb-border-dark: #8b8b8b;
   --input-bg-light: #fff;
@@ -50,8 +50,9 @@
   --hover-dark: #555555;
   --headernav-light: #282828;
   --headernav-dark: #dddddd;
+  --nav-open-text-light: #282828;
+  --nav-open-text-dark: #282828;
 }
-
 
 .light {
   --background-color: var(--background-color-light);
@@ -66,9 +67,9 @@
   --icon: var(--icon-light);
   --header-bg: var(--header-bg-light);
   --hover-color: var(--hover-light);
-  --smallButton-hov: #8B8B8B;
-  --headernav-light: #282828;
-  
+  --smallButton-hov: #d3d3d3;
+  --headernav-color: var(--headernav-light);
+  --nav-open-text: var(--nav-open-text-light);
 }
 
 .dark {
@@ -85,21 +86,22 @@
   --header-bg: var(--header-bg-dark);
   --hover-color: var(--hover-dark);
   --smallButton-hov: #ddd;
-  --headernav-dark: #dddddd;
+  --headernav-color: var(--headernav-dark);
+  --nav-open-text-dark: #282828;
 }
-
 
 body {
   background-color: var(--body-bg);
-  /* color: var(--text-color);  */
+  color: var(--text-color);
 }
-
 
 
 
 
 @media (max-width: 1440px) {
-  
+  .App {
+    border: none;
+  }
 }
 
 

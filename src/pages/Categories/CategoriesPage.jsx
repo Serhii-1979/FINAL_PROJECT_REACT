@@ -12,7 +12,7 @@ function CategoriesPage() {
   const { t } = useTranslation();
   const { theme } = useContext(ThemeContext);
   const [categories, setCategories] = useState([]);
-  const [itemsToShow, setItemsToShow] = useState(4);
+  // const [itemsToShow, setItemsToShow] = useState(4);
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -26,28 +26,28 @@ function CategoriesPage() {
     fetchCategories();
   }, []);
 
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth <= 480) {
-        setItemsToShow(8);
-      } else if (window.innerWidth <= 576) {
-        setItemsToShow(8);
-      } else if (window.innerWidth <= 768) {
-        setItemsToShow(8);
-      } else if (window.innerWidth <= 922) {
-        setItemsToShow(8);
-      } else {
-        setItemsToShow(8);
-      }
-    };
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     if (window.innerWidth <= 480) {
+  //       setItemsToShow(8);
+  //     } else if (window.innerWidth <= 576) {
+  //       setItemsToShow(8);
+  //     } else if (window.innerWidth <= 768) {
+  //       setItemsToShow(8);
+  //     } else if (window.innerWidth <= 922) {
+  //       setItemsToShow(8);
+  //     } else {
+  //       setItemsToShow(8);
+  //     }
+  //   };
     
-    window.addEventListener('resize', handleResize);
-    handleResize();
+  //   window.addEventListener('resize', handleResize);
+  //   handleResize();
 
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  //   return () => window.removeEventListener('resize', handleResize);
+  // }, []);
 
-  const displayedCategories = categories.slice(0, itemsToShow);
+  // const displayedCategories = categories.slice(0, itemsToShow);
 
   return (
     <div className={`categories ${theme === 'dark' ? 'dark' : 'light'}`} data-aos="fade-up">
@@ -58,7 +58,7 @@ function CategoriesPage() {
         <div className={styles.categories_flex}>
           <h2 className="title_h2">{t('categories')}</h2>
           <div className={styles.categories_flexBox}>
-            {displayedCategories.map(category => (
+            {categories.map(category => (
               <CategoryCard key={category.id} category={category} />
             ))}
           </div>
