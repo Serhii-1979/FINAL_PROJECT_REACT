@@ -57,14 +57,14 @@
   "requestSubmitted": "Żądanie zostało wysłane",
   "backStore": "Wróć do sklepu",
 
-  "categories.1": "Suche i mokre jedzenie",
+  "categories.1": "Suche jedzenie",
   "categories.2": "Kuwety i toalety",
   "categories.3": "Kosze i łóżka",
   "categories.4": "Zabawki",
-  "categories.5": "Pielęgnacja i grooming",
-  "categories.6": "Przekąski i suplementy",
-  "categories.7": "Wybieg i ogrodzenie",
-  "categories.8": "Drzewka i drapaki",
+  "categories.5": "Pielęgnacja",
+  "categories.6": "Przekąski",
+  "categories.7": "Ogrodzenie",
+  "categories.8": "Drzewka",
 
   "products": {
     "1": {

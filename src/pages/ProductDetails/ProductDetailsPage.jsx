@@ -30,7 +30,7 @@ function ProductDetailsPage() {
       try {
         const categoryResponse = await axios.get(`${API_URL}/categories/${categoryId}`);
         const categoryData = categoryResponse.data;
-
+      // setCategoryTitle(`categories.${categoryId}`);
         setCategoryTitle(categoryData.category.title);
       } catch (error) {
         alert("Error fetching the category title!", error);

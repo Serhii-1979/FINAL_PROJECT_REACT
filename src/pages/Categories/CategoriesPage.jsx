@@ -26,28 +26,7 @@ function CategoriesPage() {
     fetchCategories();
   }, []);
 
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     if (window.innerWidth <= 480) {
-  //       setItemsToShow(8);
-  //     } else if (window.innerWidth <= 576) {
-  //       setItemsToShow(8);
-  //     } else if (window.innerWidth <= 768) {
-  //       setItemsToShow(8);
-  //     } else if (window.innerWidth <= 922) {
-  //       setItemsToShow(8);
-  //     } else {
-  //       setItemsToShow(8);
-  //     }
-  //   };
-    
-  //   window.addEventListener('resize', handleResize);
-  //   handleResize();
-
-  //   return () => window.removeEventListener('resize', handleResize);
-  // }, []);
-
-  // const displayedCategories = categories.slice(0, itemsToShow);
+  
 
   return (
     <div className={`categories ${theme === 'dark' ? 'dark' : 'light'}`} data-aos="fade-up">
@@ -69,3 +48,27 @@ function CategoriesPage() {
 }
 
 export default CategoriesPage;
+
+
+// useEffect(() => {
+  //   const handleResize = () => {
+  //     if (window.innerWidth <= 480) {
+  //       setItemsToShow(8);
+  //     } else if (window.innerWidth <= 576) {
+  //       setItemsToShow(8);
+  //     } else if (window.innerWidth <= 768) {
+  //       setItemsToShow(8);
+  //     } else if (window.innerWidth <= 922) {
+  //       setItemsToShow(8);
+  //     } else {
+  //       setItemsToShow(8);
+  //     }
+  //   };
+    
+  //   window.addEventListener('resize', handleResize);
+  //   handleResize();
+
+  //   return () => window.removeEventListener('resize', handleResize);
+  // }, []);
+
+  // const displayedCategories = categories.slice(0, itemsToShow);

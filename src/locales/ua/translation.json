@@ -57,14 +57,14 @@
   "requestSubmitted": "Запит відправлено",
   "backStore": "Повернутися до магазину",
 
-  "categories.1": "Сухий та вологий корм",
+  "categories.1": "Сухий корм",
   "categories.2": "Лотки та туалети",
   "categories.3": "Кошики та ліжка",
   "categories.4": "Іграшки",
   "categories.5": "Догляд та грумінг",
   "categories.6": "Закуски та добавки",
   "categories.7": "Вольєри та огорожі",
-  "categories.8": "Когтеточки та дерева",
+  "categories.8": "Когтеточки",
 
   "products": {
     "1": {

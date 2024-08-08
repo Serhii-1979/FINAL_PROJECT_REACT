@@ -58,14 +58,14 @@
   "backStore": "Вернуться к покупкам",
   "requestSubmitted": "Запрос отправлен",
 
-  "categories.1": "Сухой и влажный корм",
+  "categories.1": "Сухой корм",
   "categories.2": "Лотки и туалеты",
-  "categories.3": "Корзины и кровати",
+  "categories.3": "Корзины",
   "categories.4": "Игрушки",
   "categories.5": "Уход и груминг",
   "categories.6": "Закуски и добавки",
-  "categories.7": "Вольеры и ограждения",
-  "categories.8": "Когтеточки и деревья",
+  "categories.7": "Ограждения",
+  "categories.8": "Когтеточки",
 
   "products": {
     "1": {

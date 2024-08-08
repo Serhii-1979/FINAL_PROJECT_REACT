@@ -10,25 +10,29 @@ function BreadcrumbsDetail({ categoryTitle, productTitle }) {
     <div className={styles.categories_cont_nav}>
       <div className={styles.categories_nav}>
         <Link to="/" className={styles.breadcrumbLink}>
-          {t('mainPage')}
+          {t("mainPage")}
         </Link>
       </div>
       <div className={styles.categories_line}></div>
       <div className={styles.categories_nav}>
         <Link to="/categories" className={styles.breadcrumbLink}>
-          {t('categories')}
+          {t("categories")}
         </Link>
       </div>
       <div className={styles.categories_line}></div>
       <div className={styles.categories_nav}>
         <Link to="/categories" className={styles.breadcrumbLink}>
-          {categoryTitle || t('categoryTitle')}
+          {/* {t(categoryTitle) || t('categoryTitle')} */}
+          {categoryTitle || t("categoryTitle")}
         </Link>
       </div>
       <div className={styles.categories_line}></div>
       <div className={styles.categories_nav}>
-        <p title={productTitle} className={`${styles.categories_navP} ${styles.activeBreadcrumb}`}>
-          {productTitle || t('productTitle')}
+        <p
+          title={productTitle}
+          className={`${styles.categories_navP} ${styles.activeBreadcrumb}`}
+        >
+          {productTitle || t("productTitle")}
         </p>
       </div>
     </div>

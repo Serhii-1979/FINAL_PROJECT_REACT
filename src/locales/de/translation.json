@@ -59,14 +59,14 @@
   "backStore": "zum Geschäft",
   "requestSubmitted": "Anfrage gesendet",
 
-  "categories.1": "Trocken- und Nassfutter",
-  "categories.2": "Katzentoiletten und -boxen",
-  "categories.3": "Körbe und Betten",
+  "categories.1": "Trocken Nassfutter",
+  "categories.2": "Katzentoiletten",
+  "categories.3": "Betten",
   "categories.4": "Spielzeuge",
-  "categories.5": "Pflege und Grooming",
-  "categories.6": "Snacks und Ergänzungen",
-  "categories.7": "Laufställe und Zäune",
-  "categories.8": "Kratzbäume und -möbel",
+  "categories.5": "Grooming",
+  "categories.6": "Ergänzungen",
+  "categories.7": "Laufställe",
+  "categories.8": "Kratzbäume",
 
   "products": {
     "1": {
