@@ -12,9 +12,9 @@
   margin: 0 auto;
   max-width: 1400px;
   background-color: #fff;
-  box-shadow: 1px 0 50px rgb(59, 59, 59);
-  border-left: 1px solid rgb(118, 118, 118);
-  border-right: 1px solid rgb(118, 118, 118);
+  box-shadow: 1px 0 50px rgb(0, 0, 0, 0.25);
+  /* border-left: 1px solid rgb(199, 199, 199); */
+  /* border-right: 1px solid rgb(199, 199, 199); */
 }
 
 :root {
@@ -38,7 +38,7 @@
   --input-bg-dark: #555;
   --input-border-light: #ddd;
   --input-border-dark: #adadad;
-  --body-bg-light: #c0c0c0;
+  --body-bg-light: #ffffff;
   --body-bg-dark: #1a1a1a;
   --line-color-light: #dddddd;
   --line-color-dark: #b0b0b0;
